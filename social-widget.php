@@ -1,25 +1,24 @@
 <?php
 /**
  * Plugin Name: Social Media Widget
- * Plugin URI: http://www.idontlikethisgame.com
+ * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.1
+ * Version: 1.1.1
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
- 
-/* Get the path of the widget */
 
-$social_widget_path = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/';
 
-/* Get custom stylesheet */
-wp_enqueue_style('social_widget_css',$social_widget_path.'social_widget.css');
 
-/* Load custom stylesheet as print style */
-add_action('wp_print_styles', 'social_widget_css');
 
-/* Load the widget */
-add_action( 'widgets_init', 'socialwidget_load_widgets' );
+/* Function for CSS */
+
+function Social_Widget_Scripts(){	
+	$social_widget_path = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)); 
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $social_widget_path; ?>social_widget.css" />
+<?php } 
+
 
 /* Register the widget */
 function socialwidget_load_widgets() {
@@ -196,6 +195,7 @@ class Social_Widget extends WP_Widget {
 	function form( $instance ) {
 
 		/* Set up some default widget settings. */
+		$rss_url = bloginfo(rss2_url);
 		$defaults = array( 
 			'title' => __('Follow Us!', 'test'), 
 			'facebook' => __('http://www.facebook.com/your_name', 'test'), 
@@ -206,6 +206,7 @@ class Social_Widget extends WP_Widget {
 			'digg' => __('http://www.digg.com/users/yourname', 'test'),
 			'reddit' => __('http://www.reddit.com/user/yourname', 'test'),
 			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'test'),
+			'buzz' => __($rss_url, 'test'),
 			'icon_size' => 'default',
 			'icon_pack' => 'default',
 			'icon_opacity' => 'default');
@@ -272,7 +273,7 @@ class Social_Widget extends WP_Widget {
 		<!-- RSS URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'rss_url' ); ?>"><?php _e('RSS URL:', 'test'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="<?php bloginfo('rss2_url') ?>" style="width:85%;" />
+			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="" style="width:85%;" />
 		</p>
 		
 		
@@ -281,6 +282,7 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'subscribe' ); ?>"><?php _e('Subscription URL:', 'test'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'subscribe' ); ?>" name="<?php echo $this->get_field_name( 'subscribe' ); ?>" value="<?php echo $instance['subscribe'] ?>" style="width:85%;" />
 		</p>
+		
 	 <!-- Choose Icon Size: Dropdown -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'icon_size' ); ?>"><?php _e('Icon Size', 'test'); ?></label>
@@ -320,4 +322,10 @@ class Social_Widget extends WP_Widget {
 	}
 }
 
+/* Add scripts to header */
+add_action('wp_head', 'Social_Widget_Scripts');
+
+
+/* Load the widget */
+add_action( 'widgets_init', 'socialwidget_load_widgets' );
 ?>

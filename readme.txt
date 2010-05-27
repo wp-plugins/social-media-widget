@@ -1,9 +1,9 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email 
-Requires at least: 2.7.2
+Requires at least: 2.9.1
 Tested up to: 3.0 beta 2
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 == Description ==
 
@@ -52,6 +52,7 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.1.1 - Fixed an issue with some users plugin.php breaking at line 339.
 
 1.1 - Added support for LinkedIn
 
