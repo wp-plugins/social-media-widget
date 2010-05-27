@@ -1,6 +1,6 @@
 === Social Media Widget ===
-Contributors: Brian Freytag with special thanks to iconspedia.com, jankoatwarpspeed.com, and thedesignsuperhero.com for the icons used in this project.
-Tags: social media, twitter, facebook, myspace, digg, email, 
+Contributors: Brian Freytag
+Tags: social media, twitter, facebook, myspace, digg, email 
 Requires at least: 2.7.2
 Tested up to: 3.0 beta 2
 Stable tag: 1.1
