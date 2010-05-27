@@ -1,0 +1,26 @@
+/* Custom Styles For The Social Media Widget Icons */
+
+.socialmedia-buttons {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.socialmedia-buttons img {
+	margin-right: 10px;
+}
+
+.socialmedia-buttons a,
+.author-list a{
+	background: none !important;
+}
+
+.socialmedia-buttons a:hover {
+	text-decoration: none;
+	border: 0;
+}
+
+.socialmedia-buttons img:hover {
+	filter: alpha(opacity=100) !important;
+	opacity: 1 !important;
+	-moz-opacity: 1 !important;
+}
