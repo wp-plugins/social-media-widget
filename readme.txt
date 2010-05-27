@@ -44,6 +44,9 @@ Follow the steps below to install the plugin.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Appearance/Widgets and activate the widget to customize
 
+== Screenshots ==
+1. Shows the various icon sizes and icon packs and their appearance in the sidebar.
+
 == Help ==
 
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
