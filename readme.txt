@@ -1,6 +1,6 @@
 === Social Media Widget ===
-Contributors: Brian Freytag with special thanks to iconspedia.com, jankoatwarpspeed.com, and thedesignsuperhero.com for the icons used in this project.
-Tags: social media, twitter, facebook, myspace, digg, email, 
+Contributors: Brian Freytag
+Tags: social media, twitter, facebook, myspace, digg, email 
 Requires at least: 2.7.2
 Tested up to: 3.0 beta 2
 Stable tag: 1.1
@@ -43,6 +43,9 @@ Follow the steps below to install the plugin.
 1. Upload the social-widget directory to the /wp-content/plugins/ directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Appearance/Widgets and activate the widget to customize
+
+== Screenshots ==
+1. Shows the various icon sizes and icon packs and their appearance in the sidebar.
 
 == Help ==
 
