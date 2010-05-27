@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.0
+ * Version: 1.1
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
@@ -50,6 +50,7 @@ class Social_Widget extends WP_Widget {
 		$facebook = $instance['facebook'];		
 		$twitter = $instance['twitter'];
 		$myspace = $instance['myspace'];
+		$linkedin = $instance['linkedin'];
 		$youtube = $instance['youtube'];
 		$digg = $instance['digg'];
 		$reddit = $instance['reddit'];
@@ -102,6 +103,14 @@ class Social_Widget extends WP_Widget {
 		if ( $myspace != '' ) {
 			?> <a href="<?php echo $myspace; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="Follow us on Twitter!" 
 			title="Follow us on MySpace!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// LinkedIN
+		if ( $linkedin != '' ) {
+			?> <a href="<?php echo $linkedin; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="Follow us on LinkedIn!" 
+			title="Follow us on LinkedIn!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -165,6 +174,7 @@ class Social_Widget extends WP_Widget {
 		$instance['facebook'] = strip_tags( $new_instance['facebook'] );
 		$instance['twitter'] = strip_tags( $new_instance['twitter'] );
 		$instance['myspace'] = strip_tags( $new_instance['myspace'] );
+		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
 		$instance['reddit'] = strip_tags( $new_instance['reddit'] );
@@ -191,6 +201,7 @@ class Social_Widget extends WP_Widget {
 			'facebook' => __('http://www.facebook.com/your_name', 'test'), 
 			'twitter' => __('http://www.twitter.com/yourname', 'test'),
 			'myspace' => __('http://www.myspace.com/yourname', 'test'),
+			'linkedin' => __('http://www.linkedin.com/in/yourname', 'test'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'test'),
 			'digg' => __('http://www.digg.com/users/yourname', 'test'),
 			'reddit' => __('http://www.reddit.com/user/yourname', 'test'),
@@ -226,6 +237,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'myspace' ); ?>"><?php _e('MySpace URL:', 'test'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'myspace' ); ?>" name="<?php echo $this->get_field_name( 'myspace' ); ?>" value="<?php echo $instance['myspace']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- LinkedIn URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LinkedIn URL:', 'test'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" value="<?php echo $instance['linkedin']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- YouTube URL: Text Input -->

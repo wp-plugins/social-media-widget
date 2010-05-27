@@ -3,7 +3,7 @@ Contributors: Brian Freytag with special thanks to iconspedia.com, jankoatwarpsp
 Tags: social media, twitter, facebook, myspace, digg, email, 
 Requires at least: 2.7.2
 Tested up to: 3.0 beta 2
-Stable tag: 1.0
+Stable tag: 1.1
 
 == Description ==
 
@@ -15,6 +15,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Facebook
 	* Twitter
 	* MySpace
+	* LinkedIn
 	* YouTube
 	* Digg
 	* Reddit
@@ -48,5 +49,7 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+
+1.1 - Added support for LinkedIn
 
 1.0 - Added support for varying sizes, added 2 new icon packages, added support for varying opacities.
