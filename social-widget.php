@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
