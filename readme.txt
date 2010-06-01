@@ -3,7 +3,7 @@ Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email 
 Requires at least: 2.9.1
 Tested up to: 3.0 beta 2
-Stable tag: 1.1.2
+Stable tag: 1.2
 
 == Description ==
 
@@ -15,6 +15,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Facebook
 	* Twitter
 	* MySpace
+	* Orkut
 	* LinkedIn
 	* YouTube
 	* Digg
@@ -28,10 +29,11 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* 32x32
 	* 64x64
 	
-* Ability to select from 3 different icon packages:
+* Ability to select from 4 different icon packages:
 	* Web 2.0 (Default) - Icons from various artists at: http://www.iconspedia.com/
 	* Sketch - Handycons by Janko At Warp Speed at: http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx
 	* Heart - Heart v2 by The Design Superhero at: http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/
+	* Cutout - Icontexto Inside Icons at: http://www.iconspedia.com/pack/icontexto-inside-2222/
 
 * Ability to choose starting icon opacity from 50% opacity to 100% opacity
 	note: on hover, icons are 100% opaque 
@@ -52,6 +54,13 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.2 - 
+* Fixed issue with RSS URL being reset after save in the widget control panel (did not affect functionality, but caused confusion)
+* Added support for Orkut
+* Added Cutout icon pack
+* Changed default image alt and title tags to Widget title (i.e. if widget title is Follow Me, Facebook alt/title tags are "Follow Me on Facebook." If it is Follow Us, alt/title is "Follow Us on Facebook)
+* Cleaned up image location code from the WP_CONTENT_URL to the WP_PLUGIN_URL function to attempt to correct some file location issues with Windows servers.
+
 1.1.2 - Fixed an issue with LinkedIn icons not appearing
 
 1.1.1 - Fixed an issue with some users plugin.php breaking at line 339.
