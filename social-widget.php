@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.1.2
+ * Version: 1.2.1
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
@@ -49,6 +49,7 @@ class Social_Widget extends WP_Widget {
 		$facebook = $instance['facebook'];		
 		$twitter = $instance['twitter'];
 		$myspace = $instance['myspace'];
+		$orkut = $instance['orkut'];
 		$linkedin = $instance['linkedin'];
 		$youtube = $instance['youtube'];
 		$digg = $instance['digg'];
@@ -85,77 +86,85 @@ class Social_Widget extends WP_Widget {
 		
 		// Facebook
 		if ( $facebook != '') {
-			?> <a href="<?php echo $facebook; ?>" target="_blank"> <img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/facebook.png" alt="Follow us on Facebook!" title="Follow us on Facebook!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;"/></a> <?php 
+			?> <a href="<?php echo $facebook; ?>" target="_blank"> <img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/facebook.png" alt="<?php echo $title; ?> on Facebook" title="<?php echo $title; ?> on Facebook" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;"/></a> <?php 
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Twitter
 		if ( $twitter != '' ) {
-			?> <a href="<?php echo $twitter; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/twitter.png" alt="Follow us on Twitter!" 
-			title="Follow us on Twitter!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $twitter; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/twitter.png" alt="<?php echo $title; ?> on Twitter" 
+			title="<?php echo $title; ?> on Twitter" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// MySpace
 		if ( $myspace != '' ) {
-			?> <a href="<?php echo $myspace; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="Follow us on Twitter!" 
-			title="Follow us on MySpace!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $myspace; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="<?php echo $title; ?> on MySpace" 
+			title="<?php echo $title; ?> on MySpace" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Orkut
+		if ( $orkut != '' ) {
+			?> <a href="<?php echo $orkut; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/orkut.png" alt="<?php echo $title; ?> on Orkut" 
+			title="<?php echo $title; ?> on Orkut" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// LinkedIN
 		if ( $linkedin != '' ) {
-			?> <a href="<?php echo $linkedin; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="Follow us on LinkedIn!" 
-			title="Follow us on LinkedIn!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $linkedin; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="<?php echo $title; ?> on LinkedIn" 
+			title="<?php echo $title; ?> on LinkedIn" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// YouTube
 		if ( $youtube != '' ) {
-			?> <a href="<?php echo $youtube; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/youtube.png" alt="Follow us on YouTube!" 
-			title="Follow us on YouTube!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $youtube; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/youtube.png" alt="<?php echo $title; ?> on YouTube" 
+			title="<?php echo $title; ?> on YouTube" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Digg
 		if ( $digg != '' ) {
-			?> <a href="<?php echo $digg; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digg.png" alt="Follow us on Digg!" 
-			title="Follow us on Digg!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $digg; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digg.png" alt="<?php echo $title; ?> on Digg" 
+			title="<?php echo $title; ?> on Digg" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Reddit 
 		if ( $reddit != '' ) {
-			?> <a href="<?php echo $reddit; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/reddit.png" alt="Follow us on Reddit!" 
-			title="Follow us on Reddit!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $reddit; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/reddit.png" alt="<?php echo $title; ?> on Reddit" 
+			title="<?php echo $title; ?> on Reddit" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Google Buzz
 		if ( $buzz != '' ) {
-			?> <a href="<?php echo $buzz; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/buzz.png" alt="Follow us on Buzz!" 
-			title="Follow us on Buzz!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $buzz; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/buzz.png" alt="<?php echo $title; ?> on Buzz" 
+			title="<?php echo $title; ?> on Buzz" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// RSS
 		if ( $rss != '') {
-			?> <a href="<?php echo $rss; ?>"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/rss.png" alt="Subscribe to our RSS Feeds!" title="Subscribe to our RSS Feeds!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
+			?> <a href="<?php echo $rss; ?>"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/rss.png" alt="Subscribe to our RSS Feeds" title="Subscribe to our RSS Feeds" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
 			echo '';// If no URL Inputed
 		}
 		
 		// E-mail Subscription -- If Newsletter or Mailing List available
 		if ( $subscribe != '' ) {
-			?> <a href="<?php echo $subscribe; ?>"><img class="subscribes" src="<?php echo WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/'; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/email.png" alt="Join our Mailing List!" title="Join Our Mailing List!" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?> <a href="<?php echo $subscribe; ?>"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/email.png" alt="Join our Mailing List" title="Join Our Mailing List" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; // If no URL Inputed
 		}
@@ -173,6 +182,7 @@ class Social_Widget extends WP_Widget {
 		$instance['facebook'] = strip_tags( $new_instance['facebook'] );
 		$instance['twitter'] = strip_tags( $new_instance['twitter'] );
 		$instance['myspace'] = strip_tags( $new_instance['myspace'] );
+		$instance['orkut'] = strip_tags( $new_instance['orkut'] );
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
@@ -195,18 +205,18 @@ class Social_Widget extends WP_Widget {
 	function form( $instance ) {
 
 		/* Set up some default widget settings. */
-		$rss_url = bloginfo(rss2_url);
 		$defaults = array( 
 			'title' => __('Follow Us!', 'test'), 
 			'facebook' => __('http://www.facebook.com/your_name', 'test'), 
 			'twitter' => __('http://www.twitter.com/yourname', 'test'),
 			'myspace' => __('http://www.myspace.com/yourname', 'test'),
+			'orkut' => __('http://www.orkut.com/Main#Profile?uid=youruid', 'test'),
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'test'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'test'),
 			'digg' => __('http://www.digg.com/users/yourname', 'test'),
 			'reddit' => __('http://www.reddit.com/user/yourname', 'test'),
 			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'test'),
-			'buzz' => __($rss_url, 'test'),
+			'rss_url' => __('http://www.yoursite.com/feed', 'test'),
 			'icon_size' => 'default',
 			'icon_pack' => 'default',
 			'icon_opacity' => 'default');
@@ -238,6 +248,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'myspace' ); ?>"><?php _e('MySpace URL:', 'test'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'myspace' ); ?>" name="<?php echo $this->get_field_name( 'myspace' ); ?>" value="<?php echo $instance['myspace']; ?>" style="width:85%;" />
+		</p>
+
+		<!-- Orkut URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'orkut' ); ?>"><?php _e('Orkut URL:', 'test'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'orkut' ); ?>" name="<?php echo $this->get_field_name( 'orkut' ); ?>" value="<?php echo $instance['orkut']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- LinkedIn URL: Text Input -->
@@ -273,7 +289,7 @@ class Social_Widget extends WP_Widget {
 		<!-- RSS URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'rss_url' ); ?>"><?php _e('RSS URL:', 'test'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="" style="width:85%;" />
+			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="<?php echo $instance['rss_url']; ?>" style="width:85%;" />
 		</p>
 		
 		
@@ -297,6 +313,7 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'icon_pack' ); ?>"><?php _e('Icon Pack', 'test'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'icon_pack' ); ?>" name="<?php echo $this->get_field_name( 'icon_pack' ); ?>">
+			<option value="cutout" <?php if($instance['icon_pack'] == 'cutout') { echo 'selected'; } ?>>Cutout Icons</option>
 			<option value="heart" <?php if($instance['icon_pack'] == 'heart') { echo 'selected'; } ?>>Heart Icons</option>
 			<option value="default" <?php if($instance['icon_pack'] == 'default') { echo 'selected'; } ?>>Default Icons (Web2.0)</option>
 			<option value="sketch" <?php if($instance['icon_pack'] == 'sketch') { echo 'selected'; } ?>>Sketch Icons</option>
