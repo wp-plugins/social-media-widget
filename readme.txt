@@ -3,7 +3,7 @@ Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email 
 Requires at least: 2.9.1
 Tested up to: 3.0 beta 2
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 == Description ==
 
@@ -54,6 +54,8 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.2.1 -  Fixed an issue with Orkut icon staying on even if the field is blank. Fixed an issue with 32 pixel default icons appearing as 64 pixels.
+
 1.2 - 
 * Fixed issue with RSS URL being reset after save in the widget control panel (did not affect functionality, but caused confusion)
 * Added support for Orkut

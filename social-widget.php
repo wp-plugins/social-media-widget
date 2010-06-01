@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.2
+ * Version: 1.2.1
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
@@ -108,7 +108,7 @@ class Social_Widget extends WP_Widget {
 		}
 		
 		// Orkut
-		if ( $myspace != '' ) {
+		if ( $orkut != '' ) {
 			?> <a href="<?php echo $orkut; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/orkut.png" alt="<?php echo $title; ?> on Orkut" 
 			title="<?php echo $title; ?> on Orkut" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a> <?php
 		} else {
