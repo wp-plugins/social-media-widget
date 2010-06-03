@@ -3,7 +3,7 @@ Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email 
 Requires at least: 2.9.1
 Tested up to: 3.0 beta 2
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 
 == Description ==
 
@@ -54,6 +54,8 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.2.4 - Trying something else to fix the issues with 1.2.2 and 1.2.3.
+
 1.2.3 - As expected, changes in 1.2.2 broke some peoples' stuff. Made a couple CSS changes to see if this fixes it.
 
 1.2.2 - Some of you were complaining about it breaking your theme because I wasn't using the default arguments to wrap the widget. I decided to give it a try. I'm sure this is going to break more than it's going to fix, but I'm doing it "properly" now. Note: You're going to have to do a lot more CSS hacks to get it to look right in some themes.

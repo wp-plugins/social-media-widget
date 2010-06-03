@@ -1,38 +1,31 @@
 /* Custom Styles For The Social Media Widget Icons */
 
-/*.socialmedia-buttons {
-	margin-top: 5px;
-	margin-left: 10px;
-}*/
-
-ul.socialmedia-buttons {
-	margin-top: 5px !important;
-	list-style: none !important;
+.socialmedia-buttons {
+	margin-top: 5px 0 0 0;	
 }
 
-ul.socialmedia-buttons li {
-	display: inline !important;
-	list-style: none !important;
-	background: none !important;
+li.Social_Widget a {
 	padding: 0 !important;
-	margin-right: 10px !important;
+	margin: 0 !important;
+	background: none !important;
 }
-
-ul.socialmedia-buttons img {
+	
+.socialmedia-buttons img {
 	border: 0 !important;
+	margin-right: 10px;
 }
 
-ul.socialmedia-buttons a,
+.socialmedia-buttons a,
 .author-list a{
 	background: none !important;
 }
 
-ul.socialmedia-buttons a:hover {
+.socialmedia-buttons a:hover {
 	text-decoration: none;
 	border: 0;
 }
 
-ul.socialmedia-buttons img:hover {
+.socialmedia-buttons img:hover {
 	filter: alpha(opacity=100) !important;
 	opacity: 1 !important;
 	-moz-opacity: 1 !important;
