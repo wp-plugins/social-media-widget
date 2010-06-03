@@ -7,11 +7,12 @@
 
 ul.socialmedia-buttons {
 	margin-top: 5px !important;
+	list-style: none !important;
 }
 
 ul.socialmedia-buttons li {
-	display: inline;
-	list-style: none;
+	display: inline !important;
+	list-style: none !important;
 	background: none !important;
 	padding: 0 !important;
 	margin-right: 10px !important;
