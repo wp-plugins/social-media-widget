@@ -1,9 +1,9 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
-Tags: social media, twitter, facebook, myspace, digg, email 
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me
 Requires at least: 2.9.1
-Tested up to: 3.0 beta 2
-Stable tag: 1.2.4
+Tested up to: 3.0
+Stable tag: 1.2.5
 
 == Description ==
 
@@ -47,13 +47,18 @@ Follow the steps below to install the plugin.
 3. Go to Appearance/Widgets and activate the widget to customize
 
 == Screenshots ==
-1. Shows the various icon sizes and icon packs and their appearance in the sidebar.
+1. Shows all of the 32px icon packs
+2. Shows all of the 64px icon packs
+3. Shows all of the 16px icon packs
+4. Shows the widget control panel
 
 == Help ==
 
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.2.5 - Updated readme.txt to improve visibility and adding screenshots
+
 1.2.4 - Trying something else to fix the issues with 1.2.2 and 1.2.3.
 
 1.2.3 - As expected, changes in 1.2.2 broke some peoples' stuff. Made a couple CSS changes to see if this fixes it.
