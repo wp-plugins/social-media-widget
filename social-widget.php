@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.2.5
+ * Version: 1.2.7
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
@@ -60,6 +60,7 @@ class Social_Widget extends WP_Widget {
 		$icon_size = $instance['icon_size'];
 		$icon_pack = $instance['icon_pack'];
 		$icon_opacity = $instance['icon_opacity'];
+		$nofollow = $instance['nofollow'];
 		
 		/* Choose Icon Size if Value is 'default' */
 		if($icon_size == 'default') {
@@ -73,7 +74,14 @@ class Social_Widget extends WP_Widget {
 		
 		/* Need to make opacity a whole number for IE styling filter() */
 		$icon_ie = $icon_opacity * 100;
-
+		
+		/* Check to see if nofollow is set or not */
+		if ($nofollow == 'on') {
+			$nofollow = "rel=\"nofollow\"";
+			} else {
+			$nofollow = "";
+		}
+			
 		/* Before widget (defined by themes). */
 		echo $before_widget;
 
@@ -86,85 +94,85 @@ class Social_Widget extends WP_Widget {
 		
 		// Facebook
 		if ( $facebook != '') {
-			?> <a href="<?php echo $facebook; ?>" target="_blank"> <img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/facebook.png" alt="<?php echo $title; ?> on Facebook" title="<?php echo $title; ?> on Facebook" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;"/></a><?php 
+			?> <a href="<?php echo $facebook; ?>" <?php echo $nofollow; ?> target="_blank"> <img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/facebook.png" alt="<?php echo $title; ?> on Facebook" title="<?php echo $title; ?> on Facebook" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;"/></a><?php 
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Twitter
 		if ( $twitter != '' ) {
-			?> <a href="<?php echo $twitter; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/twitter.png" alt="<?php echo $title; ?> on Twitter" 
-			title="<?php echo $title; ?> on Twitter" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?> <a href="<?php echo $twitter; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/twitter.png" alt="<?php echo $title; ?> on Twitter" 
+			title="<?php echo $title; ?> on Twitter" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// MySpace
 		if ( $myspace != '' ) {
-			?><a href="<?php echo $myspace; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="<?php echo $title; ?> on MySpace" 
-			title="<?php echo $title; ?> on MySpace" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $myspace; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="<?php echo $title; ?> on MySpace" 
+			title="<?php echo $title; ?> on MySpace" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Orkut
 		if ( $orkut != '' ) {
-			?><a href="<?php echo $orkut; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/orkut.png" alt="<?php echo $title; ?> on Orkut" 
-			title="<?php echo $title; ?> on Orkut" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $orkut; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/orkut.png" alt="<?php echo $title; ?> on Orkut" 
+			title="<?php echo $title; ?> on Orkut" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// LinkedIN
 		if ( $linkedin != '' ) {
-			?><a href="<?php echo $linkedin; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="<?php echo $title; ?> on LinkedIn" 
-			title="<?php echo $title; ?> on LinkedIn" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $linkedin; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="<?php echo $title; ?> on LinkedIn" 
+			title="<?php echo $title; ?> on LinkedIn" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// YouTube
 		if ( $youtube != '' ) {
-			?><a href="<?php echo $youtube; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/youtube.png" alt="<?php echo $title; ?> on YouTube" 
-			title="<?php echo $title; ?> on YouTube" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/youtube.png" alt="<?php echo $title; ?> on YouTube" 
+			title="<?php echo $title; ?> on YouTube" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Digg
 		if ( $digg != '' ) {
-			?><a href="<?php echo $digg; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digg.png" alt="<?php echo $title; ?> on Digg" 
-			title="<?php echo $title; ?> on Digg" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $digg; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digg.png" alt="<?php echo $title; ?> on Digg" 
+			title="<?php echo $title; ?> on Digg" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Reddit 
 		if ( $reddit != '' ) {
-			?><a href="<?php echo $reddit; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/reddit.png" alt="<?php echo $title; ?> on Reddit" 
-			title="<?php echo $title; ?> on Reddit" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $reddit; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/reddit.png" alt="<?php echo $title; ?> on Reddit" 
+			title="<?php echo $title; ?> on Reddit" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Google Buzz
 		if ( $buzz != '' ) {
-			?><a href="<?php echo $buzz; ?>" target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/buzz.png" alt="<?php echo $title; ?> on Buzz" 
-			title="<?php echo $title; ?> on Buzz" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $buzz; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/buzz.png" alt="<?php echo $title; ?> on Buzz" 
+			title="<?php echo $title; ?> on Buzz" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// RSS
 		if ( $rss != '') {
-			?><a href="<?php echo $rss; ?>"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/rss.png" alt="Subscribe to our RSS Feeds" title="Subscribe to our RSS Feeds" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $rss; ?>" <?php echo $nofollow; ?>><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/rss.png" alt="Subscribe to our RSS Feeds" title="Subscribe to our RSS Feeds" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo '';// If no URL Inputed
 		}
 		
 		// E-mail Subscription -- If Newsletter or Mailing List available
 		if ( $subscribe != '' ) {
-			?><a href="<?php echo $subscribe; ?>"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/email.png" alt="Join our Mailing List" title="Join Our Mailing List" style="filter: alpha(opacity=<?php echo $icon_ie;?>);	opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+			?><a href="<?php echo $subscribe; ?>" <?php echo $nofollow; ?>><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/email.png" alt="Join our Mailing List" title="Join Our Mailing List" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; // If no URL Inputed
 		}
@@ -195,6 +203,7 @@ class Social_Widget extends WP_Widget {
 		$instance['icon_size'] = $new_instance['icon_size'];
 		$instance['icon_pack'] = $new_instance['icon_pack'];
 		$instance['icon_opacity'] = $new_instance['icon_opacity'];
+		$instance['nofollow'] = $new_instance['nofollow'];
 		
 		return $instance;
 	}
@@ -221,7 +230,8 @@ class Social_Widget extends WP_Widget {
 			'rss_url' => __('http://www.yoursite.com/feed', 'test'),
 			'icon_size' => 'default',
 			'icon_pack' => 'default',
-			'icon_opacity' => 'default');
+			'icon_opacity' => 'default',
+			'nofollow' => 'on');
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
@@ -335,6 +345,23 @@ class Social_Widget extends WP_Widget {
 			</select>
 		</p>
 		
+	
+		<!-- No Follow On or Off -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'nofollow' ); ?>"><?php _e('Use rel="nofollow" for links', 'test'); ?></label>
+			<select id="<?php echo $this->get_field_id( 'nofollow' ); ?>" name="<?php echo $this->get_field_name( 'nofollow' ); ?>">
+			<option value="on" <?php if($instance['nofollow'] == 'on') { echo 'selected'; } ?>>On</option>
+			<option value="off" <?php if($instance['nofollow'] == 'off') { echo 'selected'; } ?>>Off</option>
+			</select>
+		</p>
+		
+		<!-- Donate -->
+		<p style="color: #999;"><em>This plugin takes up a great deal of my free time, and I don't get paid for any of the time I put into making fixes and adding features. If you can, please donate. Any contribution will help keep Social Media Widget up-to-date.</em></p>
+		<p style="text-align: center;">
+		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GSE2LMBPYVMEA" target="_blank">
+		<img src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"  alt="" /></a>
+		</form></p>
+	
 		
 
 	<?php

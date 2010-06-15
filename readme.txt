@@ -3,7 +3,7 @@ Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.2.5
+Stable tag: 1.2.7
 
 == Description ==
 
@@ -36,8 +36,12 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Cutout - Icontexto Inside Icons at: http://www.iconspedia.com/pack/icontexto-inside-2222/
 
 * Ability to choose starting icon opacity from 50% opacity to 100% opacity
-	note: on hover, icons are 100% opaque 
+	note: on hover, icons are 100% opaque. Does not work in Internet Explorer due to bad transparent .png support. IE6+ made the buttons look terrible in most cases (black border around the icons) - removed alpha filter to fix this.
 	
+* Ability to choose whether or not to use the rel="nofollow" tag in your links. (Recommended see http://en.wikipedia.org/wiki/Nofollow)
+
+If you like this plugin, please rate it and click "Works" for your Wordpress version!
+
 == Installation ==
 
 Follow the steps below to install the plugin.
@@ -57,6 +61,10 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.2.7 - Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
+
+1.2.6 - Added ability to add rel="nofollow" to icon links. Also added a Donate button due to the massive time commitment of this plugin. 
+
 1.2.5 - Updated readme.txt to improve visibility and adding screenshots
 
 1.2.4 - Trying something else to fix the issues with 1.2.2 and 1.2.3.
