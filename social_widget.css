@@ -2,6 +2,7 @@
 
 .socialmedia-buttons {
 	margin-top: 5px 0 0 0;	
+	
 }
 
 li.Social_Widget a {
@@ -15,8 +16,7 @@ li.Social_Widget a {
 	margin-right: 10px;
 }
 
-.socialmedia-buttons a,
-.author-list a{
+.socialmedia-buttons a {
 	background: none !important;
 }
 
@@ -26,7 +26,6 @@ li.Social_Widget a {
 }
 
 .socialmedia-buttons img:hover {
-	filter: alpha(opacity=100) !important;
 	opacity: 1 !important;
 	-moz-opacity: 1 !important;
 }
