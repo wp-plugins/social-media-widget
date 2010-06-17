@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.2.7
+ * Version: 1.2.8
  * Author: Brian Freytag
  * Author URL: http://www.idontlikethisgame.com
  **/
@@ -360,7 +360,7 @@ class Social_Widget extends WP_Widget {
 		<p style="text-align: center;">
 		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GSE2LMBPYVMEA" target="_blank">
 		<img src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"  alt="" /></a>
-		</form></p>
+		</p>
 	
 		
 
