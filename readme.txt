@@ -1,9 +1,12 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me
+Donate link: http://www.idontlikethisgame.com/code/donate/
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.3
+Stable tag: 1.3.1
+
+Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes and 4 different icon styles.
 
 == Description ==
 
@@ -31,10 +34,10 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* 64x64
 	
 * Ability to select from 4 different icon packages:
-	* Web 2.0 (Default) - Icons from various artists at: http://www.iconspedia.com/
-	* Sketch - Handycons by Janko At Warp Speed at: http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx
-	* Heart - Heart v2 by The Design Superhero at: http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/
-	* Cutout - Icontexto Inside Icons at: http://www.iconspedia.com/pack/icontexto-inside-2222/
+	* Web 2.0 (Default) - Icons from <a href="http://www.iconspedia.com/">various artists</a> 
+	* Sketch - <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed 
+	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
+	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
 
 * Ability to choose starting icon opacity from 50% opacity to 100% opacity
 	note: on hover, icons are 100% opaque. Does not work in Internet Explorer due to bad transparent .png support. IE6+ made the buttons look terrible in most cases (black border around the icons) - removed alpha filter to fix this.
@@ -57,12 +60,20 @@ Follow the steps below to install the plugin.
 3. Shows all of the 16px icon packs
 4. Shows the widget control panel
 
+== Frequently Asked Questions ==
+
+1) Can you add [insert social media service] support?
+Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or leave a comment at http://www.idontlikethisgame.com/updates/social-media-widget/.
+
 == Help ==
 
-For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
+For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
-1.3 - Added requested support for FriendFeed 
+1.3.1 - Quick changes to make the Readme.txt standardized.
+
+1.3 - Added requested support for FriendFeed
+
 1.2.8 - Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
 
 1.2.7 - Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
