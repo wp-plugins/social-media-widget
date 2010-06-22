@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes and 4 different icon styles.
 
