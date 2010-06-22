@@ -31,13 +31,13 @@ class Social_Widget extends WP_Widget {
 	/* Widget setup  */
 	function Social_Widget() {
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'Social_Widget', 'description' => __('A widget that allows the user to display social media icons in their sidebar', 'test') );
+		$widget_ops = array( 'classname' => 'Social_Widget', 'description' => __('A widget that allows the user to display social media icons in their sidebar', 'smw') );
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'social-widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'social-widget', __('Social Widget', 'example'), $widget_ops, $control_ops );
+		$this->WP_Widget( 'social-widget', __('Social Widget', 'smw'), $widget_ops, $control_ops );
 	}
 
 	/* Display the widget  */
@@ -49,6 +49,7 @@ class Social_Widget extends WP_Widget {
 		$facebook = $instance['facebook'];		
 		$twitter = $instance['twitter'];
 		$myspace = $instance['myspace'];
+		$friendfeed = $instance['friendfeed'];
 		$orkut = $instance['orkut'];
 		$linkedin = $instance['linkedin'];
 		$youtube = $instance['youtube'];
@@ -111,6 +112,14 @@ class Social_Widget extends WP_Widget {
 		if ( $myspace != '' ) {
 			?><a href="<?php echo $myspace; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/myspace.png" alt="<?php echo $title; ?> on MySpace" 
 			title="<?php echo $title; ?> on MySpace" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// FriendFeed
+		if ( $friendfeed != '' ) {
+			?><a href="<?php echo $friendfeed; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/friendfeed.png" alt="<?php echo $title; ?> on FriendFeed" 
+			title="<?php echo $title; ?> on FriendFeed" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -192,6 +201,7 @@ class Social_Widget extends WP_Widget {
 		$instance['facebook'] = strip_tags( $new_instance['facebook'] );
 		$instance['twitter'] = strip_tags( $new_instance['twitter'] );
 		$instance['myspace'] = strip_tags( $new_instance['myspace'] );
+		$instance['friendfeed'] = strip_tags( $new_instance['friendfeed'] );
 		$instance['orkut'] = strip_tags( $new_instance['orkut'] );
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
@@ -218,16 +228,17 @@ class Social_Widget extends WP_Widget {
 		/* Set up some default widget settings. */
 		$defaults = array( 
 			'title' => __('Follow Us!', 'test'), 
-			'facebook' => __('http://www.facebook.com/your_name', 'test'), 
-			'twitter' => __('http://www.twitter.com/yourname', 'test'),
-			'myspace' => __('http://www.myspace.com/yourname', 'test'),
-			'orkut' => __('http://www.orkut.com/Main#Profile?uid=youruid', 'test'),
-			'linkedin' => __('http://www.linkedin.com/in/yourname', 'test'),
-			'youtube' => __('http://www.youtube.com/user/yourname', 'test'),
-			'digg' => __('http://www.digg.com/users/yourname', 'test'),
-			'reddit' => __('http://www.reddit.com/user/yourname', 'test'),
-			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'test'),
-			'rss_url' => __('http://www.yoursite.com/feed', 'test'),
+			'facebook' => __('http://www.facebook.com/your_name', 'smw'), 
+			'twitter' => __('http://www.twitter.com/yourname', 'smw'),
+			'myspace' => __('http://www.myspace.com/yourname', 'smw'),
+			'friendfeed' => __('http://www.friendfeed.com/yourname', 'smw'),
+			'orkut' => __('http://www.orkut.com/Main#Profile?uid=youruid', 'smw'),
+			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
+			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
+			'digg' => __('http://www.digg.com/users/yourname', 'smw'),
+			'reddit' => __('http://www.reddit.com/user/yourname', 'smw'),
+			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'smw'),
+			'rss_url' => __('http://www.yoursite.com/feed', 'smw'),
 			'icon_size' => 'default',
 			'icon_pack' => 'default',
 			'icon_opacity' => 'default',
@@ -240,80 +251,86 @@ class Social_Widget extends WP_Widget {
 		</p>
 		<!-- Widget Title: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'hybrid'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- Facebook URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e('Facebook URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e('Facebook URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo $instance['facebook']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Twitter URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php _e('Twitter URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php _e('Twitter URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" value="<?php echo $instance['twitter']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- MySpace URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'myspace' ); ?>"><?php _e('MySpace URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'myspace' ); ?>"><?php _e('MySpace URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'myspace' ); ?>" name="<?php echo $this->get_field_name( 'myspace' ); ?>" value="<?php echo $instance['myspace']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- FriendFeed URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'friendfeed' ); ?>"><?php _e('FriendFeed URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'friendfeed' ); ?>" name="<?php echo $this->get_field_name( 'friendfeed' ); ?>" value="<?php echo $instance['friendfeed']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- Orkut URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'orkut' ); ?>"><?php _e('Orkut URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'orkut' ); ?>"><?php _e('Orkut URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'orkut' ); ?>" name="<?php echo $this->get_field_name( 'orkut' ); ?>" value="<?php echo $instance['orkut']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- LinkedIn URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LinkedIn URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LinkedIn URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" value="<?php echo $instance['linkedin']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- YouTube URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e('YouTube URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e('YouTube URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>" value="<?php echo $instance['youtube']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Digg URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'digg' ); ?>"><?php _e('Digg URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'digg' ); ?>"><?php _e('Digg URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'digg' ); ?>" name="<?php echo $this->get_field_name( 'digg' ); ?>" value="<?php echo $instance['digg']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- Reddit URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'reddit' ); ?>"><?php _e('Reddit URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'reddit' ); ?>"><?php _e('Reddit URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'reddit' ); ?>" name="<?php echo $this->get_field_name( 'reddit' ); ?>" value="<?php echo $instance['reddit']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- Buzz URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'buzz' ); ?>"><?php _e('Buzz URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'buzz' ); ?>"><?php _e('Buzz URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'buzz' ); ?>" name="<?php echo $this->get_field_name( 'buzz' ); ?>" value="<?php echo $instance['buzz']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- RSS URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'rss_url' ); ?>"><?php _e('RSS URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'rss_url' ); ?>"><?php _e('RSS URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="<?php echo $instance['rss_url']; ?>" style="width:85%;" />
 		</p>
 		
 		
 		<!-- Subscribe URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'subscribe' ); ?>"><?php _e('Subscription URL:', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'subscribe' ); ?>"><?php _e('Subscription URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'subscribe' ); ?>" name="<?php echo $this->get_field_name( 'subscribe' ); ?>" value="<?php echo $instance['subscribe'] ?>" style="width:85%;" />
 		</p>
 		
 	 <!-- Choose Icon Size: Dropdown -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_size' ); ?>"><?php _e('Icon Size', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'icon_size' ); ?>"><?php _e('Icon Size', 'smw'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'icon_size' ); ?>" name="<?php echo $this->get_field_name( 'icon_size' ); ?>">
 			<option value="16" <?php if($instance['icon_size'] == '16') { echo 'selected'; } ?>>16px</option>
 			<option value="default" <?php if($instance['icon_size'] == 'default') { echo 'selected'; } ?>>Default (32px)</option>
@@ -323,7 +340,7 @@ class Social_Widget extends WP_Widget {
 		
 	<!-- Choose Icon Pack: Dropdown -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_pack' ); ?>"><?php _e('Icon Pack', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'icon_pack' ); ?>"><?php _e('Icon Pack', 'smw'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'icon_pack' ); ?>" name="<?php echo $this->get_field_name( 'icon_pack' ); ?>">
 			<option value="cutout" <?php if($instance['icon_pack'] == 'cutout') { echo 'selected'; } ?>>Cutout Icons</option>
 			<option value="heart" <?php if($instance['icon_pack'] == 'heart') { echo 'selected'; } ?>>Heart Icons</option>
@@ -334,7 +351,7 @@ class Social_Widget extends WP_Widget {
 	
 	<!--Starting Icon Opacity -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon_opacity' ); ?>"><?php _e('Default Icon Opacity', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'icon_opacity' ); ?>"><?php _e('Default Icon Opacity', 'smw'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'icon_opacity' ); ?>" name="<?php echo $this->get_field_name( 'icon_opacity' ); ?>">
 			<option value="0.5" <?php if($instance['icon_opacity'] == '0.5') { echo 'selected'; } ?>>50%</option>
 			<option value="0.6" <?php if($instance['icon_opacity'] == '0.6') { echo 'selected'; } ?>>60%</option>
@@ -348,7 +365,7 @@ class Social_Widget extends WP_Widget {
 	
 		<!-- No Follow On or Off -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'nofollow' ); ?>"><?php _e('Use rel="nofollow" for links', 'test'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'nofollow' ); ?>"><?php _e('Use rel="nofollow" for links', 'smw'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'nofollow' ); ?>" name="<?php echo $this->get_field_name( 'nofollow' ); ?>">
 			<option value="on" <?php if($instance['nofollow'] == 'on') { echo 'selected'; } ?>>On</option>
 			<option value="off" <?php if($instance['nofollow'] == 'off') { echo 'selected'; } ?>>Off</option>
