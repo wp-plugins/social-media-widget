@@ -3,7 +3,7 @@ Contributors: Brian Freytag
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.2.8
+Stable tag: 1.3
 
 == Description ==
 
@@ -15,6 +15,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Facebook
 	* Twitter
 	* MySpace
+	* FriendFeed
 	* Orkut
 	* LinkedIn
 	* YouTube
@@ -61,6 +62,7 @@ Follow the steps below to install the plugin.
 For help, you can send an e-mail to brifreytag_at_gmail.com or get ahold of me via twitter at @brianfreytag
 
 == Changelog ==
+1.3 - Added requested support for FriendFeed 
 1.2.8 - Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
 
 1.2.7 - Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
