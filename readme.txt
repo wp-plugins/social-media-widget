@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.3.1
+Stable tag: 1.4
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes and 4 different icon styles.
 
@@ -21,9 +21,11 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* FriendFeed
 	* Orkut
 	* LinkedIn
+	* Flickr
 	* YouTube
 	* Digg
 	* Reddit
+	* Delicious
 	* Buzz
 	* RSS
 	* E-mail Subscription Info Page (or mailto: address)
@@ -70,6 +72,8 @@ Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+1.4 - Added support for Flickr and Delicious
+
 1.3.1 - Quick changes to make the Readme.txt standardized.
 
 1.3 - Added requested support for FriendFeed
