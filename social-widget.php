@@ -3,9 +3,9 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
  * Description: Place social media icons on your Sidebar by inputting URLs to your profiles!
- * Version: 1.3
+ * Version: 1.4
  * Author: Brian Freytag
- * Author URL: http://www.idontlikethisgame.com
+ * Author URI: http://www.idontlikethisgame.com/
  **/
 
 
@@ -52,9 +52,11 @@ class Social_Widget extends WP_Widget {
 		$friendfeed = $instance['friendfeed'];
 		$orkut = $instance['orkut'];
 		$linkedin = $instance['linkedin'];
+		$flickr = $instance['flickr'];
 		$youtube = $instance['youtube'];
 		$digg = $instance['digg'];
 		$reddit = $instance['reddit'];
+		$delicious = $instance['delicious'];
 		$buzz = $instance['buzz'];
 		$rss = $instance['rss_url'];
 		$subscribe = $instance['subscribe'];
@@ -140,6 +142,14 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL inputed
 		}
 		
+		// Flickr
+		if ( $flickr != '' ) {
+			?><a href="<?php echo $flickr; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/flickr.png" alt="<?php echo $title; ?> on Flickr" 
+			title="<?php echo $title; ?> on Flickr" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
 		// YouTube
 		if ( $youtube != '' ) {
 			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/youtube.png" alt="<?php echo $title; ?> on YouTube" 
@@ -160,6 +170,14 @@ class Social_Widget extends WP_Widget {
 		if ( $reddit != '' ) {
 			?><a href="<?php echo $reddit; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/reddit.png" alt="<?php echo $title; ?> on Reddit" 
 			title="<?php echo $title; ?> on Reddit" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
+		} else {
+			echo ''; //If no URL Inputed
+		}
+		
+		// Delicious 
+		if ( $delicious != '' ) {
+			?><a href="<?php echo $delicious; ?>" <?php echo $nofollow; ?> target="_blank"><img class="subscribes" src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/delicious.png" alt="<?php echo $title; ?> on Delicious" 
+			title="<?php echo $title; ?> on Delicious" style="opacity: <?php echo $icon_opacity;?>; -moz-opacity: <?php echo $icon_opacity;?>;" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
@@ -204,9 +222,11 @@ class Social_Widget extends WP_Widget {
 		$instance['friendfeed'] = strip_tags( $new_instance['friendfeed'] );
 		$instance['orkut'] = strip_tags( $new_instance['orkut'] );
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
+		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
 		$instance['reddit'] = strip_tags( $new_instance['reddit'] );
+		$instance['delicious'] = strip_tags( $new_instance['delicious'] );
 		$instance['buzz'] = strip_tags( $new_instance['buzz'] );
 		$instance['rss_url'] = strip_tags( $new_instance['rss_url'] );
 		$instance['subscribe'] = strip_tags( $new_instance['subscribe'] );
@@ -234,9 +254,11 @@ class Social_Widget extends WP_Widget {
 			'friendfeed' => __('http://www.friendfeed.com/yourname', 'smw'),
 			'orkut' => __('http://www.orkut.com/Main#Profile?uid=youruid', 'smw'),
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
+			'flickr' => __('http://www.flickr.com/photos/yourname', 'smw'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
 			'digg' => __('http://www.digg.com/users/yourname', 'smw'),
 			'reddit' => __('http://www.reddit.com/user/yourname', 'smw'),
+			'delicious' => __('http://delicious.com/yourname', 'smw'),
 			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'smw'),
 			'rss_url' => __('http://www.yoursite.com/feed', 'smw'),
 			'icon_size' => 'default',
@@ -291,6 +313,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" value="<?php echo $instance['linkedin']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- Flickr URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'flickr' ); ?>"><?php _e('Flickr URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'flickr' ); ?>" name="<?php echo $this->get_field_name( 'flickr' ); ?>" value="<?php echo $instance['flickr']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- YouTube URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e('YouTube URL:', 'smw'); ?></label>
@@ -307,6 +335,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'reddit' ); ?>"><?php _e('Reddit URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'reddit' ); ?>" name="<?php echo $this->get_field_name( 'reddit' ); ?>" value="<?php echo $instance['reddit']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Delicious URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'delicious' ); ?>"><?php _e('Delicious URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'delicious' ); ?>" name="<?php echo $this->get_field_name( 'delicious' ); ?>" value="<?php echo $instance['delicious']; ?>" style="width:85%;" />
 		</p>
 
 		<!-- Buzz URL: Text Input -->
