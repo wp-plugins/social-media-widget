@@ -1,12 +1,12 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 1.4
+Stable tag: 2.0
 
-Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes and 4 different icon styles.
+Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
 == Description ==
 
@@ -26,7 +26,9 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Digg
 	* Reddit
 	* Delicious
+	* StumbleUpon
 	* Buzz
+	* Vimeo
 	* RSS
 	* E-mail Subscription Info Page (or mailto: address)
 	
@@ -41,8 +43,13 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
 
-* Ability to choose starting icon opacity from 50% opacity to 100% opacity
-	note: on hover, icons are 100% opaque. Does not work in Internet Explorer due to bad transparent .png support. IE6+ made the buttons look terrible in most cases (black border around the icons) - removed alpha filter to fix this.
+* Choose from multiple animations including:
+	* Fade In (you can choose the starting opacity too!)
+	* Scale (zoom in)
+	* Bounce
+	* Combo (All three)
+	* Note: Because these are all CSS3 style animations, IE6-7 aren't supported at all, although IE8 will support Scale. In IE6-8, icons will not be animated and use 100% opacity.
+
 	
 * Ability to choose whether or not to use the rel="nofollow" tag in your links. (Recommended see http://en.wikipedia.org/wiki/Nofollow)
 
@@ -57,21 +64,28 @@ Follow the steps below to install the plugin.
 3. Go to Appearance/Widgets and activate the widget to customize
 
 == Screenshots ==
-1. Shows all of the 32px icon packs
-2. Shows all of the 64px icon packs
-3. Shows all of the 16px icon packs
-4. Shows the widget control panel
+1. Web 2.0 icon pack
+2. Cutout icon pack
+3. Heart icon pack
+4. Sketch icon pack
+5. Top half of control panel
+6. Bottom half of control panel
 
 == Frequently Asked Questions ==
 
 1) Can you add [insert social media service] support?
 Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or leave a comment at http://www.idontlikethisgame.com/updates/social-media-widget/.
 
+2) Why aren't the animations working in Internet Explorer 6+?
+The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
+
 == Help ==
 
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+2.0 - Added support for Vimeo and StumbleUpon. Added Fade In, Scale, Bounce, Combo animations.
+
 1.4 - Added support for Flickr and Delicious
 
 1.3.1 - Quick changes to make the Readme.txt standardized.
