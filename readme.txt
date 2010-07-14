@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 2.0
+Stable tag: 2.1
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -29,19 +29,24 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* StumbleUpon
 	* Buzz
 	* Vimeo
+	* Last.fm
+	* FourSquare
+	* Meetup
 	* RSS
-	* E-mail Subscription Info Page (or mailto: address)
+	* E-mail (mailto: or a link to mailing list service)
 	
-* Ability to select from 3 different sizes of icons:
+* Select from the following icon sizes:
 	* 16x16
 	* 32x32
 	* 64x64
 	
-* Ability to select from 4 different icon packages:
+* Select from 4 icon packages:
 	* Web 2.0 (Default) - Icons from <a href="http://www.iconspedia.com/">various artists</a> 
 	* Sketch - <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed 
 	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
+	* Note that some of the icons in the packs were created and added for this widget by myself. Not all of the requested social media sites were included so I attempted to create icons that mimicked the original artist icons. These are unattributed to myself. I keep attribution to the original artists since it is there design I modified.
+	* All icons in this pack are licensed under the Creative Commons license (which is why I'm allowed, by law, to use them). Note that some of these are non-commercial only. Please go to the sites linked above to get full information on their allowed uses.
 
 * Choose from multiple animations including:
 	* Fade In (you can choose the starting opacity too!)
@@ -51,17 +56,30 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Note: Because these are all CSS3 style animations, IE6-7 aren't supported at all, although IE8 will support Scale. In IE6-8, icons will not be animated and use 100% opacity.
 
 	
-* Ability to choose whether or not to use the rel="nofollow" tag in your links. (Recommended see http://en.wikipedia.org/wiki/Nofollow)
+* Choose whether or not to use the rel="nofollow" tag in your links. (Recommended see http://en.wikipedia.org/wiki/Nofollow)
+
+* Choose whether or not to open links in a new tab (or browser window).
 
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
+
+Please donate if you like this plugin.
 
 == Installation ==
 
 Follow the steps below to install the plugin.
 
-1. Upload the social-widget directory to the /wp-content/plugins/ directory
+1. Upload the social-media-widget folder and all contents to the /wp-content/plugins/ directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to Appearance/Widgets and activate the widget to customize
+3. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
+
+
+Follow the steps below to upgrade.
+
+1. Disable the plugin
+2. Overwrite all files in the social-media-widget folder within the /wp-content/plugins directory
+3. Enable the plugin
+4. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
+
 
 == Screenshots ==
 1. Web 2.0 icon pack
@@ -79,11 +97,19 @@ Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at
 2) Why aren't the animations working in Internet Explorer 6+?
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
 
+3) The icons aren't showing up - They are just showing the alt text!
+There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who which develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see?
+
+4) Something else isn't right!
+First - calm down. I'm happy to help you, and, if you ask those I've helped already, I don't mind providing individual service to people to get my widget working and looking right with your theme. If your theme is especially jacked up, I do do freelance work and would be happy to fix your entire theme for a fee. But back to the point, if something isn't working quite right on your site, INCLUDE A LINK. I can't help you with your site unless there is a link so I can see what's going on. Make sure my widget is enabled to. It gets old getting asked, "Why doesn't it look right on my site" and then finding that the comment-leaver left no link and if they did, my widget isn't even enabled on their site anymore.
+
 == Help ==
 
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+2.1 - Added support for Foursquare, Meetup, and Last.fm. Included option to select whether or not to open the links in a new tab (or browser window). Fixed a compatibility issue with Platinum SEO Pack - Thank you Niko! Updated FAQ. Updated installation section to include upgrading information and corrected plugin directory name. Split Widget control panel into two columns to reduce scrolling - It was getting really long as I added more features.
+
 2.0 - Added support for Vimeo and StumbleUpon. Added Fade In, Scale, Bounce, Combo animations.
 
 1.4 - Added support for Flickr and Delicious
