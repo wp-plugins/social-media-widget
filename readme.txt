@@ -46,7 +46,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	
 * Select from 4 icon packages:
 	* Web 2.0 (Default) - Icons from <a href="http://www.iconspedia.com/">various artists</a> 
-	* Sketch - <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed 
+	* Sketch - <a href="http://theg-force.deviantart.com">Social Icons Hand Drawn</a> by TheG-Force and <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed
 	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
 	* Note that some of the icons in the packs were created and added for this widget by myself. Not all of the requested social media sites were included so I attempted to create icons that mimicked the original artist icons. These are unattributed to myself. I keep attribution to the original artists since it is there design I modified.
