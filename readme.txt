@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 2.1
+Stable tag: 2.2
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -23,12 +23,16 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* LinkedIn
 	* Flickr
 	* YouTube
+	* Skype
 	* Digg
 	* Reddit
 	* Delicious
 	* StumbleUpon
 	* Buzz
 	* Vimeo
+	* Blogger
+	* Wordpress
+	* Yelp
 	* Last.fm
 	* FourSquare
 	* Meetup
@@ -91,16 +95,19 @@ Follow the steps below to upgrade.
 
 == Frequently Asked Questions ==
 
-1) Can you add [insert social media service] support?
+= Can you add [insert social media service] support =
 Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or leave a comment at http://www.idontlikethisgame.com/updates/social-media-widget/.
 
-2) Why aren't the animations working in Internet Explorer 6+?
+= Why aren't the animations working in Internet Explorer 6+ = 
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
 
-3) The icons aren't showing up - They are just showing the alt text!
+= I can't find my {insert social media service} profile link! What is it? =
+While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
+
+= The icons aren't showing up - They are just showing the alt text! =
 There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who which develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see?
 
-4) Something else isn't right!
+= Something else isn't right! =
 First - calm down. I'm happy to help you, and, if you ask those I've helped already, I don't mind providing individual service to people to get my widget working and looking right with your theme. If your theme is especially jacked up, I do do freelance work and would be happy to fix your entire theme for a fee. But back to the point, if something isn't working quite right on your site, INCLUDE A LINK. I can't help you with your site unless there is a link so I can see what's going on. Make sure my widget is enabled to. It gets old getting asked, "Why doesn't it look right on my site" and then finding that the comment-leaver left no link and if they did, my widget isn't even enabled on their site anymore.
 
 == Help ==
@@ -108,43 +115,87 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
-2.1 - Added support for Foursquare, Meetup, and Last.fm. Included option to select whether or not to open the links in a new tab (or browser window). Fixed a compatibility issue with Platinum SEO Pack - Thank you Niko! Updated FAQ. Updated installation section to include upgrading information and corrected plugin directory name. Split Widget control panel into two columns to reduce scrolling - It was getting really long as I added more features.
+= 2.2 = 
 
-2.0 - Added support for Vimeo and StumbleUpon. Added Fade In, Scale, Bounce, Combo animations.
+* Added support for Skype, Blogger, Wordpress.com and Yelp
+* Fixed Readme.txt changelog to be more readable
 
-1.4 - Added support for Flickr and Delicious
+= 2.1 = 
+* Added support for Foursquare, Meetup, and Last.fm
+* Included option to select whether or not to open the links in a new tab (or browser window)
+* Fixed a compatibility issue with Platinum SEO Pack - Thank you Niko! Updated FAQ
+* Updated installation section to include upgrading information and corrected plugin directory name
+* Split Widget control panel into two columns to reduce scrolling - It was getting really long as I added more features.
 
-1.3.1 - Quick changes to make the Readme.txt standardized.
+= 2.0 =
 
-1.3 - Added requested support for FriendFeed
+* Added support for Vimeo and StumbleUpon
+* Added Fade In, Scale, Bounce, Combo animations.
 
-1.2.8 - Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
+= 1.4 = 
 
-1.2.7 - Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
+* Added support for Flickr and Delicious
 
-1.2.6 - Added ability to add rel="nofollow" to icon links. Also added a Donate button due to the massive time commitment of this plugin. 
+= 1.3.1 =
 
-1.2.5 - Updated readme.txt to improve visibility and adding screenshots
+* Quick changes to make the Readme.txt standardized.
 
-1.2.4 - Trying something else to fix the issues with 1.2.2 and 1.2.3.
+= 1.3 =
 
-1.2.3 - As expected, changes in 1.2.2 broke some peoples' stuff. Made a couple CSS changes to see if this fixes it.
+* Added requested support for FriendFeed
 
-1.2.2 - Some of you were complaining about it breaking your theme because I wasn't using the default arguments to wrap the widget. I decided to give it a try. I'm sure this is going to break more than it's going to fix, but I'm doing it "properly" now. Note: You're going to have to do a lot more CSS hacks to get it to look right in some themes.
+= 1.2.8 =
 
-1.2.1 -  Fixed an issue with Orkut icon staying on even if the field is blank. Fixed an issue with 32 pixel default icons appearing as 64 pixels.
+*Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
 
-1.2 - 
+= 1.2.7 = 
+* Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
+
+= 1.2.6 = 
+
+* Added ability to add rel="nofollow" to icon links
+* Added a Donate button due to the massive time commitment of this plugin. 
+
+= 1.2.5 =
+
+* Updated readme.txt to improve visibility and adding screenshots
+
+= 1.2.4 =
+
+* Trying something else to fix the issues with 1.2.2 and 1.2.3.
+
+= 1.2.3 =
+
+* As expected, changes in 1.2.2 broke some peoples' stuff. Made a couple CSS changes to see if this fixes it.
+
+= 1.2.2 =
+
+* Some of you were complaining about it breaking your theme because I wasn't using the default arguments to wrap the widget. I decided to give it a try. I'm sure this is going to break more than it's going to fix, but I'm doing it "properly" now. Note: You're going to have to do a lot more CSS hacks to get it to look right in some themes.
+
+= 1.2.1 =
+
+* Fixed an issue with Orkut icon staying on even if the field is blank. Fixed an issue with 32 pixel default icons appearing as 64 pixels.
+
+= 1.2 =
+
 * Fixed issue with RSS URL being reset after save in the widget control panel (did not affect functionality, but caused confusion)
 * Added support for Orkut
 * Added Cutout icon pack
 * Changed default image alt and title tags to Widget title (i.e. if widget title is Follow Me, Facebook alt/title tags are "Follow Me on Facebook." If it is Follow Us, alt/title is "Follow Us on Facebook)
 * Cleaned up image location code from the WP_CONTENT_URL to the WP_PLUGIN_URL function to attempt to correct some file location issues with Windows servers.
 
-1.1.2 - Fixed an issue with LinkedIn icons not appearing
+= 1.1.2 =
 
-1.1.1 - Fixed an issue with some users plugin.php breaking at line 339.
+* Fixed an issue with LinkedIn icons not appearing
 
-1.1 - Added support for LinkedIn
+= 1.1.1 = 
 
-1.0 - Added support for varying sizes, added 2 new icon packages, added support for varying opacities.
+* Fixed an issue with some users plugin.php breaking at line 339.
+
+= 1.1 = 
+
+* Added support for LinkedIn
+
+= 1.0 = 
+
+* Added support for varying sizes, added 2 new icon packages, added support for varying opacities.

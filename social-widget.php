@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Social Media Widget
  * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
- * Description: Adds links to all of your social media and sharing site profiles in your sidebar. Icons come in 3 sizes and 4 different icon styles.
- * Version: 2.1
+ * Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
+ * Version: 2.2
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -37,7 +37,7 @@ class Social_Widget extends WP_Widget {
 		$control_ops = array( 'width' => 600, 'height' => 350, 'id_base' => 'social-widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'social-widget', __('Social Widget', 'smw'), $widget_ops, $control_ops );
+		$this->WP_Widget( 'social-widget', __('Social Media Widget', 'smw'), $widget_ops, $control_ops );
 	}
 
 	/* Display the widget  */
@@ -54,12 +54,16 @@ class Social_Widget extends WP_Widget {
 		$linkedin = $instance['linkedin'];
 		$flickr = $instance['flickr'];
 		$youtube = $instance['youtube'];
+		$skype = $instance['skype'];
 		$digg = $instance['digg'];
 		$reddit = $instance['reddit'];
 		$delicious = $instance['delicious'];
 		$stumble = $instance['stumble'];
 		$buzz = $instance['buzz'];
 		$vimeo = $instance['vimeo'];
+		$blogger = $instance['blogger'];
+		$wordpress = $instance['wordpress'];
+		$yelp = $instance['yelp'];
 		$lastfm = $instance['lastfm'];
 		$foursquare = $instance['foursquare'];
 		$meetup = $instance['meetup'];
@@ -166,6 +170,13 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If No URL Inputed
 		}
 		
+		// Skype
+		if ( $skype != '' ) {
+			?><a href="<?php echo $skype; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/skype.png" alt="<?php echo $title; ?> on Skype" title="<?php echo $title; ?> on Skype" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If No URL Inputed
+		}
+		
 		// Digg
 		if ( $digg != '' ) {
 			?><a href="<?php echo $digg; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digg.png" alt="<?php echo $title; ?> on Digg" title="<?php echo $title; ?> on Digg" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
@@ -206,6 +217,27 @@ class Social_Widget extends WP_Widget {
 			?><a href="<?php echo $vimeo; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/vimeo.png" alt="<?php echo $title; ?> on Vimeo" title="<?php echo $title; ?> on Vimeo" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
+		}
+		
+		// Blogger
+		if ( $blogger != '' ) {
+			?><a href="<?php echo $blogger; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/blogger.png" alt="<?php echo $title; ?> on Blogger" title="<?php echo $title; ?> on Blogger" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If No URL Inputed
+		}
+		
+		// Wordpress
+		if ( $wordpress != '' ) {
+			?><a href="<?php echo $wordpress; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/wordpress.png" alt="<?php echo $title; ?> on Wordpress" title="<?php echo $title; ?> on Wordpress" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If No URL Inputed
+		}
+		
+		// Wordpress
+		if ( $yelp != '' ) {
+			?><a href="<?php echo $yelp; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));  ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/yelp.png" alt="<?php echo $title; ?> on Yelp" title="<?php echo $title; ?> on Yelp" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If No URL Inputed
 		}
 
 		// Last.fm
@@ -263,12 +295,16 @@ class Social_Widget extends WP_Widget {
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
+		$instance['skype'] = strip_tags( $new_instance['skype'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
 		$instance['reddit'] = strip_tags( $new_instance['reddit'] );
 		$instance['delicious'] = strip_tags( $new_instance['delicious'] );
 		$instance['stumble'] = strip_tags( $new_instance['stumble'] );
 		$instance['buzz'] = strip_tags( $new_instance['buzz'] );
 		$instance['vimeo'] = strip_tags( $new_instance['vimeo'] );
+		$instance['blogger'] = strip_tags( $new_instance['blogger'] );
+		$instance['wordpress'] = strip_tags( $new_instance['wordpress'] );
+		$instance['yelp'] = strip_tags( $new_instance['yelp'] );
 		$instance['lastfm'] = strip_tags( $new_instance['lastfm'] );
 		$instance['foursquare'] = strip_tags( $new_instance['foursquare'] );
 		$instance['meetup'] = strip_tags( $new_instance['meetup'] );
@@ -302,12 +338,16 @@ class Social_Widget extends WP_Widget {
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
 			'flickr' => __('http://www.flickr.com/photos/yourname', 'smw'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
+			'skype' => __('skype:yourusername?add', 'smw'),
 			'digg' => __('http://www.digg.com/users/yourname', 'smw'),
 			'reddit' => __('http://www.reddit.com/user/yourname', 'smw'),
 			'delicious' => __('http://delicious.com/yourname', 'smw'),
 			'stumble' => __('http://www.stumbleupon.com/stumbler/yourname', 'smw'),
 			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'smw'),
 			'vimeo' => __('http://www.vimeo.com/yourname', 'smw'),
+			'blogger' => __('http://www.blogger.com/profile/youridnumber', 'smw'),
+			'wordpress' => __('http://en.gravatar.com/yourname', 'smw'),
+			'yelp' => __('http://yourname.yelp.com', 'smw'),
 			'lastfm' => __('http://www.last.fm/user/yourname', 'smw'),
 			'foursquare' => __('http://foursquare.com/user/yourname', 'smw'),
 			'meetup' => __('http://www.meetup.com/your-group', 'smw'),
@@ -378,6 +418,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>" value="<?php echo $instance['youtube']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- YouTube URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'skype' ); ?>"><?php _e('Skype URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'skype' ); ?>" name="<?php echo $this->get_field_name( 'skype' ); ?>" value="<?php echo $instance['skype']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- Digg URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'digg' ); ?>"><?php _e('Digg URL:', 'smw'); ?></label>
@@ -395,24 +441,43 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'delicious' ); ?>"><?php _e('Delicious URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'delicious' ); ?>" name="<?php echo $this->get_field_name( 'delicious' ); ?>" value="<?php echo $instance['delicious']; ?>" style="width:85%;" />
 		</p>
-		</div>
-		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
+
 		<!-- StumpleUpon URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'stumble' ); ?>"><?php _e('StumbleUpon URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'stumble' ); ?>" name="<?php echo $this->get_field_name( 'stumble' ); ?>" value="<?php echo $instance['stumble']; ?>" style="width:85%;" />
 		</p>
-		
+		</div>
+		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
 		<!-- Buzz URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'buzz' ); ?>"><?php _e('Buzz URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'buzz' ); ?>" name="<?php echo $this->get_field_name( 'buzz' ); ?>" value="<?php echo $instance['buzz']; ?>" style="width:85%;" />
 		</p>
 		
+				
 		<!-- Vimeo URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'vimeo' ); ?>"><?php _e('Vimeo URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'vimeo' ); ?>" name="<?php echo $this->get_field_name( 'vimeo' ); ?>" value="<?php echo $instance['vimeo']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Blogger URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'blogger' ); ?>"><?php _e('Blogger URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'blogger' ); ?>" name="<?php echo $this->get_field_name( 'blogger' ); ?>" value="<?php echo $instance['blogger']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Wordpress URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'wordpress' ); ?>"><?php _e('Wordpress(Gravatar) URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'wordpress' ); ?>" name="<?php echo $this->get_field_name( 'wordpress' ); ?>" value="<?php echo $instance['wordpress']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Yelp URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'yelp' ); ?>"><?php _e('Yelp URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'yelp' ); ?>" name="<?php echo $this->get_field_name( 'yelp' ); ?>" value="<?php echo $instance['yelp']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Last.fm URL: Text Input -->
