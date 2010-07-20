@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 2.2
+Stable tag: 2.2.1
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -105,7 +105,7 @@ The only animation supported by Internet Explorer is Scale, and that only works 
 While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
 
 = The icons aren't showing up - They are just showing the alt text! =
-There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who which develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see?
+There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see?
 
 = Something else isn't right! =
 First - calm down. I'm happy to help you, and, if you ask those I've helped already, I don't mind providing individual service to people to get my widget working and looking right with your theme. If your theme is especially jacked up, I do do freelance work and would be happy to fix your entire theme for a fee. But back to the point, if something isn't working quite right on your site, INCLUDE A LINK. I can't help you with your site unless there is a link so I can see what's going on. Make sure my widget is enabled to. It gets old getting asked, "Why doesn't it look right on my site" and then finding that the comment-leaver left no link and if they did, my widget isn't even enabled on their site anymore.
@@ -115,6 +115,10 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+= 2.2.1 = 
+
+* I broke the description when I uploaded 2.2. Sorry about the second quick update.
+
 = 2.2 = 
 
 * Added support for Skype, Blogger, Wordpress.com and Yelp
@@ -146,7 +150,7 @@ For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifre
 
 = 1.2.8 =
 
-*Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
+* Fixed an issue with widget not showing up on peoples' websites. There was an errant </form> in the code from when I attempted to use the form method of Paypal donate. Didn't delete this code and it borked the plugin.
 
 = 1.2.7 = 
 * Removed filter: alpha(opacity=x); from both the CSS and inline style (create initial transparency and hover to 100% opacity). This stops Internet Explorer from using opacity, but it also doesn't make the icons look terrible. If you have a problem with this, take it up with Microsoft. I'm not paid enough to hack around a crappy browser that can easily support png transparencies with little-to-no effort by the developers. All other browsers are unaffected.
