@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 2.2.1
+Stable tag: 2.3
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -36,6 +36,8 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Last.fm
 	* FourSquare
 	* Meetup
+	* Digital Tunes
+	* Soundcloud
 	* RSS
 	* E-mail (mailto: or a link to mailing list service)
 	
@@ -105,7 +107,7 @@ The only animation supported by Internet Explorer is Scale, and that only works 
 While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
 
 = The icons aren't showing up - They are just showing the alt text! =
-There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see?
+There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see? There have also been issues with moved wp-content folders or custom WP_CONTENT_URL's that caused the images to break. This issue has been resolved since 2.3.
 
 = Something else isn't right! =
 First - calm down. I'm happy to help you, and, if you ask those I've helped already, I don't mind providing individual service to people to get my widget working and looking right with your theme. If your theme is especially jacked up, I do do freelance work and would be happy to fix your entire theme for a fee. But back to the point, if something isn't working quite right on your site, INCLUDE A LINK. I can't help you with your site unless there is a link so I can see what's going on. Make sure my widget is enabled to. It gets old getting asked, "Why doesn't it look right on my site" and then finding that the comment-leaver left no link and if they did, my widget isn't even enabled on their site anymore.
@@ -115,6 +117,13 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+= 2.3 = 
+
+* Added support for Digital Tunes and Soundcloud.
+* Improved function to determine plugin path. The images broke if wp-content was moved. This is fixed with this release
+* Fixed HTML code issue causing extra spacing between Facebook and Twitter icons.
+* Other small code improvements
+
 = 2.2.1 = 
 
 * I broke the description when I uploaded 2.2. Sorry about the second quick update.
