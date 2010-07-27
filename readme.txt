@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes
 Requires at least: 2.9.1
 Tested up to: 3.0
-Stable tag: 2.3
+Stable tag: 2.3.5
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -117,6 +117,10 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+= 2.3.5 =
+
+* Added CSS3 animation transitions for Firefox 4. Going with x.x.5 since this is neither a bug fix (x.x.1), nor an all-out feature addition (x.1). 
+
 = 2.3 = 
 
 * Added support for Digital Tunes and Soundcloud.
