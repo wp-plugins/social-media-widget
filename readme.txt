@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld
 Requires at least: 2.9.1
-Tested up to: 3.0
-Stable tag: 2.3.5
+Tested up to: 3.0.1
+Stable tag: 2.4
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -20,7 +20,9 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* MySpace
 	* FriendFeed
 	* Orkut
+	* Hyves
 	* LinkedIn
+	* aSmallWorld
 	* Flickr
 	* YouTube
 	* Skype
@@ -28,6 +30,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Reddit
 	* Delicious
 	* StumbleUpon
+	* Tumblr
 	* Buzz
 	* Vimeo
 	* Blogger
@@ -36,10 +39,18 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Last.fm
 	* FourSquare
 	* Meetup
+	* Tungle.me
+	* PlanCast
+	* SlideShare
+	* DeviantArt
 	* Digital Tunes
 	* Soundcloud
+	* Etsy
+	* Better Business Bureau
+	* Merchant Circle
 	* RSS
 	* E-mail (mailto: or a link to mailing list service)
+	* Plus create 3 of your own using a URL to an icon and URL to the service
 	
 * Select from the following icon sizes:
 	* 16x16
@@ -117,6 +128,11 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
 
 == Changelog ==
+= 2.4 = 
+
+* Added support for 10 more services. See description to see what's added. Too many to list here.
+* Added support for 3 custom icons - Must include full URL to icon
+
 = 2.3.5 =
 
 * Added CSS3 animation transitions for Firefox 4. Going with x.x.5 since this is neither a bug fix (x.x.1), nor an all-out feature addition (x.1). 
