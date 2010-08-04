@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Social Media Widget
- * Plugin URI: http://www.idontlikethisgame.com/updates/social-media-widget/
+ * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.3.5
+ * Version: 2.4.1
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -58,7 +58,9 @@ class Social_Widget extends WP_Widget {
 		$myspace = $instance['myspace'];
 		$friendfeed = $instance['friendfeed'];
 		$orkut = $instance['orkut'];
+		$hyves = $instance['hyves'];
 		$linkedin = $instance['linkedin'];
+		$asmallworld = $instance['asmallworld'];
 		$flickr = $instance['flickr'];
 		$youtube = $instance['youtube'];
 		$skype = $instance['skype'];
@@ -66,6 +68,7 @@ class Social_Widget extends WP_Widget {
 		$reddit = $instance['reddit'];
 		$delicious = $instance['delicious'];
 		$stumble = $instance['stumble'];
+		$tumblr = $instance['tumblr'];
 		$buzz = $instance['buzz'];
 		$vimeo = $instance['vimeo'];
 		$blogger = $instance['blogger'];
@@ -74,8 +77,15 @@ class Social_Widget extends WP_Widget {
 		$lastfm = $instance['lastfm'];
 		$foursquare = $instance['foursquare'];
 		$meetup = $instance['meetup'];
+		$tungle = $instance['tungle'];
+		$plancast = $instance['plancast'];
+		$slideshare = $instance['slideshare'];
+		$deviantart = $instance['deviantart'];
 		$digitaltunes = $instance['digitaltunes'];
 		$soundcloud = $instance['soundcloud'];
+		$etsy = $instance['etsy'];
+		$bbb = $instance['bbb'];		
+		$merchantcircle = $instance['merchantcircle'];
 		$rss = $instance['rss_url'];
 		$subscribe = $instance['subscribe'];
 		$icon_size = $instance['icon_size'];
@@ -84,6 +94,15 @@ class Social_Widget extends WP_Widget {
 		$icon_opacity = $instance['icon_opacity'];
 		$newtab = $instance['newtab'];
 		$nofollow = $instance['nofollow'];
+		$custom1icon = $instance['custom1icon'];
+		$custom2icon = $instance['custom2icon'];
+		$custom3icon = $instance['custom3icon'];
+		$custom1name = $instance['custom1name'];
+		$custom2name = $instance['custom2name'];
+		$custom3name = $instance['custom3name'];
+		$custom1url = $instance['custom1url'];
+		$custom2url = $instance['custom2url'];
+		$custom3url = $instance['custom3url'];
 		
 		/* Choose Icon Size if Value is 'default' */
 		if($icon_size == 'default') {
@@ -161,9 +180,23 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL inputed
 		}
 		
+		// Hyves
+		if ( $hyves != '' ) {
+			?><a href="<?php echo $hyves; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/hyves.png" alt="<?php echo $title; ?> on Hyves" title="<?php echo $title; ?> on Hyves" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
 		// LinkedIN
 		if ( $linkedin != '' ) {
 			?><a href="<?php echo $linkedin; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/linkedin.png" alt="<?php echo $title; ?> on LinkedIn" title="<?php echo $title; ?> on LinkedIn" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// aSmallWorld
+		if ( $asmallworld != '' ) {
+			?><a href="<?php echo $asmallworld; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/asmallworld.png" alt="<?php echo $title; ?> on aSmallWorld" title="<?php echo $title; ?> on aSmallWorld" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -217,6 +250,13 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL Inputed
 		}
 		
+		// Tumblr 
+		if ( $tumblr != '' ) {
+			?><a href="<?php echo $tumblr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/tumblr.png" alt="<?php echo $title; ?> on Tumblr" title="<?php echo $title; ?> on Tumblr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL Inputed
+		}
+		
 		// Google Buzz
 		if ( $buzz != '' ) {
 			?><a href="<?php echo $buzz; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/buzz.png" alt="<?php echo $title; ?> on Buzz" title="<?php echo $title; ?> on Buzz" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
@@ -245,7 +285,7 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If No URL Inputed
 		}
 		
-		// Wordpress
+		// Yelp
 		if ( $yelp != '' ) {
 			?><a href="<?php echo $yelp; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/yelp.png" alt="<?php echo $title; ?> on Yelp" title="<?php echo $title; ?> on Yelp" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
@@ -273,6 +313,34 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL Inputed
 		}
 		
+		// Tungle.me
+		if ( $tungle != '' ) {
+			?><a href="<?php echo $tungle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/tungle.png" alt="<?php echo $title; ?> on Tungle" title="<?php echo $title; ?> on Tungle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// PlanCast
+		if ( $plancast != '' ) {
+			?><a href="<?php echo $plancast; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/plancast.png" alt="<?php echo $title; ?> on PlanCast" title="<?php echo $title; ?> on PlanCast" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Hyves
+		if ( $slideshare != '' ) {
+			?><a href="<?php echo $slideshare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/slideshare.png" alt="<?php echo $title; ?> on SlideShare" title="<?php echo $title; ?> on SlideShare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// DeviantArt
+		if ( $deviantart != '' ) {
+			?><a href="<?php echo $deviantart; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/deviantart.png" alt="<?php echo $title; ?> on DeviantArt" title="<?php echo $title; ?> on DeviantArt" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
 		// Digital Tunes
 		if ( $digitaltunes != '' ) {
 			?><a href="<?php echo $digitaltunes; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/digitaltunes.png" alt="<?php echo $title; ?> on Digital Tunes" title="<?php echo $title; ?> on Digital Tunes" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
@@ -285,6 +353,48 @@ class Social_Widget extends WP_Widget {
 			?><a href="<?php echo $soundcloud; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/soundcloud.png" alt="<?php echo $title; ?> on Soundcloud" title="<?php echo $title; ?> on Soundcloud" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
+		}
+		
+		// Etsy
+		if ( $etsy != '' ) {
+			?><a href="<?php echo $etsy; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/etsy.png" alt="<?php echo $title; ?> on Etsy" title="<?php echo $title; ?> on Etsy" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL Inputed
+		}
+		
+		// Better Business Bureau
+		if ( $bbb != '' ) {
+			?><a href="<?php echo $bbb; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/bbb.png" alt="<?php echo $title; ?> on Better Business Bureau" title="<?php echo $title; ?> on Better Business Bureau" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Merchant Circle
+		if ( $merchantcircle != '' ) {
+			?><a href="<?php echo $merchantcircle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>images/<?php echo $icon_pack.'/'.$icon_size; ?>/merchantcircle.png" alt="<?php echo $title; ?> on Merchant Circle" title="<?php echo $title; ?> on Merchant Circle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Custom Icon 1
+		if ( $custom1url != '' && $custom1name != '' && $custom1icon != '' ) {
+			?><a href="<?php echo $custom1url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom1icon; ?>" alt="<?php echo $title; ?> on <?php echo $custom1name; ?>" title="<?php echo $title; ?> on <?php echo $custom1name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Custom Icon 2
+		if ( $custom2url != '' && $custom2name != '' && $custom2icon != '' ) {
+			?><a href="<?php echo $custom2url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom2icon; ?>" alt="<?php echo $title; ?> on <?php echo $custom2name; ?>" title="<?php echo $title; ?> on <?php echo $custom2name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Custom Icon 3
+		if ( $custom3url != '' && $custom3name != '' && $custom3icon != '' ) {
+			?><a href="<?php echo $custom3url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom3icon; ?>" alt="<?php echo $title; ?> on <?php echo $custom3name; ?>" title="<?php echo $title; ?> on <?php echo $custom3name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
 		}
 		
 		// RSS
@@ -318,7 +428,9 @@ class Social_Widget extends WP_Widget {
 		$instance['myspace'] = strip_tags( $new_instance['myspace'] );
 		$instance['friendfeed'] = strip_tags( $new_instance['friendfeed'] );
 		$instance['orkut'] = strip_tags( $new_instance['orkut'] );
+		$instance['hyves'] = strip_tags( $new_instance['hyves'] );
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
+		$instance['asmallworld'] = strip_tags( $new_instance['asmallworld'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['skype'] = strip_tags( $new_instance['skype'] );
@@ -326,6 +438,7 @@ class Social_Widget extends WP_Widget {
 		$instance['reddit'] = strip_tags( $new_instance['reddit'] );
 		$instance['delicious'] = strip_tags( $new_instance['delicious'] );
 		$instance['stumble'] = strip_tags( $new_instance['stumble'] );
+		$instance['tumblr'] = strip_tags( $new_instance['tumblr'] );
 		$instance['buzz'] = strip_tags( $new_instance['buzz'] );
 		$instance['vimeo'] = strip_tags( $new_instance['vimeo'] );
 		$instance['blogger'] = strip_tags( $new_instance['blogger'] );
@@ -334,8 +447,24 @@ class Social_Widget extends WP_Widget {
 		$instance['lastfm'] = strip_tags( $new_instance['lastfm'] );
 		$instance['foursquare'] = strip_tags( $new_instance['foursquare'] );
 		$instance['meetup'] = strip_tags( $new_instance['meetup'] );
+		$instance['tungle'] = strip_tags( $new_instance['tungle'] );
+		$instance['plancast'] = strip_tags( $new_instance['plancast'] );
+		$instance['slideshare'] = strip_tags( $new_instance['slideshare'] );
+		$instance['deviantart'] = strip_tags( $new_instance['deviantart'] );
 		$instance['digitaltunes'] = strip_tags( $new_instance['digitaltunes'] );
 		$instance['soundcloud'] = strip_tags( $new_instance['soundcloud'] );
+		$instance['etsy'] = strip_tags( $new_instance['etsy'] );
+		$instance['bbb'] = strip_tags( $new_instance['bbb'] );
+		$instance['merchantcircle'] = strip_tags( $new_instance['merchantcircle'] );
+		$instance['custom1name'] = strip_tags( $new_instance['custom1name'] );
+		$instance['custom1icon'] = strip_tags( $new_instance['custom1icon'] );
+		$instance['custom1url'] = strip_tags( $new_instance['custom1url'] );
+		$instance['custom2name'] = strip_tags( $new_instance['custom2name'] );
+		$instance['custom2icon'] = strip_tags( $new_instance['custom2icon'] );
+		$instance['custom3url'] = strip_tags( $new_instance['custom3url'] );
+		$instance['custom3name'] = strip_tags( $new_instance['custom3name'] );
+		$instance['custom3icon'] = strip_tags( $new_instance['custom3icon'] );
+		$instance['custom2url'] = strip_tags( $new_instance['custom2url'] );
 		$instance['rss_url'] = strip_tags( $new_instance['rss_url'] );
 		$instance['subscribe'] = strip_tags( $new_instance['subscribe'] );
 		$instance['icon_size'] = $new_instance['icon_size'];
@@ -363,7 +492,9 @@ class Social_Widget extends WP_Widget {
 			'myspace' => __('http://www.myspace.com/yourname', 'smw'),
 			'friendfeed' => __('http://www.friendfeed.com/yourname', 'smw'),
 			'orkut' => __('http://www.orkut.com/Main#Profile?uid=youruid', 'smw'),
+			'hyves' => __('http://yourname.hyves.nl', 'smw'),
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
+			'asmallworld' => __('', 'smw'),
 			'flickr' => __('http://www.flickr.com/photos/yourname', 'smw'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
 			'skype' => __('skype:yourusername?add', 'smw'),
@@ -371,6 +502,7 @@ class Social_Widget extends WP_Widget {
 			'reddit' => __('http://www.reddit.com/user/yourname', 'smw'),
 			'delicious' => __('http://delicious.com/yourname', 'smw'),
 			'stumble' => __('http://www.stumbleupon.com/stumbler/yourname', 'smw'),
+			'tumblr' => __('', 'smw'),
 			'buzz' => __('http://www.google.com/profiles/yourname#buzz', 'smw'),
 			'vimeo' => __('http://www.vimeo.com/yourname', 'smw'),
 			'blogger' => __('http://www.blogger.com/profile/youridnumber', 'smw'),
@@ -379,8 +511,24 @@ class Social_Widget extends WP_Widget {
 			'lastfm' => __('http://www.last.fm/user/yourname', 'smw'),
 			'foursquare' => __('http://foursquare.com/user/yourname', 'smw'),
 			'meetup' => __('http://www.meetup.com/your-group', 'smw'),
+			'tungle' => __('', 'smw'),
+			'plancast' => __('', 'smw'),
+			'slideshare' => __('', 'smw'),
+			'deviantart' => __('', 'smw'),
 			'digitaltunes' => __('http://www.digital-tunes.net/user_profile/yourname', 'smw'),
 			'soundcloud' => __('http://www.soundcloud.com/your-name', 'smw'),
+			'etsy' => __('', 'smw'),
+			'bbb' => __('', 'smw'),
+			'merchantcircle' => __('', 'smw'),
+			'custom1name' => __('', 'smw'),
+			'custom1icon' => __('', 'smw'),
+			'custom1url' => __('', 'smw'),
+			'custom2name' => __('', 'smw'),
+			'custom2icon' => __('', 'smw'),
+			'custom2url' => __('', 'smw'),
+			'custom3name' => __('', 'smw'),
+			'custom3icon' => __('', 'smw'),
+			'custom3url' => __('', 'smw'),
 			'rss_url' => __('http://www.yoursite.com/feed', 'smw'),
 			'icon_size' => 'default',
 			'icon_pack' => 'default',
@@ -430,10 +578,22 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'orkut' ); ?>" name="<?php echo $this->get_field_name( 'orkut' ); ?>" value="<?php echo $instance['orkut']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- Hyves URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'hyves' ); ?>"><?php _e('Hyves URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'hyves' ); ?>" name="<?php echo $this->get_field_name( 'hyves' ); ?>" value="<?php echo $instance['hyves']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- LinkedIn URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LinkedIn URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" value="<?php echo $instance['linkedin']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- aSmallWorld URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'asmallworld' ); ?>"><?php _e('aSmallWorld URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'asmallworld' ); ?>" name="<?php echo $this->get_field_name( 'asmallworld' ); ?>" value="<?php echo $instance['asmallworld']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Flickr URL: Text Input -->
@@ -477,8 +637,13 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'stumble' ); ?>"><?php _e('StumbleUpon URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'stumble' ); ?>" name="<?php echo $this->get_field_name( 'stumble' ); ?>" value="<?php echo $instance['stumble']; ?>" style="width:85%;" />
 		</p>
-		</div>
-		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
+		
+		<!-- Tumblr URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'tumblr' ); ?>"><?php _e('Tumblr URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'tumblr' ); ?>" name="<?php echo $this->get_field_name( 'tumblr' ); ?>" value="<?php echo $instance['tumblr']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- Buzz URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'buzz' ); ?>"><?php _e('Buzz URL:', 'smw'); ?></label>
@@ -521,11 +686,36 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'foursquare' ); ?>"><?php _e('Foursquare URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'foursquare' ); ?>" name="<?php echo $this->get_field_name( 'foursquare' ); ?>" value="<?php echo $instance['foursquare']; ?>" style="width:85%;" />
 		</p>
-		
+		</div>
+		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
 		<!-- Meetup URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'meetup' ); ?>"><?php _e('Meetup URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'meetup' ); ?>" name="<?php echo $this->get_field_name( 'meetup' ); ?>" value="<?php echo $instance['meetup']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Tungle.me URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'tungle' ); ?>"><?php _e('Tungle.me URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'tungle' ); ?>" name="<?php echo $this->get_field_name( 'tungle' ); ?>" value="<?php echo $instance['tungle']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- PlanCast URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'plancast' ); ?>"><?php _e('PlanCast URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'plancast' ); ?>" name="<?php echo $this->get_field_name( 'plancast' ); ?>" value="<?php echo $instance['plancast']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- SlideShare URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'slideshare' ); ?>"><?php _e('SlideShare URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'slideshare' ); ?>" name="<?php echo $this->get_field_name( 'slideshare' ); ?>" value="<?php echo $instance['slideshare']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- DeviantArt URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'deviantart' ); ?>"><?php _e('DeviantArt URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'deviantart' ); ?>" name="<?php echo $this->get_field_name( 'deviantart' ); ?>" value="<?php echo $instance['deviantart']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Digital Tunes URL: Text Input -->
@@ -534,9 +724,58 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'digitaltunes' ); ?>" name="<?php echo $this->get_field_name( 'digitaltunes' ); ?>" value="<?php echo $instance['digitaltunes']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- SoundCloud URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'soundcloud' ); ?>"><?php _e('Soundcloud URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'soundcloud' ); ?>" name="<?php echo $this->get_field_name( 'soundcloud' ); ?>" value="<?php echo $instance['soundcloud']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Etsy URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'etsy' ); ?>"><?php _e('Etsy URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'etsy' ); ?>" name="<?php echo $this->get_field_name( 'etsy' ); ?>" value="<?php echo $instance['etsy']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Better Business Bureau URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'bbb' ); ?>"><?php _e('Better Business Bureau URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'bbb' ); ?>" name="<?php echo $this->get_field_name( 'bbb' ); ?>" value="<?php echo $instance['bbb']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Merchant Circle URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'merchantcircle' ); ?>"><?php _e('Merchant Circle URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'merchantcircle' ); ?>" name="<?php echo $this->get_field_name( 'merchantcircle' ); ?>" value="<?php echo $instance['merchantcircle']; ?>" style="width:85%;" />
+		</p>
+		<p><em>Here you can input 3 custom icons. Make sure you input FULL urls to the icon (including http://). The images will resize both width and height to the icon size chosen.</em></p>
+		<!-- Custom Service 1: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'custom1name' ); ?>"><?php _e('Custom Service 1 Name:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom1name' ); ?>" name="<?php echo $this->get_field_name( 'custom1name' ); ?>" value="<?php echo $instance['custom1name']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom1icon' ); ?>"><?php _e('Custom Service 1 Icon URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom1icon' ); ?>" name="<?php echo $this->get_field_name( 'custom1icon' ); ?>" value="<?php echo $instance['custom1icon']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom1url' ); ?>"><?php _e('Custom Service 1 Profile URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom1url' ); ?>" name="<?php echo $this->get_field_name( 'custom1url' ); ?>" value="<?php echo $instance['custom1url']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Custom Service 2: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'custom2name' ); ?>"><?php _e('Custom Service 2 Name:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom2name' ); ?>" name="<?php echo $this->get_field_name( 'custom2name' ); ?>" value="<?php echo $instance['custom2name']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom2icon' ); ?>"><?php _e('Custom Service 2 Icon URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom2icon' ); ?>" name="<?php echo $this->get_field_name( 'custom2icon' ); ?>" value="<?php echo $instance['custom2icon']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom2url' ); ?>"><?php _e('Custom Service 2 Profile URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom2url' ); ?>" name="<?php echo $this->get_field_name( 'custom2url' ); ?>" value="<?php echo $instance['custom2url']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Custom Service 3: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'custom3name' ); ?>"><?php _e('Custom Service 3 Name:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom3name' ); ?>" name="<?php echo $this->get_field_name( 'custom3name' ); ?>" value="<?php echo $instance['custom3name']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom3icon' ); ?>"><?php _e('Custom Service 3 Icon URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom3icon' ); ?>" name="<?php echo $this->get_field_name( 'custom3icon' ); ?>" value="<?php echo $instance['custom3icon']; ?>" style="width:85%;" />
+			<label for="<?php echo $this->get_field_id( 'custom3url' ); ?>"><?php _e('Custom Service 3 Profile URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'custom3url' ); ?>" name="<?php echo $this->get_field_name( 'custom3url' ); ?>" value="<?php echo $instance['custom3url']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- RSS URL: Text Input -->
@@ -548,7 +787,7 @@ class Social_Widget extends WP_Widget {
 		
 		<!-- Subscribe URL: Text Input -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'subscribe' ); ?>"><?php _e('Subscription URL:', 'smw'); ?></label>
+			<label for="<?php echo $this->get_field_id( 'subscribe' ); ?>"><?php _e('E-mail URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'subscribe' ); ?>" name="<?php echo $this->get_field_name( 'subscribe' ); ?>" value="<?php echo $instance['subscribe'] ?>" style="width:85%;" />
 		</p>
 		
