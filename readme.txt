@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365
 Requires at least: 2.9.1
 Tested up to: 3.0.1
-Stable tag: 2.5
+Stable tag: 2.5.5
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -80,6 +80,8 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 
 * Choose whether or not to open links in a new tab (or browser window).
 
+* Align your widget left, center, or right.
+
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
 
 Please donate if you like this plugin.
@@ -130,6 +132,9 @@ Yes I can. Please go to my <a href="http://forums.idontlikethisgame.com/viewforu
 = Why aren't the animations working in Internet Explorer 6+ = 
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
 
+= Why aren't my icons aligning? =
+Check your style.css file. I'm sure you have something in there that is forcing alignment of your widgets. You'll have to modify that. If you don't know how to do CSS... Learn.
+
 = I can't find my {insert social media service} profile link! What is it? =
 While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
 
@@ -144,6 +149,10 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.5.5 = 
+
+* Added ability to align the widget left, right, or center.
+
 = 2.5 = 
 
 * Added 'custom' icon pack option. See FAQ for usage.

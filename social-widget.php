@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.5
+ * Version: 2.5.5
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -96,6 +96,7 @@ class Social_Widget extends WP_Widget {
 		$icon_opacity = $instance['icon_opacity'];
 		$newtab = $instance['newtab'];
 		$nofollow = $instance['nofollow'];
+		$alignment = $instance['alignment'];
 		$custom1icon = $instance['custom1icon'];
 		$custom2icon = $instance['custom2icon'];
 		$custom3icon = $instance['custom3icon'];
@@ -144,6 +145,15 @@ class Social_Widget extends WP_Widget {
 			$newtab = '';
 			}
 		
+		/* Set alignment */
+		if ($alignment == 'centered') {
+			$alignment = 'smw_center';
+			} elseif ($alignment == 'right') {
+				$alignment = 'smw_right';
+				} else {
+					$alignment = 'smw_left';
+				}
+				
 		/* Get Plugin Path */
 		$smw_path = SMW_PLUGINPATH;
 		
@@ -156,7 +166,7 @@ class Social_Widget extends WP_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 		
-		echo "<div class=\"socialmedia-buttons\">";
+		echo "<div class=\"socialmedia-buttons ".$alignment."\">";
 		/* Display linked images to profiles from widget settings if one was input. */
 		
 		// Facebook
@@ -527,6 +537,7 @@ class Social_Widget extends WP_Widget {
 		$instance['icon_opacity'] = $new_instance['icon_opacity'];
 		$instance['newtab'] = $new_instance['newtab'];
 		$instance['nofollow'] = $new_instance['nofollow'];
+		$instance['alignment'] = $new_instance['alignment'];
 		
 		return $instance;
 	}
@@ -599,7 +610,8 @@ class Social_Widget extends WP_Widget {
 			'icon_pack' => 'default',
 			'icon_opacity' => 'default',
 			'newtab' => 'yes',
-			'nofollow' => 'on');
+			'nofollow' => 'on',
+			'alignment' => 'left');
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
@@ -965,6 +977,17 @@ class Social_Widget extends WP_Widget {
 			<option value="no" <?php if($instance['newtab'] == 'no') { echo 'selected'; } ?>>No</option>
 			</select>
 		</p>
+		
+		<!-- Alignment: Dropdown -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'alignment' ); ?>"><?php _e('Icon Alignment', 'smw'); ?></label>
+			<select id="<?php echo $this->get_field_id( 'alignment' ); ?>" name="<?php echo $this->get_field_name( 'alignment' ); ?>">
+			<option value="left" <?php if($instance['alignment'] == 'left') { echo 'selected'; } ?>>Left</option>
+			<option value="centered" <?php if($instance['alignment'] == 'centered') { echo 'selected'; } ?>>Centered</option>
+			<option value="right" <?php if($instance['alignment'] == 'right') { echo 'selected'; } ?>>Right</option>
+			</select>
+		</p>
+		
 		</div>
 		<div style="clear: both;"></div>
 		<!-- Donate -->

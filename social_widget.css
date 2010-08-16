@@ -4,6 +4,18 @@
 	margin-top: 5px 0 0 0;
 }
 
+.smw_left {
+	text-align: left;
+}
+
+.smw_center {
+	text-align: center;
+}
+
+.smw_right {
+	text-align: right;
+}
+
 li.Social_Widget a {
 	padding: 0 !important;
 	margin: 0 !important;
