@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365
 Requires at least: 2.9.1
-Tested up to: 3.0
-Stable tag: 2.3.5
+Tested up to: 3.0.1
+Stable tag: 2.5.5
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -20,7 +20,9 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* MySpace
 	* FriendFeed
 	* Orkut
+	* Hyves
 	* LinkedIn
+	* aSmallWorld
 	* Flickr
 	* YouTube
 	* Skype
@@ -28,6 +30,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Reddit
 	* Delicious
 	* StumbleUpon
+	* Tumblr
 	* Buzz
 	* Vimeo
 	* Blogger
@@ -36,10 +39,19 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Last.fm
 	* FourSquare
 	* Meetup
+	* Tungle.me
+	* PlanCast
+	* SlideShare
+	* DeviantArt
+	* Live365
 	* Digital Tunes
 	* Soundcloud
+	* Etsy
+	* Better Business Bureau
+	* Merchant Circle
 	* RSS
 	* E-mail (mailto: or a link to mailing list service)
+	* Plus create 6 of your own using a URL to an icon and URL to the service
 	
 * Select from the following icon sizes:
 	* 16x16
@@ -51,6 +63,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Sketch - <a href="http://theg-force.deviantart.com">Social Icons Hand Drawn</a> by TheG-Force and <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed
 	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
+	* Custom - Upload your own icons into this folder on the filesystem. These will be unaltered via updates. Make sure you follow the same naming scheme as the other icons (facebook.png, twitter.png). You can look at the other icon packs if you are unsure about the naming. See the FAQ for more information.
 	* Note that some of the icons in the packs were created and added for this widget by myself. Not all of the requested social media sites were included so I attempted to create icons that mimicked the original artist icons. These are unattributed to myself. I keep attribution to the original artists since it is there design I modified.
 	* All icons in this pack are licensed under the Creative Commons license (which is why I'm allowed, by law, to use them). Note that some of these are non-commercial only. Please go to the sites linked above to get full information on their allowed uses.
 
@@ -61,10 +74,13 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Combo (All three)
 	* Note: Because these are all CSS3 style animations, IE6-7 aren't supported at all, although IE8 will support Scale. In IE6-8, icons will not be animated and use 100% opacity.
 
+* Create your own image alt/title tags for hover-over text (i.e. Follow Us On {service})
 	
 * Choose whether or not to use the rel="nofollow" tag in your links. (Recommended see http://en.wikipedia.org/wiki/Nofollow)
 
 * Choose whether or not to open links in a new tab (or browser window).
+
+* Align your widget left, center, or right.
 
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
 
@@ -85,6 +101,7 @@ Follow the steps below to upgrade.
 2. Overwrite all files in the social-media-widget folder within the /wp-content/plugins directory
 3. Enable the plugin
 4. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
+5. Note that newly added services will more than likely automatically generate URLs. You'll need to go in there and delete them
 
 
 == Screenshots ==
@@ -92,16 +109,31 @@ Follow the steps below to upgrade.
 2. Cutout icon pack
 3. Heart icon pack
 4. Sketch icon pack
-5. Top half of control panel
-6. Bottom half of control panel
+5. Top of widget control panel
+6. Middle of widget control panel
+7. Bottom of widget control panel
 
 == Frequently Asked Questions ==
 
+= How can I use my own custom icon pack = 
+Using your favorite sftp client, navigate to wp-content/plugins/social-media-widget/images/custom. Within this folder you'll see three more 16/32/64. 
+
+Depending on your icon size, toss your icons into one of those folders using the same naming scheme as the other icon packs (see the other packs for that information).
+
+From within the widget control panel, select custom as the icon pack, and whatever widget size you put the custom icons in.
+
+If you have any other question, please contact me via my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Support Forum</a>
+
+As a check, the plugin now ensures that the proper image file exists. If it doesn't nothing will be displayed. If you're not seeing your icon, make sure you have the image uploaded with the right file name (and in .png format), and make sure that the widget is calling to the correct icon size folder.
+
 = Can you add [insert social media service] support =
-Yes I can. Just e-mail me at <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or leave a comment at http://www.idontlikethisgame.com/updates/social-media-widget/.
+Yes I can. Please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and request it there!
 
 = Why aren't the animations working in Internet Explorer 6+ = 
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
+
+= Why aren't my icons aligning? =
+Check your style.css file. I'm sure you have something in there that is forcing alignment of your widgets. You'll have to modify that. If you don't know how to do CSS... Learn.
 
 = I can't find my {insert social media service} profile link! What is it? =
 While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
@@ -114,9 +146,28 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 
 == Help ==
 
-For help, you can send an e-mail to <a href="mailto:brifreytag@gmail.com">brifreytag_at_gmail.com</a> or get ahold of me via twitter at <a href="http://www.twitter.com/brianfreytag">@brianfreytag</a>
+For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.5.5 = 
+
+* Added ability to align the widget left, right, or center.
+
+= 2.5 = 
+
+* Added 'custom' icon pack option. See FAQ for usage.
+* Added 3 more custom icon fields for  custom services
+* Added ability to create the image alt/title tags so that it is not always {Widget Title} on {Service}.
+
+= 2.4.1 = 
+
+* Changed plugin uri to reflect change to a forum-based system. It became too jumbled a mess trying to sort through comments on multiple posts and e-mails.
+
+= 2.4 = 
+
+* Added support for 10 more services. See description to see what's added. Too many to list here.
+* Added support for 3 custom icons - Must include full URL to icon
+
 = 2.3.5 =
 
 * Added CSS3 animation transitions for Firefox 4. Going with x.x.5 since this is neither a bug fix (x.x.1), nor an all-out feature addition (x.1). 
