@@ -153,7 +153,6 @@ For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum
 * Changed the way that the custom icons worked. Turns out, when Wordpress upgrades a plugin, it completely removes the plugin folder and uploads it verbatim from the SVN package. Thus, all custom icons were lost. 
 * Added a text field to allow a brief description of the widget that appears before the icons as requested on my support forums.
 
-#Changed the way 
 = 2.5.5 = 
 
 * Added ability to align the widget left, right, or center.
