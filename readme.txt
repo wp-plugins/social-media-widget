@@ -4,7 +4,7 @@ Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365
 Requires at least: 2.9.1
 Tested up to: 3.0.1
-Stable tag: 2.5.5
+Stable tag: 2.6
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -63,7 +63,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Sketch - <a href="http://theg-force.deviantart.com">Social Icons Hand Drawn</a> by TheG-Force and <a href="http://www.jankoatwarpspeed.com/post/2008/10/20/handycons-a-free-hand-drawn-social-media-icon-set.aspx">Handycons</a> by Janko At Warp Speed
 	* Heart - <a href="http://thedesignsuperhero.com/2009/03/heart-v2-free-social-iconset-in-heart-shape/">Heart v2</a> by The Design Superhero
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
-	* Custom - Upload your own icons into this folder on the filesystem. These will be unaltered via updates. Make sure you follow the same naming scheme as the other icons (facebook.png, twitter.png). You can look at the other icon packs if you are unsure about the naming. See the FAQ for more information.
+	* Custom - These will be unaltered via updates. Make sure you follow the same naming scheme as the other icons (facebook.png, twitter.png). You can look at the other icon packs if you are unsure about the naming. See the FAQ for more information on usage.
 	* Note that some of the icons in the packs were created and added for this widget by myself. Not all of the requested social media sites were included so I attempted to create icons that mimicked the original artist icons. These are unattributed to myself. I keep attribution to the original artists since it is there design I modified.
 	* All icons in this pack are licensed under the Creative Commons license (which is why I'm allowed, by law, to use them). Note that some of these are non-commercial only. Please go to the sites linked above to get full information on their allowed uses.
 
@@ -95,15 +95,6 @@ Follow the steps below to install the plugin.
 3. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
 
 
-Follow the steps below to upgrade.
-
-1. Disable the plugin
-2. Overwrite all files in the social-media-widget folder within the /wp-content/plugins directory
-3. Enable the plugin
-4. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
-5. Note that newly added services will more than likely automatically generate URLs. You'll need to go in there and delete them
-
-
 == Screenshots ==
 1. Web 2.0 icon pack
 2. Cutout icon pack
@@ -115,22 +106,30 @@ Follow the steps below to upgrade.
 
 == Frequently Asked Questions ==
 
-= How can I use my own custom icon pack = 
-Using your favorite sftp client, navigate to wp-content/plugins/social-media-widget/images/custom. Within this folder you'll see three more 16/32/64. 
+= How can I use my own custom icon pack? = 
 
-Depending on your icon size, toss your icons into one of those folders using the same naming scheme as the other icon packs (see the other packs for that information).
+1. Create a folder on the filesystem that is publicly accessible via the interwebs. I suggest putting it in your wp-content folder and name it 'icons'
+2. Upload your icons into that folder. It'll probably be a good idea if they are all the same size.
+3. Go to the Widget Control Panel (Admin -> Appearance -> Widgets)
+4. Select "Custom Icons" as the Icon Pack
+5. Enter the URL to the icon pack folder (http://www.yoursite.com/blog/wp-content/icons)
+6. Enter the FULL PATH to the icon pack folder (/var/www/html/yoursite/blog/wp-content/icons)
+7. Click Save
+8. Check out your site.
 
-From within the widget control panel, select custom as the icon pack, and whatever widget size you put the custom icons in.
+Your custom icon pack should be there and should be safe from upgrades.
 
-If you have any other question, please contact me via my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Support Forum</a>
+NOTE: IN ORDER FOR IT TO BE SAFE FROM UPGRADES, DO NOT UPLOAD THE ICONS INTO THE SOCIAL-MEDIA-WIDGET FOLDER! During upgrades, this folder is completely deleted, thus, you lose all of the icons.
 
-As a check, the plugin now ensures that the proper image file exists. If it doesn't nothing will be displayed. If you're not seeing your icon, make sure you have the image uploaded with the right file name (and in .png format), and make sure that the widget is calling to the correct icon size folder.
+You can also upload the icons individually through Wordpress. These will be uploaded to your /wp-content/uploads/year/month/ folder by default. Use this as a starting point for your custom icon pack URL and Path
+
+If you don't understand what it means to create a folder and upload to that folder on the filesystem, or if you don't know what a path to a folder is, I would suggest sticking with one of the four default icon packs.
 
 = Can you add [insert social media service] support =
 Yes I can. Please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and request it there!
 
 = Why aren't the animations working in Internet Explorer 6+ = 
-The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, though Firefox is fully supported without transition animations.
+The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari or Firefox 4. Firefox 3.x is fully supported, without CSS3 transition animations.
 
 = Why aren't my icons aligning? =
 Check your style.css file. I'm sure you have something in there that is forcing alignment of your widgets. You'll have to modify that. If you don't know how to do CSS... Learn.
@@ -149,6 +148,12 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.6 = 
+
+* Changed the way that the custom icons worked. Turns out, when Wordpress upgrades a plugin, it completely removes the plugin folder and uploads it verbatim from the SVN package. Thus, all custom icons were lost. 
+* Added a text field to allow a brief description of the widget that appears before the icons as requested on my support forums.
+
+#Changed the way 
 = 2.5.5 = 
 
 * Added ability to align the widget left, right, or center.
