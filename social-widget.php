@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.6
+ * Version: 2.8
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -63,6 +63,7 @@ class Social_Widget extends WP_Widget {
 		$linkedin = $instance['linkedin'];
 		$asmallworld = $instance['asmallworld'];
 		$flickr = $instance['flickr'];
+		$picasa = $instance['picasa'];
 		$youtube = $instance['youtube'];
 		$skype = $instance['skype'];
 		$digg = $instance['digg'];
@@ -82,6 +83,7 @@ class Social_Widget extends WP_Widget {
 		$plancast = $instance['plancast'];
 		$slideshare = $instance['slideshare'];
 		$deviantart = $instance['deviantart'];
+		$ping = $instance['ping'];
 		$live365 = $instance['live365'];
 		$digitaltunes = $instance['digitaltunes'];
 		$soundcloud = $instance['soundcloud'];
@@ -183,14 +185,14 @@ class Social_Widget extends WP_Widget {
 		/* Display linked images to profiles from widget settings if one was input. */
 		
 		// Facebook
-		if ( $facebook != '' && file_exists($smw_dir.'/facebook.png')) {
+		if ( $facebook != '' && $facebook != ' ' && file_exists($smw_dir.'/facebook.png')) {
 			?><a href="<?php echo $facebook; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/facebook.png" alt="<?php echo $imgcaption; ?> Facebook" title="<?php echo $imgcaption ?> Facebook" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Twitter
-		if ( $twitter != '' && file_exists($smw_dir.'/twitter.png')) {
+		if ( $twitter != '' && $twitter != ' ' && file_exists($smw_dir.'/twitter.png')) {
 			?><a href="<?php echo $twitter; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/twitter.png" alt="<?php echo $imgcaption; ?> Twitter"title="<?php echo $imgcaption; ?> Twitter" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
@@ -198,224 +200,238 @@ class Social_Widget extends WP_Widget {
 
 		
 		// MySpace
-		if ( $myspace != '' && file_exists($smw_dir.'/myspace.png')) {
+		if ( $myspace != '' && $myspace != ' ' && file_exists($smw_dir.'/myspace.png')) {
 			?><a href="<?php echo $myspace; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/myspace.png"alt="<?php echo $imgcaption; ?> MySpace"title="<?php echo $imgcaption; ?> MySpace" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// FriendFeed
-		if ( $friendfeed != '' && file_exists($smw_dir.'/friendfeed.png')) {
+		if ( $friendfeed != '' && $friendfeed != ' ' && file_exists($smw_dir.'/friendfeed.png')) {
 			?><a href="<?php echo $friendfeed; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/friendfeed.png"alt="<?php echo $imgcaption; ?> FriendFeed"title="<?php echo $imgcaption; ?> FriendFeed" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>"" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Orkut
-		if ( $orkut != '' && file_exists($smw_dir.'/orkut.png')) {
+		if ( $orkut != '' && $orkut != ' ' && file_exists($smw_dir.'/orkut.png')) {
 			?><a href="<?php echo $orkut; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/orkut.png"alt="<?php echo $imgcaption; ?> Orkut"title="<?php echo $imgcaption; ?> Orkut" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Hyves
-		if ( $hyves != '' && file_exists($smw_dir.'/hyves.png')) {
+		if ( $hyves != '' && $hyves != ' ' && file_exists($smw_dir.'/hyves.png')) {
 			?><a href="<?php echo $hyves; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/hyves.png"alt="<?php echo $imgcaption; ?> Hyves"title="<?php echo $imgcaption; ?> Hyves" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// LinkedIN
-		if ( $linkedin != '' && file_exists($smw_dir.'/linkedin.png')) {
+		if ( $linkedin != '' && $linkedin != ' ' && file_exists($smw_dir.'/linkedin.png')) {
 			?><a href="<?php echo $linkedin; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/linkedin.png"alt="<?php echo $imgcaption; ?> LinkedIn"title="<?php echo $imgcaption; ?> LinkedIn" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// aSmallWorld
-		if ( $asmallworld != '' && file_exists($smw_dir.'/asmallworld.png')) {
+		if ( $asmallworld != '' && $asmallworld != ' ' && file_exists($smw_dir.'/asmallworld.png')) {
 			?><a href="<?php echo $asmallworld; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/asmallworld.png"alt="<?php echo $imgcaption; ?> aSmallWorld"title="<?php echo $imgcaption; ?> aSmallWorld" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Flickr
-		if ( $flickr != '' && file_exists($smw_dir.'/flickr.png')) {
+		if ( $flickr != '' && $flickr != ' ' && file_exists($smw_dir.'/flickr.png')) {
 			?><a href="<?php echo $flickr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/flickr.png" alt="<?php echo $imgcaption; ?> Flickr"title="<?php echo $imgcaption; ?> Flickr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
+		// Picasa
+		if ( $picasa != '' && $picasa != ' ' && file_exists($smw_dir.'/picasa.png')) {
+			?><a href="<?php echo $picasa; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/picasa.png" alt="<?php echo $imgcaption; ?> Picasa"title="<?php echo $imgcaption; ?> Picasa" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
 		// YouTube
-		if ( $youtube != '' && file_exists($smw_dir.'/youtube.png')) {
+		if ( $youtube != '' && $youtube != ' ' && file_exists($smw_dir.'/youtube.png')) {
 			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/youtube.png"alt="<?php echo $imgcaption; ?> YouTube"title="<?php echo $imgcaption; ?> YouTube" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Skype
-		if ( $skype != '' && file_exists($smw_dir.'/skype.png')) {
+		if ( $skype != '' && $skype != ' ' && file_exists($smw_dir.'/skype.png')) {
 			?><a href="<?php echo $skype; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/skype.png"alt="<?php echo $imgcaption; ?> Skype"title="<?php echo $imgcaption; ?> Skype" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Digg
-		if ( $digg != '' && file_exists($smw_dir.'/digg.png')) {
+		if ( $digg != '' && $digg != ' ' && file_exists($smw_dir.'/digg.png')) {
 			?><a href="<?php echo $digg; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digg.png"alt="<?php echo $imgcaption; ?> Digg"title="<?php echo $imgcaption; ?> Digg" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Reddit 
-		if ( $reddit != '' && file_exists($smw_dir.'/reddit.png')) {
+		if ( $reddit != '' && $reddit != ' ' && file_exists($smw_dir.'/reddit.png')) {
 			?><a href="<?php echo $reddit; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/reddit.png"alt="<?php echo $imgcaption; ?> Reddit"title="<?php echo $imgcaption; ?> Reddit" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Delicious 
-		if ( $delicious != '' && file_exists($smw_dir.'/delicious.png')) {
+		if ( $delicious != '' && $delicious != ' ' && file_exists($smw_dir.'/delicious.png')) {
 			?><a href="<?php echo $delicious; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/delicious.png"alt="<?php echo $imgcaption; ?> Delicious"title="<?php echo $imgcaption; ?> Delicious" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// StumbleUpon 
-		if ( $stumble != '' && file_exists($smw_dir.'/stumble.png')) {
+		if ( $stumble != '' && $stumble != ' ' && file_exists($smw_dir.'/stumble.png')) {
 			?><a href="<?php echo $stumble; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/stumble.png"alt="<?php echo $imgcaption; ?> StumbleUpon"title="<?php echo $imgcaption; ?> StumbleUpon" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Tumblr 
-		if ( $tumblr != '' && file_exists($smw_dir.'/tumblr.png')) {
+		if ( $tumblr != '' && $tumblr != ' ' && file_exists($smw_dir.'/tumblr.png')) {
 			?><a href="<?php echo $tumblr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/tumblr.png"alt="<?php echo $imgcaption; ?> Tumblr"title="<?php echo $imgcaption; ?> Tumblr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Google Buzz
-		if ( $buzz != '' && file_exists($smw_dir.'/buzz.png')) {
+		if ( $buzz != '' && $buzz != ' ' && file_exists($smw_dir.'/buzz.png')) {
 			?><a href="<?php echo $buzz; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/buzz.png"alt="<?php echo $imgcaption; ?> Buzz"title="<?php echo $imgcaption; ?> Buzz" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Vimeo
-		if ( $vimeo != '' && file_exists($smw_dir.'/vimeo.png')) {
+		if ( $vimeo != '' && $vimeo != ' ' && file_exists($smw_dir.'/vimeo.png')) {
 			?><a href="<?php echo $vimeo; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/vimeo.png"alt="<?php echo $imgcaption; ?> Vimeo"title="<?php echo $imgcaption; ?> Vimeo" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Blogger
-		if ( $blogger != '' && file_exists($smw_dir.'/blogger.png')) {
+		if ( $blogger != '' && $blogger != ' ' && file_exists($smw_dir.'/blogger.png')) {
 			?><a href="<?php echo $blogger; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/blogger.png"alt="<?php echo $imgcaption; ?> Blogger"title="<?php echo $imgcaption; ?> Blogger" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Wordpress
-		if ( $wordpress != '' && file_exists($smw_dir.'/wordpress.png')) {
+		if ( $wordpress != '' && $wordpress != ' ' && file_exists($smw_dir.'/wordpress.png')) {
 			?><a href="<?php echo $wordpress; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/wordpress.png"alt="<?php echo $imgcaption; ?> Wordpress"title="<?php echo $imgcaption; ?> Wordpress" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Yelp
-		if ( $yelp != '' && file_exists($smw_dir.'/yelp.png')) {
+		if ( $yelp != '' && $yelp != ' ' && file_exists($smw_dir.'/yelp.png')) {
 			?><a href="<?php echo $yelp; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/yelp.png"alt="<?php echo $imgcaption; ?> Yelp"title="<?php echo $imgcaption; ?> Yelp" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 
 		// Last.fm
-		if ( $lastfm != '' && file_exists($smw_dir.'/lastfm.png')) {
+		if ( $lastfm != '' && $lastfm != ' ' && file_exists($smw_dir.'/lastfm.png')) {
 			?><a href="<?php echo $lastfm; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/lastfm.png"alt="<?php echo $imgcaption; ?> Last.fm"title="<?php echo $imgcaption; ?> Last.fm" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Foursquare
-		if ( $foursquare != '' && file_exists($smw_dir.'/foursquare.png')) {
+		if ( $foursquare != '' && $foursquare != ' ' && file_exists($smw_dir.'/foursquare.png')) {
 			?><a href="<?php echo $foursquare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/foursquare.png"alt="<?php echo $imgcaption; ?> Foursquare"title="<?php echo $imgcaption; ?> Foursquare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Meetup
-		if ( $meetup != '' && file_exists($smw_dir.'/meetup.png')) {
+		if ( $meetup != '' && $meetup != ' ' && file_exists($smw_dir.'/meetup.png')) {
 			?><a href="<?php echo $meetup; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/meetup.png"alt="<?php echo $imgcaption; ?> Meetup"title="<?php echo $imgcaption; ?> Meetup" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Tungle.me
-		if ( $tungle != '' && file_exists($smw_dir.'/tungle.png')) {
+		if ( $tungle != '' && $tungle != ' ' && file_exists($smw_dir.'/tungle.png')) {
 			?><a href="<?php echo $tungle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/tungle.png"alt="<?php echo $imgcaption; ?> Tungle"title="<?php echo $imgcaption; ?> Tungle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// PlanCast
-		if ( $plancast != '' && file_exists($smw_dir.'/plancast.png')) {
+		if ( $plancast != '' && $plancast != ' ' && file_exists($smw_dir.'/plancast.png')) {
 			?><a href="<?php echo $plancast; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/plancast.png"alt="<?php echo $imgcaption; ?> PlanCast"title="<?php echo $imgcaption; ?> PlanCast" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Hyves
-		if ( $slideshare != '' && file_exists($smw_dir.'/slideshare.png')) {
+		if ( $slideshare != '' && $slideshare != ' ' && file_exists($smw_dir.'/slideshare.png')) {
 			?><a href="<?php echo $slideshare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/slideshare.png"alt="<?php echo $imgcaption; ?> SlideShare"title="<?php echo $imgcaption; ?> SlideShare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// DeviantArt
-		if ( $deviantart != '' && file_exists($smw_dir.'/deviantart.png')) {
+		if ( $deviantart != '' && $deviantart != ' ' && file_exists($smw_dir.'/deviantart.png')) {
 			?><a href="<?php echo $deviantart; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/deviantart.png"alt="<?php echo $imgcaption; ?> DeviantArt"title="<?php echo $imgcaption; ?> DeviantArt" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
+		// iTunes Ping
+		if ( $ping != '' && $ping != ' ' && file_exists($smw_dir.'/ping.png')) {
+			?><a href="<?php echo $ping; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/ping.png"alt="<?php echo $imgcaption; ?> iTunes Ping"title="<?php echo $imgcaption; ?> iTunes Ping" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
 		// Live365
-		if ( $live365 != '' && file_exists($smw_dir.'/live365.png')) {
+		if ( $live365 != '' && $live365 != ' ' && file_exists($smw_dir.'/live365.png')) {
 			?><a href="<?php echo $live365; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/live365.png"alt="<?php echo $imgcaption; ?> Live365"title="<?php echo $imgcaption; ?> Live365" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Digital Tunes
-		if ( $digitaltunes != '' && file_exists($smw_dir.'/digitaltunes.png')) {
+		if ( $digitaltunes != '' && $digitaltunes != ' ' && file_exists($smw_dir.'/digitaltunes.png')) {
 			?><a href="<?php echo $digitaltunes; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digitaltunes.png"alt="<?php echo $imgcaption; ?> Digital Tunes"title="<?php echo $imgcaption; ?> Digital Tunes" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Soundcloud
-		if ( $soundcloud != '' && file_exists($smw_dir.'/soundcloud.png')) {
+		if ( $soundcloud != '' && $soundcloud != ' ' && file_exists($smw_dir.'/soundcloud.png')) {
 			?><a href="<?php echo $soundcloud; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/soundcloud.png"alt="<?php echo $imgcaption; ?> Soundcloud"title="<?php echo $imgcaption; ?> Soundcloud" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Etsy
-		if ( $etsy != '' && file_exists($smw_dir.'/etsy.png')) {
+		if ( $etsy != '' && $etsy != ' ' &&  file_exists($smw_dir.'/etsy.png')) {
 			?><a href="<?php echo $etsy; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/etsy.png"alt="<?php echo $imgcaption; ?> Etsy"title="<?php echo $imgcaption; ?> Etsy" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Better Business Bureau
-		if ( $bbb != '' && file_exists($smw_dir.'/bbb.png')) {
+		if ( $bbb != '' && $bbb != ' ' && file_exists($smw_dir.'/bbb.png')) {
 			?><a href="<?php echo $bbb; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/bbb.png"alt="<?php echo $imgcaption; ?> Better Business Bureau"title="<?php echo $imgcaption; ?> Better Business Bureau" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Merchant Circle
-		if ( $merchantcircle != '' && file_exists($smw_dir.'/merchantcircle.png')) {
+		if ( $merchantcircle != '' && $merchantcircle != ' ' && file_exists($smw_dir.'/merchantcircle.png')) {
 			?><a href="<?php echo $merchantcircle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/merchantcircle.png"alt="<?php echo $imgcaption; ?> Merchant Circle"title="<?php echo $imgcaption; ?> Merchant Circle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
@@ -464,14 +480,14 @@ class Social_Widget extends WP_Widget {
 		}
 		
 		// RSS
-		if ( $rss != '' && file_exists($smw_dir.'/rss.png')) {
+		if ( $rss != '' && $rss != ' ' && file_exists($smw_dir.'/rss.png')) {
 			?><a href="<?php echo $rss; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/rss.png" alt="<?php echo $imgcaption ?> RSS" title="<?php echo $imgcaption ?> RSS" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo '';// If no URL Inputed
 		}
 		
 		// E-mail Subscription -- If Newsletter or Mailing List available
-		if ( $subscribe != '' && file_exists($smw_dir.'/email.png')) {
+		if ( $subscribe != '' && $subscribe != ' ' && file_exists($smw_dir.'/email.png')) {
 			?><a href="<?php echo $subscribe; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/email.png" alt="<?php echo $imgcaption ?> E-mail" title="<?php echo $imgcaption ?> E-mail" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; // If no URL Inputed
@@ -503,6 +519,7 @@ class Social_Widget extends WP_Widget {
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['asmallworld'] = strip_tags( $new_instance['asmallworld'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
+		$instance['picasa'] = strip_tags( $new_instance['picasa'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['skype'] = strip_tags( $new_instance['skype'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
@@ -522,6 +539,7 @@ class Social_Widget extends WP_Widget {
 		$instance['plancast'] = strip_tags( $new_instance['plancast'] );
 		$instance['slideshare'] = strip_tags( $new_instance['slideshare'] );
 		$instance['deviantart'] = strip_tags( $new_instance['deviantart'] );
+		$instance['ping'] = strip_tags( $new_instance['ping'] );
 		$instance['live365'] = strip_tags( $new_instance['live365'] );
 		$instance['digitaltunes'] = strip_tags( $new_instance['digitaltunes'] );
 		$instance['soundcloud'] = strip_tags( $new_instance['soundcloud'] );
@@ -582,6 +600,7 @@ class Social_Widget extends WP_Widget {
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
 			'asmallworld' => __('', 'smw'),
 			'flickr' => __('http://www.flickr.com/photos/yourname', 'smw'),
+			'picasa' => __('http://picasaweb.google.com/yourname', 'smw'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
 			'skype' => __('skype:yourusername?add', 'smw'),
 			'digg' => __('http://www.digg.com/users/yourname', 'smw'),
@@ -601,6 +620,7 @@ class Social_Widget extends WP_Widget {
 			'plancast' => __('', 'smw'),
 			'slideshare' => __('http://www.slideshare.net/nolimit2it/yourname', 'smw'),
 			'deviantart' => __('http://yourname.deviantart.com/', 'smw'),
+			'ping' => __('http://c.itunes.apple.com/WebObjects/MZConnections.woa/wa/viewProfile?userId=youruserid'),
 			'live365' => __('', 'smw'),
 			'digitaltunes' => __('http://www.digital-tunes.net/user_profile/yourname', 'smw'),
 			'soundcloud' => __('http://www.soundcloud.com/your-name', 'smw'),
@@ -713,6 +733,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'flickr' ); ?>" name="<?php echo $this->get_field_name( 'flickr' ); ?>" value="<?php echo $instance['flickr']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- Picasa URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'picasa' ); ?>"><?php _e('Picasa Web URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'picasa' ); ?>" name="<?php echo $this->get_field_name( 'picasa' ); ?>" value="<?php echo $instance['picasa']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- YouTube URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e('YouTube URL:', 'smw'); ?></label>
@@ -815,8 +841,7 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'plancast' ); ?>"><?php _e('PlanCast URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'plancast' ); ?>" name="<?php echo $this->get_field_name( 'plancast' ); ?>" value="<?php echo $instance['plancast']; ?>" style="width:85%;" />
 		</p>
-		</div>
-		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
+		
 		<!-- SlideShare URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'slideshare' ); ?>"><?php _e('SlideShare URL:', 'smw'); ?></label>
@@ -827,6 +852,13 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'deviantart' ); ?>"><?php _e('DeviantArt URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'deviantart' ); ?>" name="<?php echo $this->get_field_name( 'deviantart' ); ?>" value="<?php echo $instance['deviantart']; ?>" style="width:85%;" />
+		</p>
+		</div>
+		<div style="width: 48%; float: right; border-left: 1px solid #000; padding-left: 20px;">
+		<!-- iTunes Ping URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'ping' ); ?>"><?php _e('iTunes Ping URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'ping' ); ?>" name="<?php echo $this->get_field_name( 'ping' ); ?>" value="<?php echo $instance['ping']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Live365 URL: Text Input -->

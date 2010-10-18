@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: Brian Freytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes
 Requires at least: 2.9.1
 Tested up to: 3.0.1
-Stable tag: 2.6
+Stable tag: 2.8
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -24,6 +24,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* LinkedIn
 	* aSmallWorld
 	* Flickr
+	* Picasa Web Albums
 	* YouTube
 	* Skype
 	* Digg
@@ -43,6 +44,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* PlanCast
 	* SlideShare
 	* DeviantArt
+	* iTunes Ping
 	* Live365
 	* Digital Tunes
 	* Soundcloud
@@ -90,10 +92,9 @@ Please donate if you like this plugin.
 
 Follow the steps below to install the plugin.
 
-1. Upload the social-media-widget folder and all contents to the /wp-content/plugins/ directory
+1. Upload the social-media-widget folder and all contents to /wp-content/plugins
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Appearance->Widgets and activate the widget (Social Widget), set options and click save
-
 
 == Screenshots ==
 1. Web 2.0 icon pack
@@ -137,6 +138,8 @@ Check your style.css file. I'm sure you have something in there that is forcing 
 = I can't find my {insert social media service} profile link! What is it? =
 While I attempt to provide you with the most logical guide to start with as default values in the control panel (e.g. http://www.twitter.com/yourname where you just replace yourname), not all of these services follow the same profile links that I provided. In some cases, you need to customize your "public link" such as in Yelp, and LinkedIn to use the default urls that I provide. If you don't know your public profile, I will have a very hard time figuring it out for you. The easiest way to figure it out is to log in to your social media site, and find a button that says, "View Profile." This is more often than not the profile URL you should input. This is the method I used in adding the default URLs. Also note that I don't use all of these social media sites. I just created accounts quickly to find a likely default URL. They could be wrong.
 
+Getting your iTunes Ping account information is slightly more difficult. You need to load up your Ping profile within iTunes then right click on your name and select "Copy Link." Input this into the iTunes Ping option in the Social Media Widget. When the user clicks it, it will prompt the user to open up iTunes. This will then take them directly to your iTunes Ping account in iTunes.
+
 = The icons aren't showing up - They are just showing the alt text! =
 There is probably a compatibility issue with another plugin. These things happen. Because there are thousands of plugins from thousands of developers, all who develop in completely different ways, there are going to be issues that arise from time-to-time. These are more prevalent, however, from plugins that make system-wide changes (such as SEO Packs). Try disabling, one at a time, the other plugins until you find that one that is breaking my widget. Then e-mail me and tell me which plugin it was. I will then try to fix it. Unless I know what plugin is breaking it, I won't be able to fix it, ya see? There have also been issues with moved wp-content folders or custom WP_CONTENT_URL's that caused the images to break. This issue has been resolved since 2.3.
 
@@ -148,6 +151,15 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.8 = 
+
+* Added Google Picasa Web Albums support
+
+= 2.7 = 
+
+* Added iTunes Ping support
+* Corrected issue where when the input box is empty, save a space, the icons still appear.
+
 = 2.6 = 
 
 * Changed the way that the custom icons worked. Turns out, when Wordpress upgrades a plugin, it completely removes the plugin folder and uploads it verbatim from the SVN package. Thus, all custom icons were lost. 
