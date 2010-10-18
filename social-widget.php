@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.7
+ * Version: 2.8
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -63,6 +63,7 @@ class Social_Widget extends WP_Widget {
 		$linkedin = $instance['linkedin'];
 		$asmallworld = $instance['asmallworld'];
 		$flickr = $instance['flickr'];
+		$picasa = $instance['picasa'];
 		$youtube = $instance['youtube'];
 		$skype = $instance['skype'];
 		$digg = $instance['digg'];
@@ -243,6 +244,13 @@ class Social_Widget extends WP_Widget {
 		// Flickr
 		if ( $flickr != '' && $flickr != ' ' && file_exists($smw_dir.'/flickr.png')) {
 			?><a href="<?php echo $flickr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/flickr.png" alt="<?php echo $imgcaption; ?> Flickr"title="<?php echo $imgcaption; ?> Flickr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Picasa
+		if ( $picasa != '' && $picasa != ' ' && file_exists($smw_dir.'/picasa.png')) {
+			?><a href="<?php echo $picasa; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/picasa.png" alt="<?php echo $imgcaption; ?> Picasa"title="<?php echo $imgcaption; ?> Picasa" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -511,6 +519,7 @@ class Social_Widget extends WP_Widget {
 		$instance['linkedin'] = strip_tags( $new_instance['linkedin'] );
 		$instance['asmallworld'] = strip_tags( $new_instance['asmallworld'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
+		$instance['picasa'] = strip_tags( $new_instance['picasa'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['skype'] = strip_tags( $new_instance['skype'] );
 		$instance['digg'] = strip_tags( $new_instance['digg'] );
@@ -591,6 +600,7 @@ class Social_Widget extends WP_Widget {
 			'linkedin' => __('http://www.linkedin.com/in/yourname', 'smw'),
 			'asmallworld' => __('', 'smw'),
 			'flickr' => __('http://www.flickr.com/photos/yourname', 'smw'),
+			'picasa' => __('http://picasaweb.google.com/yourname', 'smw'),
 			'youtube' => __('http://www.youtube.com/user/yourname', 'smw'),
 			'skype' => __('skype:yourusername?add', 'smw'),
 			'digg' => __('http://www.digg.com/users/yourname', 'smw'),
@@ -721,6 +731,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'flickr' ); ?>"><?php _e('Flickr URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'flickr' ); ?>" name="<?php echo $this->get_field_name( 'flickr' ); ?>" value="<?php echo $instance['flickr']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Picasa URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'picasa' ); ?>"><?php _e('Picasa Web URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'picasa' ); ?>" name="<?php echo $this->get_field_name( 'picasa' ); ?>" value="<?php echo $instance['picasa']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- YouTube URL: Text Input -->
