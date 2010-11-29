@@ -1,10 +1,10 @@
 === Social Media Widget ===
-Contributors: Brian Freytag
+Contributors: brianfreytag
 Donate link: http://www.idontlikethisgame.com/code/donate/
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa
 Requires at least: 2.9.1
 Tested up to: 3.0.1
-Stable tag: 2.8.1
+Stable tag: 2.8.2
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -151,6 +151,10 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.8.2 =
+
+* A quick fix to attempt to resolve some validation issues in my code.
+
 = 2.8.1 = 
 
 * People were getting a 404 Error when trying to upgrade. I'm going to push out this unedited revision to see if it checks in properly this time.
