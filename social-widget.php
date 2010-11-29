@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.8.1
+ * Version: 2.8.2
  * Author: Brian Freytag
  * Author URI: http://www.idontlikethisgame.com/
  **/
@@ -193,7 +193,7 @@ class Social_Widget extends WP_Widget {
 		
 		// Twitter
 		if ( $twitter != '' && $twitter != ' ' && file_exists($smw_dir.'/twitter.png')) {
-			?><a href="<?php echo $twitter; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/twitter.png" alt="<?php echo $imgcaption; ?> Twitter"title="<?php echo $imgcaption; ?> Twitter" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $twitter; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/twitter.png" alt="<?php echo $imgcaption; ?> Twitter" title="<?php echo $imgcaption; ?> Twitter" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -201,280 +201,280 @@ class Social_Widget extends WP_Widget {
 		
 		// MySpace
 		if ( $myspace != '' && $myspace != ' ' && file_exists($smw_dir.'/myspace.png')) {
-			?><a href="<?php echo $myspace; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/myspace.png"alt="<?php echo $imgcaption; ?> MySpace"title="<?php echo $imgcaption; ?> MySpace" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $myspace; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/myspace.png" alt="<?php echo $imgcaption; ?> MySpace" title="<?php echo $imgcaption; ?> MySpace" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// FriendFeed
 		if ( $friendfeed != '' && $friendfeed != ' ' && file_exists($smw_dir.'/friendfeed.png')) {
-			?><a href="<?php echo $friendfeed; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/friendfeed.png"alt="<?php echo $imgcaption; ?> FriendFeed"title="<?php echo $imgcaption; ?> FriendFeed" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>"" /></a><?php
+			?><a href="<?php echo $friendfeed; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/friendfeed.png" alt="<?php echo $imgcaption; ?> FriendFeed" title="<?php echo $imgcaption; ?> FriendFeed" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>"" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Orkut
 		if ( $orkut != '' && $orkut != ' ' && file_exists($smw_dir.'/orkut.png')) {
-			?><a href="<?php echo $orkut; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/orkut.png"alt="<?php echo $imgcaption; ?> Orkut"title="<?php echo $imgcaption; ?> Orkut" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $orkut; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/orkut.png" alt="<?php echo $imgcaption; ?> Orkut" title="<?php echo $imgcaption; ?> Orkut" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Hyves
 		if ( $hyves != '' && $hyves != ' ' && file_exists($smw_dir.'/hyves.png')) {
-			?><a href="<?php echo $hyves; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/hyves.png"alt="<?php echo $imgcaption; ?> Hyves"title="<?php echo $imgcaption; ?> Hyves" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $hyves; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/hyves.png" alt="<?php echo $imgcaption; ?> Hyves" title="<?php echo $imgcaption; ?> Hyves" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// LinkedIN
 		if ( $linkedin != '' && $linkedin != ' ' && file_exists($smw_dir.'/linkedin.png')) {
-			?><a href="<?php echo $linkedin; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/linkedin.png"alt="<?php echo $imgcaption; ?> LinkedIn"title="<?php echo $imgcaption; ?> LinkedIn" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $linkedin; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/linkedin.png" alt="<?php echo $imgcaption; ?> LinkedIn" title="<?php echo $imgcaption; ?> LinkedIn" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// aSmallWorld
 		if ( $asmallworld != '' && $asmallworld != ' ' && file_exists($smw_dir.'/asmallworld.png')) {
-			?><a href="<?php echo $asmallworld; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/asmallworld.png"alt="<?php echo $imgcaption; ?> aSmallWorld"title="<?php echo $imgcaption; ?> aSmallWorld" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $asmallworld; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/asmallworld.png" alt="<?php echo $imgcaption; ?> aSmallWorld" title="<?php echo $imgcaption; ?> aSmallWorld" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Flickr
 		if ( $flickr != '' && $flickr != ' ' && file_exists($smw_dir.'/flickr.png')) {
-			?><a href="<?php echo $flickr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/flickr.png" alt="<?php echo $imgcaption; ?> Flickr"title="<?php echo $imgcaption; ?> Flickr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $flickr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/flickr.png" alt="<?php echo $imgcaption; ?> Flickr" title="<?php echo $imgcaption; ?> Flickr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Picasa
 		if ( $picasa != '' && $picasa != ' ' && file_exists($smw_dir.'/picasa.png')) {
-			?><a href="<?php echo $picasa; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/picasa.png" alt="<?php echo $imgcaption; ?> Picasa"title="<?php echo $imgcaption; ?> Picasa" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $picasa; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/picasa.png" alt="<?php echo $imgcaption; ?> Picasa" title="<?php echo $imgcaption; ?> Picasa" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// YouTube
 		if ( $youtube != '' && $youtube != ' ' && file_exists($smw_dir.'/youtube.png')) {
-			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/youtube.png"alt="<?php echo $imgcaption; ?> YouTube"title="<?php echo $imgcaption; ?> YouTube" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/youtube.png" alt="<?php echo $imgcaption; ?> YouTube" title="<?php echo $imgcaption; ?> YouTube" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Skype
 		if ( $skype != '' && $skype != ' ' && file_exists($smw_dir.'/skype.png')) {
-			?><a href="<?php echo $skype; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/skype.png"alt="<?php echo $imgcaption; ?> Skype"title="<?php echo $imgcaption; ?> Skype" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $skype; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/skype.png" alt="<?php echo $imgcaption; ?> Skype" title="<?php echo $imgcaption; ?> Skype" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Digg
 		if ( $digg != '' && $digg != ' ' && file_exists($smw_dir.'/digg.png')) {
-			?><a href="<?php echo $digg; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digg.png"alt="<?php echo $imgcaption; ?> Digg"title="<?php echo $imgcaption; ?> Digg" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $digg; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digg.png" alt="<?php echo $imgcaption; ?> Digg" title="<?php echo $imgcaption; ?> Digg" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Reddit 
 		if ( $reddit != '' && $reddit != ' ' && file_exists($smw_dir.'/reddit.png')) {
-			?><a href="<?php echo $reddit; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/reddit.png"alt="<?php echo $imgcaption; ?> Reddit"title="<?php echo $imgcaption; ?> Reddit" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $reddit; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/reddit.png" alt="<?php echo $imgcaption; ?> Reddit" title="<?php echo $imgcaption; ?> Reddit" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Delicious 
 		if ( $delicious != '' && $delicious != ' ' && file_exists($smw_dir.'/delicious.png')) {
-			?><a href="<?php echo $delicious; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/delicious.png"alt="<?php echo $imgcaption; ?> Delicious"title="<?php echo $imgcaption; ?> Delicious" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $delicious; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/delicious.png" alt="<?php echo $imgcaption; ?> Delicious" title="<?php echo $imgcaption; ?> Delicious" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// StumbleUpon 
 		if ( $stumble != '' && $stumble != ' ' && file_exists($smw_dir.'/stumble.png')) {
-			?><a href="<?php echo $stumble; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/stumble.png"alt="<?php echo $imgcaption; ?> StumbleUpon"title="<?php echo $imgcaption; ?> StumbleUpon" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $stumble; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/stumble.png" alt="<?php echo $imgcaption; ?> StumbleUpon" title="<?php echo $imgcaption; ?> StumbleUpon" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Tumblr 
 		if ( $tumblr != '' && $tumblr != ' ' && file_exists($smw_dir.'/tumblr.png')) {
-			?><a href="<?php echo $tumblr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/tumblr.png"alt="<?php echo $imgcaption; ?> Tumblr"title="<?php echo $imgcaption; ?> Tumblr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $tumblr; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/tumblr.png" alt="<?php echo $imgcaption; ?> Tumblr" title="<?php echo $imgcaption; ?> Tumblr" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Google Buzz
 		if ( $buzz != '' && $buzz != ' ' && file_exists($smw_dir.'/buzz.png')) {
-			?><a href="<?php echo $buzz; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/buzz.png"alt="<?php echo $imgcaption; ?> Buzz"title="<?php echo $imgcaption; ?> Buzz" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $buzz; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/buzz.png" alt="<?php echo $imgcaption; ?> Buzz" title="<?php echo $imgcaption; ?> Buzz" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Vimeo
 		if ( $vimeo != '' && $vimeo != ' ' && file_exists($smw_dir.'/vimeo.png')) {
-			?><a href="<?php echo $vimeo; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/vimeo.png"alt="<?php echo $imgcaption; ?> Vimeo"title="<?php echo $imgcaption; ?> Vimeo" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $vimeo; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/vimeo.png" alt="<?php echo $imgcaption; ?> Vimeo" title="<?php echo $imgcaption; ?> Vimeo" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Blogger
 		if ( $blogger != '' && $blogger != ' ' && file_exists($smw_dir.'/blogger.png')) {
-			?><a href="<?php echo $blogger; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/blogger.png"alt="<?php echo $imgcaption; ?> Blogger"title="<?php echo $imgcaption; ?> Blogger" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $blogger; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/blogger.png" alt="<?php echo $imgcaption; ?> Blogger" title="<?php echo $imgcaption; ?> Blogger" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Wordpress
 		if ( $wordpress != '' && $wordpress != ' ' && file_exists($smw_dir.'/wordpress.png')) {
-			?><a href="<?php echo $wordpress; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/wordpress.png"alt="<?php echo $imgcaption; ?> Wordpress"title="<?php echo $imgcaption; ?> Wordpress" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $wordpress; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/wordpress.png" alt="<?php echo $imgcaption; ?> Wordpress" title="<?php echo $imgcaption; ?> Wordpress" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 		
 		// Yelp
 		if ( $yelp != '' && $yelp != ' ' && file_exists($smw_dir.'/yelp.png')) {
-			?><a href="<?php echo $yelp; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/yelp.png"alt="<?php echo $imgcaption; ?> Yelp"title="<?php echo $imgcaption; ?> Yelp" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $yelp; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/yelp.png" alt="<?php echo $imgcaption; ?> Yelp" title="<?php echo $imgcaption; ?> Yelp" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If No URL Inputed
 		}
 
 		// Last.fm
 		if ( $lastfm != '' && $lastfm != ' ' && file_exists($smw_dir.'/lastfm.png')) {
-			?><a href="<?php echo $lastfm; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/lastfm.png"alt="<?php echo $imgcaption; ?> Last.fm"title="<?php echo $imgcaption; ?> Last.fm" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $lastfm; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/lastfm.png" alt="<?php echo $imgcaption; ?> Last.fm" title="<?php echo $imgcaption; ?> Last.fm" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Foursquare
 		if ( $foursquare != '' && $foursquare != ' ' && file_exists($smw_dir.'/foursquare.png')) {
-			?><a href="<?php echo $foursquare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/foursquare.png"alt="<?php echo $imgcaption; ?> Foursquare"title="<?php echo $imgcaption; ?> Foursquare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $foursquare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/foursquare.png" alt="<?php echo $imgcaption; ?> Foursquare" title="<?php echo $imgcaption; ?> Foursquare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Meetup
 		if ( $meetup != '' && $meetup != ' ' && file_exists($smw_dir.'/meetup.png')) {
-			?><a href="<?php echo $meetup; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/meetup.png"alt="<?php echo $imgcaption; ?> Meetup"title="<?php echo $imgcaption; ?> Meetup" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $meetup; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/meetup.png" alt="<?php echo $imgcaption; ?> Meetup" title="<?php echo $imgcaption; ?> Meetup" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Tungle.me
 		if ( $tungle != '' && $tungle != ' ' && file_exists($smw_dir.'/tungle.png')) {
-			?><a href="<?php echo $tungle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/tungle.png"alt="<?php echo $imgcaption; ?> Tungle"title="<?php echo $imgcaption; ?> Tungle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $tungle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/tungle.png" alt="<?php echo $imgcaption; ?> Tungle" title="<?php echo $imgcaption; ?> Tungle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// PlanCast
 		if ( $plancast != '' && $plancast != ' ' && file_exists($smw_dir.'/plancast.png')) {
-			?><a href="<?php echo $plancast; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/plancast.png"alt="<?php echo $imgcaption; ?> PlanCast"title="<?php echo $imgcaption; ?> PlanCast" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $plancast; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/plancast.png" alt="<?php echo $imgcaption; ?> PlanCast" title="<?php echo $imgcaption; ?> PlanCast" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Hyves
 		if ( $slideshare != '' && $slideshare != ' ' && file_exists($smw_dir.'/slideshare.png')) {
-			?><a href="<?php echo $slideshare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/slideshare.png"alt="<?php echo $imgcaption; ?> SlideShare"title="<?php echo $imgcaption; ?> SlideShare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $slideshare; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/slideshare.png" alt="<?php echo $imgcaption; ?> SlideShare" title="<?php echo $imgcaption; ?> SlideShare" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// DeviantArt
 		if ( $deviantart != '' && $deviantart != ' ' && file_exists($smw_dir.'/deviantart.png')) {
-			?><a href="<?php echo $deviantart; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/deviantart.png"alt="<?php echo $imgcaption; ?> DeviantArt"title="<?php echo $imgcaption; ?> DeviantArt" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $deviantart; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/deviantart.png" alt="<?php echo $imgcaption; ?> DeviantArt" title="<?php echo $imgcaption; ?> DeviantArt" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// iTunes Ping
 		if ( $ping != '' && $ping != ' ' && file_exists($smw_dir.'/ping.png')) {
-			?><a href="<?php echo $ping; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/ping.png"alt="<?php echo $imgcaption; ?> iTunes Ping"title="<?php echo $imgcaption; ?> iTunes Ping" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $ping; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/ping.png" alt="<?php echo $imgcaption; ?> iTunes Ping" title="<?php echo $imgcaption; ?> iTunes Ping" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Live365
 		if ( $live365 != '' && $live365 != ' ' && file_exists($smw_dir.'/live365.png')) {
-			?><a href="<?php echo $live365; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/live365.png"alt="<?php echo $imgcaption; ?> Live365"title="<?php echo $imgcaption; ?> Live365" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $live365; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/live365.png" alt="<?php echo $imgcaption; ?> Live365" title="<?php echo $imgcaption; ?> Live365" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Digital Tunes
 		if ( $digitaltunes != '' && $digitaltunes != ' ' && file_exists($smw_dir.'/digitaltunes.png')) {
-			?><a href="<?php echo $digitaltunes; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digitaltunes.png"alt="<?php echo $imgcaption; ?> Digital Tunes"title="<?php echo $imgcaption; ?> Digital Tunes" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $digitaltunes; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/digitaltunes.png" alt="<?php echo $imgcaption; ?> Digital Tunes" title="<?php echo $imgcaption; ?> Digital Tunes" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Soundcloud
 		if ( $soundcloud != '' && $soundcloud != ' ' && file_exists($smw_dir.'/soundcloud.png')) {
-			?><a href="<?php echo $soundcloud; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/soundcloud.png"alt="<?php echo $imgcaption; ?> Soundcloud"title="<?php echo $imgcaption; ?> Soundcloud" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $soundcloud; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/soundcloud.png" alt="<?php echo $imgcaption; ?> Soundcloud" title="<?php echo $imgcaption; ?> Soundcloud" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Etsy
 		if ( $etsy != '' && $etsy != ' ' &&  file_exists($smw_dir.'/etsy.png')) {
-			?><a href="<?php echo $etsy; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/etsy.png"alt="<?php echo $imgcaption; ?> Etsy"title="<?php echo $imgcaption; ?> Etsy" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $etsy; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/etsy.png" alt="<?php echo $imgcaption; ?> Etsy" title="<?php echo $imgcaption; ?> Etsy" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL Inputed
 		}
 		
 		// Better Business Bureau
 		if ( $bbb != '' && $bbb != ' ' && file_exists($smw_dir.'/bbb.png')) {
-			?><a href="<?php echo $bbb; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/bbb.png"alt="<?php echo $imgcaption; ?> Better Business Bureau"title="<?php echo $imgcaption; ?> Better Business Bureau" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $bbb; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/bbb.png" alt="<?php echo $imgcaption; ?> Better Business Bureau" title="<?php echo $imgcaption; ?> Better Business Bureau" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Merchant Circle
 		if ( $merchantcircle != '' && $merchantcircle != ' ' && file_exists($smw_dir.'/merchantcircle.png')) {
-			?><a href="<?php echo $merchantcircle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/merchantcircle.png"alt="<?php echo $imgcaption; ?> Merchant Circle"title="<?php echo $imgcaption; ?> Merchant Circle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+			?><a href="<?php echo $merchantcircle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/merchantcircle.png" alt="<?php echo $imgcaption; ?> Merchant Circle" title="<?php echo $imgcaption; ?> Merchant Circle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 1
 		if ( $custom1url != '' && $custom1name != '' && $custom1icon != '' ) {
-			?><a href="<?php echo $custom1url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom1icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom1name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom1name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom1url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom1icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom1name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom1name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 2
 		if ( $custom2url != '' && $custom2name != '' && $custom2icon != '' ) {
-			?><a href="<?php echo $custom2url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom2icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom2name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom2name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom2url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom2icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom2name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom2name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 3
 		if ( $custom3url != '' && $custom3name != '' && $custom3icon != '' ) {
-			?><a href="<?php echo $custom3url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom3icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom3name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom3name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom3url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom3icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom3name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom3name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 4
 		if ( $custom4url != '' && $custom4name != '' && $custom4icon != '' ) {
-			?><a href="<?php echo $custom4url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom4icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom4name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom4name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom4url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom4icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom4name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom4name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 5
 		if ( $custom5url != '' && $custom5name != '' && $custom5icon != '' ) {
-			?><a href="<?php echo $custom5url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom5icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom5name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom5name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom5url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom5icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom5name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom5name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
 		
 		// Custom Icon 6
 		if ( $custom6url != '' && $custom6name != '' && $custom6icon != '' ) {
-			?><a href="<?php echo $custom6url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom6icon; ?>"alt="<?php echo $imgcaption; ?> <?php echo $custom6name; ?>"title="<?php echo $imgcaption; ?> <?php echo $custom6name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
+			?><a href="<?php echo $custom6url; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $custom6icon; ?>" alt="<?php echo $imgcaption; ?> <?php echo $custom6name; ?>" title="<?php echo $imgcaption; ?> <?php echo $custom6name; ?>" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" /></a><?php
 		} else {
 			echo ''; //If no URL inputed
 		}
