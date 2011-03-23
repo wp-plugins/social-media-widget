@@ -1,10 +1,10 @@
 === Social Media Widget ===
 Contributors: brianfreytag
-Donate link: http://www.idontlikethisgame.com/code/donate/
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa
+Donate link: http://www.precisionwebdev.com/content/open-source-code-donations
+Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
 Requires at least: 2.9.1
-Tested up to: 3.0.1
-Stable tag: 2.8.2
+Tested up to: 3.1
+Stable tag: 2.9
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -33,11 +33,17 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* StumbleUpon
 	* Tumblr
 	* Buzz
+	* Google Talk
 	* Vimeo
 	* Blogger
 	* Wordpress
 	* Yelp
 	* Last.fm
+	* Pandora
+	* UStream
+	* IMDb
+	* Hulu
+	* Flixter
 	* FourSquare
 	* Meetup
 	* Tungle.me
@@ -48,9 +54,12 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Live365
 	* Digital Tunes
 	* Soundcloud
+ 	* BandCamp
 	* Etsy
 	* Better Business Bureau
 	* Merchant Circle
+	* Ebay
+	* Steam
 	* RSS
 	* E-mail (mailto: or a link to mailing list service)
 	* Plus create 6 of your own using a URL to an icon and URL to the service
@@ -107,6 +116,13 @@ Follow the steps below to install the plugin.
 
 == Frequently Asked Questions ==
 
+= How can I include Localization? = 
+The easiest way to include translating the Social Media widget is to install the <a href="http://wordpress.org/extend/plugins/qtranslate/">qTranslate</a> Plugin then using the following (example) code in the "Widget Title" and "Image Caption" text fields:
+
+`<!--:nl-->Volg ons<!--:--><!--:en-->Follow us<!--:--><!--:fr-->Suivre nous<!--:-->`
+
+Use the README.txt for that plugin for more usage.
+
 = How can I use my own custom icon pack? = 
 
 1. Create a folder on the filesystem that is publicly accessible via the interwebs. I suggest putting it in your wp-content folder and name it 'icons'
@@ -124,6 +140,7 @@ NOTE: IN ORDER FOR IT TO BE SAFE FROM UPGRADES, DO NOT UPLOAD THE ICONS INTO THE
 
 You can also upload the icons individually through Wordpress. These will be uploaded to your /wp-content/uploads/year/month/ folder by default. Use this as a starting point for your custom icon pack URL and Path
 
+If you 
 If you don't understand what it means to create a folder and upload to that folder on the filesystem, or if you don't know what a path to a folder is, I would suggest sticking with one of the four default icon packs.
 
 = Can you add [insert social media service] support =
@@ -151,6 +168,16 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.9 =
+
+* Added support for Steam, Google Talk, Pandora, Hulu, Ebay, Flixster, IMDb, BandCamp, UStream.tv
+* Removed default URLs (they were causing confusion for some)
+* CSS tweaks
+* Removed strip_tags() from the image caption field for help with translations using qTranslate
+* Separated Admin Widget Panel into groups based on icon type
+* Changed Donation button to point to new Paypal account for Precision Web Development & Consulting -- My new web development company that I'm merging Social Media Widget in to
+* Staging for version 3.0
+
 = 2.8.2 =
 
 * A quick fix to attempt to resolve some validation issues in my code.
