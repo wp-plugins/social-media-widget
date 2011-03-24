@@ -4,7 +4,7 @@ Donate link: http://www.precisionwebdev.com/content/open-source-code-donations
 Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
 Requires at least: 2.9.1
 Tested up to: 3.1
-Stable tag: 2.9
+Stable tag: 2.9.1
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -168,6 +168,10 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+= 2.9.1 = 
+
+* I'm stupid and forgot to commit the sketch icons to 2.9.
+
 = 2.9 =
 
 * Added support for Steam, Google Talk, Pandora, Hulu, Ebay, Flixster, IMDb, BandCamp, UStream.tv
