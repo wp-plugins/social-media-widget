@@ -19,7 +19,7 @@
 li.Social_Widget a {
 	padding: 0;
 	margin: 0;
-	background: none;
+	background: none !important;
 }
 	
 .socialmedia-buttons img {
@@ -34,7 +34,7 @@ li.Social_Widget a {
 }
 
 .socialmedia-buttons a {
-	background: none;
+	background: none !important;
 }
 
 .socialmedia-buttons a:hover {

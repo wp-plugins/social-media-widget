@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://forums.idontlikethisgame.com/viewforum.php?f=3
  * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.9
+ * Version: 2.9.1
  * Author: Brian Freytag
  * Author URI: http://www.precisionwebdev.com
  **/
