@@ -168,6 +168,7 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
+
 = 2.9.2 = 
 
 * As I suspected, removing the !important tags from the CSS caused a lot more problems than it helped. I've added them back.
