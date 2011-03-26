@@ -17,16 +17,15 @@
 }
 
 li.Social_Widget a {
-	padding: 0;
-	margin: 0;
+	padding: 0 !important;
+	margin: 0 !important;
 	background: none !important;
 }
 	
 .socialmedia-buttons img {
 	border: 0;
-	margin-right: 10px;
-	margin-bottom: 5px;
-	margin-top: 5px;
+	border: 0 !important;
+	margin-right: 10px !important;
 	display: inline;
 	-webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
