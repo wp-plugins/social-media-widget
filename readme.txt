@@ -144,7 +144,7 @@ If you
 If you don't understand what it means to create a folder and upload to that folder on the filesystem, or if you don't know what a path to a folder is, I would suggest sticking with one of the four default icon packs.
 
 = Can you add [insert social media service] support =
-Yes I can. Please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and request it there!
+Yes I can. Please go to my <a href="http://forums.precisionwebdev.com">SMW Forums</a> and request it there!
 
 = Why aren't the animations working in Internet Explorer 6+ = 
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari or Firefox 4. Firefox 3.x is fully supported, without CSS3 transition animations.
@@ -165,7 +165,7 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 
 == Help ==
 
-For help, please go to my <a href="http://forums.idontlikethisgame.com/viewforum.php?f=3">SMW Forums</a> and ask whatever questions you need!
+For help, please go to my <a href="http://forums.precisionwebdev.com">SMW Forums</a> and ask whatever questions you need!
 
 == Changelog ==
 
