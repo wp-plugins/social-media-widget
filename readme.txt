@@ -171,7 +171,7 @@ Please e-mail me at info at precisionwebdev dot com for help. My web server died
 
 = 2.9.3 =
 
-* Added support for Google+
+* Added support for Google+ (Google Plus)
 * Removed references to my website which has been down for some time. It crashed during my most recent move (HDD crashed with no way of recovering data... backups fail).
 
 = 2.9.2 = 
