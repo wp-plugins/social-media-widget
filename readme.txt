@@ -5,7 +5,7 @@ Requires at least: 2.9.2
 Tested up to: 3.2.1
 Stable tag: 2.9.3
 
-Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
+Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
 == Description ==
 
@@ -171,7 +171,7 @@ Please e-mail me at info at precisionwebdev dot com for help. My web server died
 
 = 2.9.3 =
 
-* Added support for Google+ (Google Plus)
+* Added support for Google+
 * Removed references to my website which has been down for some time. It crashed during my most recent move (HDD crashed with no way of recovering data... backups fail).
 
 = 2.9.2 = 
