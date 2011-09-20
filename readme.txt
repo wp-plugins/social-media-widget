@@ -1,10 +1,9 @@
 === Social Media Widget ===
 Contributors: brianfreytag
-Donate link: http://www.precisionwebdev.com/content/open-source-code-donations
-Tags: social media, twitter, facebook, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
+Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
 Requires at least: 2.9.2
-Tested up to: 3.1
-Stable tag: 2.9.2
+Tested up to: 3.2.1
+Stable tag: 2.9.3
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -16,6 +15,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 
 * Supports the following social media sites:
 	* Facebook
+	* Google+
 	* Twitter
 	* MySpace
 	* FriendFeed
@@ -76,7 +76,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Cutout - <a href="http://www.iconspedia.com/pack/icontexto-inside-2222/">Icontexto Inside Icons</a>
 	* Custom - These will be unaltered via updates. Make sure you follow the same naming scheme as the other icons (facebook.png, twitter.png). You can look at the other icon packs if you are unsure about the naming. See the FAQ for more information on usage.
 	* Note that some of the icons in the packs were created and added for this widget by myself. Not all of the requested social media sites were included so I attempted to create icons that mimicked the original artist icons. These are unattributed to myself. I keep attribution to the original artists since it is there design I modified.
-	* All icons in this pack are licensed under the Creative Commons license (which is why I'm allowed, by law, to use them). Note that some of these are non-commercial only. Please go to the sites linked above to get full information on their allowed uses.
+	* All icons in this pack are licensed under the Creative Commons license. Note that some of these are non-commercial only. Please go to the sites linked above to get full information on their allowed uses.
 
 * Choose from multiple animations including:
 	* Fade In (you can choose the starting opacity too!)
@@ -144,7 +144,7 @@ If you
 If you don't understand what it means to create a folder and upload to that folder on the filesystem, or if you don't know what a path to a folder is, I would suggest sticking with one of the four default icon packs.
 
 = Can you add [insert social media service] support =
-Yes I can. Please go to my <a href="http://forums.precisionwebdev.com">SMW Forums</a> and request it there!
+Yes I can. Please leave a comment in the Wordpress.org forums tagging my plugin or e-mailing me at info at precisionwebdev dot com.
 
 = Why aren't the animations working in Internet Explorer 6+ = 
 The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari or Firefox 4. Firefox 3.x is fully supported, without CSS3 transition animations.
@@ -165,9 +165,14 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 
 == Help ==
 
-For help, please go to my <a href="http://forums.precisionwebdev.com">SMW Forums</a> and ask whatever questions you need!
+Please e-mail me at info at precisionwebdev dot com for help. My web server died in my move and I have no intention of putting it back up, so I will be 100% e-mail based from now on.
 
 == Changelog ==
+
+= 2.9.3 =
+
+* Added support for Google+
+* Removed references to my website which has been down for some time. It crashed during my most recent move (HDD crashed with no way of recovering data... backups fail).
 
 = 2.9.2 = 
 

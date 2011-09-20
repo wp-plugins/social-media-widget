@@ -54,7 +54,8 @@ class Social_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title'] );
 		$text = apply_filters( 'widget_text', $instance['text'], $instance );
 		$imgcaption = $instance['imgcaption'];
-		$facebook = $instance['facebook'];		
+		$facebook = $instance['facebook'];
+		$googleplus = $instance['googleplus'];
 		$twitter = $instance['twitter'];
 		$myspace = $instance['myspace'];
 		$friendfeed = $instance['friendfeed'];
@@ -196,6 +197,13 @@ class Social_Widget extends WP_Widget {
 		// Facebook
 		if ( $facebook != '' && $facebook != ' ' && file_exists($smw_dir.'/facebook.png')) {
 			?><a href="<?php echo $facebook; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/facebook.png" alt="<?php echo $imgcaption; ?> Facebook" title="<?php echo $imgcaption ?> Facebook" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+		
+		// Google Plus
+		if ( $googleplus != '' && $googleplus != ' ' && file_exists($smw_dir.'/googleplus.png')) {
+			?><a href="<?php echo $googleplus; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img src="<?php echo $smw_path; ?>/googleplus.png" alt="<?php echo $imgcaption; ?> Google+" title="<?php echo $imgcaption ?> Google+" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -590,6 +598,7 @@ class Social_Widget extends WP_Widget {
 		$instance['nofollow'] = $new_instance['nofollow'];
 		$instance['alignment'] = $new_instance['alignment'];
 		$instance['facebook'] = strip_tags( $new_instance['facebook'] );
+		$instance['googleplus'] = strip_tags( $new_instance['googleplus'] );
 		$instance['twitter'] = strip_tags( $new_instance['twitter'] );
 		$instance['myspace'] = strip_tags( $new_instance['myspace'] );
 		$instance['orkut'] = strip_tags( $new_instance['orkut'] );
@@ -680,6 +689,7 @@ class Social_Widget extends WP_Widget {
 			'nofollow' => 'on',
 			'alignment' => 'left',
 			'facebook' => __('', 'smw'), 
+			'googleplus' => __('', 'smw'),
 			'twitter' => __('', 'smw'),
 			'myspace' => __('', 'smw'),
 			'orkut' => __('', 'smw'),
@@ -856,6 +866,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e('Facebook URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo $instance['facebook']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Facebook URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'googleplus' ); ?>"><?php _e('Google+ URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>" value="<?php echo $instance['googleplus']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Twitter URL: Text Input -->
