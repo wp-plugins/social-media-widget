@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Social Media Widget
- * Description: Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.9.4
+ * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
+ * Version: 2.9.3
  * Author: Brian Freytag
  **/
 
