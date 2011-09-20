@@ -3,7 +3,7 @@ Contributors: brianfreytag
 Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
 Requires at least: 2.9.2
 Tested up to: 3.2.1
-Stable tag: 2.9.3
+Stable tag: 2.9.4
 
 Adds links to all of your social media and sharing site profiles. Icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -168,6 +168,9 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 Please e-mail me at info at precisionwebdev dot com for help. My web server died in my move and I have no intention of putting it back up, so I will be 100% e-mail based from now on.
 
 == Changelog ==
+= 2.9.4 =
+
+* I don't know what happened but for some reason Wordpress reverted back to 2.9. I'm pushing out this update to see if it fixes it.
 
 = 2.9.3 =
 
