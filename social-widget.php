@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Social Media Widget
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.9.3
+ * Version: 2.9.4
  * Author: Brian Freytag
  **/
 
@@ -63,6 +63,7 @@ class Social_Widget extends WP_Widget {
 		$asmallworld = $instance['asmallworld'];
 		$flickr = $instance['flickr'];
 		$picasa = $instance['picasa'];
+		$pinterest = $instance['pinterest'];
 		$youtube = $instance['youtube'];
 		$skype = $instance['skype'];
 		$digg = $instance['digg'];
@@ -270,6 +271,13 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL inputed
 		}
 		
+		// Pinterest
+		if ( $pinterest != '' && $pinterest != ' ' && file_exists($smw_dir.'/pinterest.png')) {
+			?><a href="<?php echo $pinterest; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/pinterest.png" alt="<?php echo $imgcaption; ?> Pinterest" title="<?php echo $imgcaption; ?> Pinterest" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
+		} else {
+			echo ''; //If No URL Inputed
+		}
+			
 		// YouTube
 		if ( $youtube != '' && $youtube != ' ' && file_exists($smw_dir.'/youtube.png')) {
 			?><a href="<?php echo $youtube; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img  src="<?php echo $smw_path; ?>/youtube.png" alt="<?php echo $imgcaption; ?> YouTube" title="<?php echo $imgcaption; ?> YouTube" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
@@ -607,6 +615,7 @@ class Social_Widget extends WP_Widget {
 		$instance['meetup'] = strip_tags( $new_instance['meetup'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
 		$instance['picasa'] = strip_tags( $new_instance['picasa'] );
+		$instance['pinterest'] = strip_tags( $new_instance['pinterest'] );
 		$instance['deviantart'] = strip_tags( $new_instance['deviantart'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
 		$instance['hulu'] = strip_tags( $new_instance['hulu'] );
@@ -698,6 +707,7 @@ class Social_Widget extends WP_Widget {
 			'meetup' => __('', 'smw'),			
 			'flickr' => __('', 'smw'),
 			'picasa' => __('', 'smw'),
+			'pinterest' => __('', 'smw'),
 			'deviantart' => __('', 'smw'),
 			'youtube' => __('', 'smw'),
 			'hulu' => __('', 'smw'),
@@ -933,6 +943,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'picasa' ); ?>" name="<?php echo $this->get_field_name( 'picasa' ); ?>" value="<?php echo $instance['picasa']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- Pinterest URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'pinterest' ); ?>"><?php _e('Pinterest URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'pinterest' ); ?>" name="<?php echo $this->get_field_name( 'pinterest' ); ?>" value="<?php echo $instance['pinterest']; ?>" style="width:85%;" />
+		</p>
+		
 		<!-- DeviantArt URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'deviantart' ); ?>"><?php _e('DeviantArt URL:', 'smw'); ?></label>
@@ -974,16 +990,14 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'imdb' ); ?>"><?php _e('IMDb URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'imdb' ); ?>" name="<?php echo $this->get_field_name( 'imdb' ); ?>" value="<?php echo $instance['imdb']; ?>" style="width:85%;" />
 		</p>
-		
+		</div>
+		<div style="width:32%; float: left; padding-left: 10px; border-left: 1px solid #000">
 		<h3>Gaming</h3>
 		<!-- Steam URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'steam' ); ?>"><?php _e('Steam URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'steam' ); ?>" name="<?php echo $this->get_field_name( 'steam' ); ?>" value="<?php echo $instance['steam']; ?>" style="width:85%;" />
 		</p>
-		</div>
-		<div style="width:32%; float: left; padding-left: 10px; border-left: 1px solid #000">
-		
 		<h3>Chatting</h3>
 		<!-- Skype URL: Text Input -->
 		<p>
