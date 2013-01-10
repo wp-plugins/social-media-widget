@@ -1,9 +1,9 @@
 === Social Media Widget ===
 Contributors: brianfreytag
-Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream
+Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest
 Requires at least: 2.9.2
-Tested up to: 3.2.1
-Stable tag: 2.9.3
+Tested up to: 3.5
+Stable tag: 2.9.6
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -25,6 +25,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* aSmallWorld
 	* Flickr
 	* Picasa Web Albums
+	* Pinterest
 	* YouTube
 	* Skype
 	* Digg
@@ -125,7 +126,8 @@ Use the README.txt for that plugin for more usage.
 
 = How can I use my own custom icon pack? = 
 
-1. Create a folder on the filesystem that is publicly accessible via the interwebs. I suggest putting it in your wp-content folder and name it 'icons'
+1. Create a folder on the filesystem that is publicly accessible via the interwebs. I suggest putting it in your wp-content folder and name it 'icons' 
+1.1. Your icons MUST be named the same as mine (facebook.png, twitter.png, pinterest.png, etc...) for this functionality to work! Navigate to the social-media-widget directory and view the files if you're not sure how they're named.
 2. Upload your icons into that folder. It'll probably be a good idea if they are all the same size.
 3. Go to the Widget Control Panel (Admin -> Appearance -> Widgets)
 4. Select "Custom Icons" as the Icon Pack
@@ -140,14 +142,13 @@ NOTE: IN ORDER FOR IT TO BE SAFE FROM UPGRADES, DO NOT UPLOAD THE ICONS INTO THE
 
 You can also upload the icons individually through Wordpress. These will be uploaded to your /wp-content/uploads/year/month/ folder by default. Use this as a starting point for your custom icon pack URL and Path
 
-If you 
 If you don't understand what it means to create a folder and upload to that folder on the filesystem, or if you don't know what a path to a folder is, I would suggest sticking with one of the four default icon packs.
 
 = Can you add [insert social media service] support =
 Yes I can. Please leave a comment in the Wordpress.org forums tagging my plugin or e-mailing me at info at precisionwebdev dot com.
 
 = Why aren't the animations working in Internet Explorer 6+ = 
-The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari or Firefox 4. Firefox 3.x is fully supported, without CSS3 transition animations.
+The only animation supported by Internet Explorer is Scale, and that only works reliably with Internet Explorer 8. Scale is also included in Combo. No other animations will work. This is because I do not want to use Javascript to animate my icons. All of these animations are using CSS3 styles. The animations work the best with Webkit based browsers such as Chrome and Safari, or Firefox 4. Firefox 3.x is fully supported, without CSS3 transition animations.
 
 = Why aren't my icons aligning? =
 Check your style.css file. I'm sure you have something in there that is forcing alignment of your widgets. You'll have to modify that. If you don't know how to do CSS... Learn.
@@ -168,6 +169,25 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 Please e-mail me at info at precisionwebdev dot com for help. My web server died in my move and I have no intention of putting it back up, so I will be 100% e-mail based from now on.
 
 == Changelog ==
+
+= 2.9.6 = 
+
+* Resolved image size issues
+* Removed donation button from widget and donation links from readme.txt
+* Updated Twitter icon to official design specs (default pack only). If you're not a fan of the new official icon, please contact Twitter
+* Updated the Google+ icon to the official red one (default pack only). As with Twitter, please contact Google. I've been contacted by reps from both companies instructing me to correct the icons.
+
+
+= 2.9.5 =
+
+* Fixed incorrect comment for Google Plus (previously the comment said Facebook)
+* Removed an errant extra quotation mark in the FriendFeed image tag
+* Added inline image sizes to each of the icons for better validation support
+* Changed the margin direction based on the alignment of the icons. Left margin for right aligned, right margin for left-aligned and centered.
+
+= 2.9.4 =
+
+* Added support for Pinterest (Sorry about the large gap in time. Finally got some time to do this)
 
 = 2.9.3 =
 
