@@ -85,7 +85,6 @@ class Social_Widget extends WP_Widget {
 		$flixster = $instance['flixster'];
 		$foursquare = $instance['foursquare'];
 		$meetup = $instance['meetup'];
-		$tungle = $instance['tungle'];
 		$plancast = $instance['plancast'];
 		$slideshare = $instance['slideshare'];
 		$deviantart = $instance['deviantart'];
@@ -425,13 +424,6 @@ class Social_Widget extends WP_Widget {
 			echo ''; //If no URL Inputed
 		}
 		
-		// Tungle.me
-		if ( $tungle != '' && $tungle != ' ' && file_exists($smw_dir.'/tungle.png')) {
-			?><a href="<?php echo $tungle; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/tungle.png" alt="<?php echo $imgcaption; ?> Tungle" title="<?php echo $imgcaption; ?> Tungle" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
-		} else {
-			echo ''; //If no URL inputed
-		}
-		
 		// PlanCast
 		if ( $plancast != '' && $plancast != ' ' && file_exists($smw_dir.'/plancast.png')) {
 			?><a href="<?php echo $plancast; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/plancast.png" alt="<?php echo $imgcaption; ?> PlanCast" title="<?php echo $imgcaption; ?> PlanCast" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php
@@ -650,7 +642,6 @@ class Social_Widget extends WP_Widget {
 		$instance['digitaltunes'] = strip_tags( $new_instance['digitaltunes'] );
 		$instance['soundcloud'] = strip_tags( $new_instance['soundcloud'] );
 		$instance['bandcamp'] = strip_tags( $new_instance['bandcamp'] );
-		$instance['tungle'] = strip_tags( $new_instance['tungle'] );
 		$instance['plancast'] = strip_tags( $new_instance['plancast'] );
 		$instance['custom1name'] = strip_tags( $new_instance['custom1name'] );
 		$instance['custom1icon'] = strip_tags( $new_instance['custom1icon'] );
@@ -742,7 +733,6 @@ class Social_Widget extends WP_Widget {
 			'digitaltunes' => __('', 'smw'),
 			'soundcloud' => __('', 'smw'),
 			'bandcamp' => __('', 'smw'),
-			'tungle' => __('', 'smw'),
 			'plancast' => __('', 'smw'),
 			'custom1name' => __('', 'smw'),
 			'custom1icon' => __('', 'smw'),
@@ -1164,12 +1154,6 @@ class Social_Widget extends WP_Widget {
 		</p>
 		
 		<h3>Scheduling</h3>
-		<!-- Tungle.me URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'tungle' ); ?>"><?php _e('Tungle.me URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'tungle' ); ?>" name="<?php echo $this->get_field_name( 'tungle' ); ?>" value="<?php echo $instance['tungle']; ?>" style="width:85%;" />
-		</p>
-		
 		<!-- PlanCast URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'plancast' ); ?>"><?php _e('PlanCast URL:', 'smw'); ?></label>
