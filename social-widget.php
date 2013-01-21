@@ -821,8 +821,8 @@ class Social_Widget extends WP_Widget {
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
-		<em>Note: Make sure you include FULL URL (i.e. http://www.example.com)</em><br />
-		If you do not want an icon to be visible, simply delete the supplied URL and leave the input blox blank.
+		<b><em>Note: Make sure you include FULL URL (i.e. http://www.example.com)</em><br />
+		If you do not want an icon to be visible, simply delete the supplied URL and leave the input blox blank.</b>
 		</p>
 		
 		<div style="width:32%; float: left;">
@@ -990,6 +990,18 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'aboutme' ); ?>" name="<?php echo $this->get_field_name( 'aboutme' ); ?>" value="<?php echo $instance['aboutme']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- Goodreads URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'goodreads' ); ?>"><?php _e('Goodreads URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'goodreads' ); ?>" name="<?php echo $this->get_field_name( 'goodreads' ); ?>" value="<?php echo $instance['goodreads']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Github URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'github' ); ?>"><?php _e('Github URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'github' ); ?>" name="<?php echo $this->get_field_name( 'github' ); ?>" value="<?php echo $instance['github']; ?>" style="width:85%;" />
+		</p>
+		
 		<h3>Images and Video</h3>
 		<!-- Flickr URL: Text Input -->
 		<p>
@@ -1056,6 +1068,13 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'imdb' ); ?>"><?php _e('IMDb URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'imdb' ); ?>" name="<?php echo $this->get_field_name( 'imdb' ); ?>" value="<?php echo $instance['imdb']; ?>" style="width:85%;" />
 		</p>
+		
+		<h3>Portfolio</h3>
+		<!-- Cuttings.me URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'cuttingsme' ); ?>"><?php _e('Cuttings.me URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'cuttingsme' ); ?>" name="<?php echo $this->get_field_name( 'cuttingsme' ); ?>" value="<?php echo $instance['cuttingsme']; ?>" style="width:85%;" />
+		</p>
 		</div>
 		<div style="width:32%; float: left; padding-left: 10px; border-left: 1px solid #000">
 		<h3>Gaming</h3>
@@ -1077,32 +1096,6 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'talk' ); ?>" name="<?php echo $this->get_field_name( 'talk' ); ?>" value="<?php echo $instance['talk']; ?>" style="width:85%;" />
 		</p>
 		
-		<h3>Developing</h3>
-		<!-- Slashdot URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'slashdot' ); ?>"><?php _e('Slashdot URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'slashdot' ); ?>" name="<?php echo $this->get_field_name( 'slashdot' ); ?>" value="<?php echo $instance['slashdot']; ?>" style="width:85%;" />
-		</p>
-		
-		<!-- Github URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'github' ); ?>"><?php _e('Github URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'github' ); ?>" name="<?php echo $this->get_field_name( 'github' ); ?>" value="<?php echo $instance['github']; ?>" style="width:85%;" />
-		</p>
-		
-		<h3>Literature</h3>
-		<!-- Goodreads URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'goodreads' ); ?>"><?php _e('Goodreads URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'goodreads' ); ?>" name="<?php echo $this->get_field_name( 'goodreads' ); ?>" value="<?php echo $instance['goodreads']; ?>" style="width:85%;" />
-		</p>
-		
-		<!-- Cuttings.me URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'cuttingsme' ); ?>"><?php _e('Cuttings.me URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'cuttingsme' ); ?>" name="<?php echo $this->get_field_name( 'cuttingsme' ); ?>" value="<?php echo $instance['cuttingsme']; ?>" style="width:85%;" />
-		</p>
-		
 		<h3>Social News & Feeds</h3>
 		<!-- Digg URL: Text Input -->
 		<p>
@@ -1110,7 +1103,6 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'digg' ); ?>" name="<?php echo $this->get_field_name( 'digg' ); ?>" value="<?php echo $instance['digg']; ?>" style="width:85%;" />
 		</p>
 		
- 		
 		<!-- Reddit URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'reddit' ); ?>"><?php _e('Reddit URL:', 'smw'); ?></label>
@@ -1147,7 +1139,11 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'rss_url' ); ?>" name="<?php echo $this->get_field_name( 'rss_url' ); ?>" value="<?php echo $instance['rss_url']; ?>" style="width:85%;" />
 		</p>
 		
-		
+		<!-- Slashdot URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'slashdot' ); ?>"><?php _e('Slashdot URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'slashdot' ); ?>" name="<?php echo $this->get_field_name( 'slashdot' ); ?>" value="<?php echo $instance['slashdot']; ?>" style="width:85%;" />
+		</p>
 		
 		<!-- Subscribe URL: Text Input -->
 		<p>
@@ -1350,11 +1346,9 @@ class Social_Widget extends WP_Widget {
 		</div>
 		<div style="clear: both;"></div>
 		<!-- Promo -->
-		<p style="color: #999;"><em>Are you looking for <b>custom development</b> or <b>SEO</b> and <b>online marketing</b> services? Blink Web Effects is an established web development and SEO company that is ready to bring your project to life.</em></p>
-		<p style="text-align: center;">
-		<a href="http://blinkwebeffects.com/services/" <?php echo $newtab; ?>>
-		Click here to learn more and contact us today.</a>
-		</p>
+		<br /><p><b>Are you looking for <b>custom development</b>, <b>SEO</b> or <b>online marketing</b> services? Blink Web Effects (the author of this plugin) is an established web development and SEO company that is ready to bring your project to life. <a href="http://blinkwebeffects.com/services/" <?php echo $newtab; ?>>
+		Click here to learn more and contact us today.</a></b></p> 
+		
 		
 		
 	<?php
