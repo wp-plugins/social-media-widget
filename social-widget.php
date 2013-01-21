@@ -616,8 +616,8 @@ class Social_Widget extends WP_Widget {
 		}
 
 		// Cuttings.me
-		if ( $cuttingsme != '' && $cuttingsme != ' ' && file_exists($smw_dir.'/cuttingsme.png')) {
-			?><a href="<?php echo $cuttingsme; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/cuttingsme.png" alt="<?php echo $imgcaption; ?> Cuttings.me" title="<?php echo $imgcaption ?> Cuttings.me" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		if ( $cuttingsme != '' && $cuttingsme != ' ' && file_exists($smw_dir.'/cuttings.png')) {
+			?><a href="<?php echo $cuttingsme; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/cuttings.png" alt="<?php echo $imgcaption; ?> Cuttings.me" title="<?php echo $imgcaption ?> Cuttings.me" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
 		} else {
 			echo ''; //If no URL inputed
 		}
@@ -656,8 +656,12 @@ class Social_Widget extends WP_Widget {
 		$instance['asmallworld'] = strip_tags( $new_instance['asmallworld'] );
 		$instance['foursquare'] = strip_tags( $new_instance['foursquare'] );
 		$instance['meetup'] = strip_tags( $new_instance['meetup'] );
+		$instance['aboutme'] = strip_tags( $new_instance['aboutme'] );
+		$instance['goodreads'] = strip_tags( $new_instance['goodreads'] );
+		$instance['github'] = strip_tags( $new_instance['github'] );
 		$instance['flickr'] = strip_tags( $new_instance['flickr'] );
 		$instance['picasa'] = strip_tags( $new_instance['picasa'] );
+		$instance['instagram'] = strip_tags( $new_instance['instagram'] );
 		$instance['pinterest'] = strip_tags( $new_instance['pinterest'] );
 		$instance['deviantart'] = strip_tags( $new_instance['deviantart'] );
 		$instance['youtube'] = strip_tags( $new_instance['youtube'] );
@@ -676,6 +680,7 @@ class Social_Widget extends WP_Widget {
 		$instance['buzz'] = strip_tags( $new_instance['buzz'] );
 		$instance['friendfeed'] = strip_tags( $new_instance['friendfeed'] );
 		$instance['rss_url'] = strip_tags( $new_instance['rss_url'] );
+		$instance['slashdot'] = strip_tags( $new_instance['slashdot'] );
 		$instance['subscribe'] = strip_tags( $new_instance['subscribe'] );
 		$instance['tumblr'] = strip_tags( $new_instance['tumblr'] );
 		$instance['blogger'] = strip_tags( $new_instance['blogger'] );
@@ -694,6 +699,7 @@ class Social_Widget extends WP_Widget {
 		$instance['soundcloud'] = strip_tags( $new_instance['soundcloud'] );
 		$instance['bandcamp'] = strip_tags( $new_instance['bandcamp'] );
 		$instance['plancast'] = strip_tags( $new_instance['plancast'] );
+		$instance['cuttingsme'] = strip_tags( $new_instance['cuttingsme'] );
 		$instance['custom1name'] = strip_tags( $new_instance['custom1name'] );
 		$instance['custom1icon'] = strip_tags( $new_instance['custom1icon'] );
 		$instance['custom1url'] = strip_tags( $new_instance['custom1url'] );
@@ -714,13 +720,6 @@ class Social_Widget extends WP_Widget {
 		$instance['custom6url'] = strip_tags( $new_instance['custom6url'] );
 		$instance['customiconsurl'] = strip_tags( $new_instance['customiconsurl'] );
 		$instance['customiconspath'] = strip_tags( $new_instance['customiconspath'] );
-		
-		$instance['aboutme'] = strip_tags( $new_instance['aboutme'] );
-		$instance['instagram'] = strip_tags( $new_instance['instagram'] );
-		$instance['slashdot'] = strip_tags( $new_instance['slashdot'] );
-		$instance['github'] = strip_tags( $new_instance['github'] );
-		$instance['goodreads'] = strip_tags( $new_instance['goodreads'] );
-		$instance['cuttingsme'] = strip_tags( $new_instance['cuttingsme'] );
 		
 		return $instance;
 	}
@@ -752,9 +751,13 @@ class Social_Widget extends WP_Widget {
 			'linkedin' => __('', 'smw'),
 			'asmallworld' => __('', 'smw'),
 			'foursquare' => __('', 'smw'),
-			'meetup' => __('', 'smw'),			
+			'meetup' => __('', 'smw'),
+			'aboutme' => __('', 'smw'),
+			'goodreads' => __('', 'smw'),
+			'github' => __('', 'smw'),
 			'flickr' => __('', 'smw'),
 			'picasa' => __('', 'smw'),
+			'instagram' => __('', 'smw'),
 			'pinterest' => __('', 'smw'),
 			'deviantart' => __('', 'smw'),
 			'youtube' => __('', 'smw'),
@@ -773,6 +776,7 @@ class Social_Widget extends WP_Widget {
 			'buzz' => __('', 'smw'),
 			'friendfeed' => __('', 'smw'),
 			'rss_url' => __('', 'smw'),
+			'slashdot' => __('', 'smw'),
 			'subscribe' => __('mailto:', 'smw'),
 			'tumblr' => __('', 'smw'),
 			'blogger' => __('', 'smw'),
@@ -791,6 +795,7 @@ class Social_Widget extends WP_Widget {
 			'soundcloud' => __('', 'smw'),
 			'bandcamp' => __('', 'smw'),
 			'plancast' => __('', 'smw'),
+			'cuttingsme' => __('', 'smw'),
 			'custom1name' => __('', 'smw'),
 			'custom1icon' => __('', 'smw'),
 			'custom1url' => __('', 'smw'),
@@ -810,19 +815,13 @@ class Social_Widget extends WP_Widget {
 			'custom6icon' => __('', 'smw'),
 			'custom6url' => __('', 'smw'),
 			'customiconsurl' => __('http://wwww.yoursite.com/wordpress/wp-content/your-icons', 'smw'), 
-			'customiconspath' => __('/path/to/your-icons', 'smw'),
-			'aboutme' => __('', 'smw'), 
-			'instagram' => __('', 'smw'), 
-			'slashdot' => __('', 'smw'), 
-			'github' => __('', 'smw'), 
-			'goodreads' => __('', 'smw'), 
-			'cuttingsme' => __('', 'smw'), 
+			'customiconspath' => __('/path/to/your-icons', 'smw'), 
 		);
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
-		<b><span style="background-color: #ffff00"><em>Note: Make sure you include FULL URL (i.e. http://www.example.com)</em><br />
-		If you do not want an icon to be visible, simply delete the supplied URL and leave the input blox blank.</b></span>
+		<b><span style="background-color: #ffff00"><em>Note:</span> Make sure you include FULL URL (i.e. http://www.example.com)<br />
+		If you do not want an icon to be visible, simply leave the input box blank.</em></b>
 		</p>
 		
 		<div style="width:32%; float: left;">
