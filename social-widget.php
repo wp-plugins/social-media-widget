@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name: Social Media Widget
+ * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
  * Version: 2.9.7
- * Author: bmwebproperties
+ * Author: Blink Web Effects
+ * Author URI: http://blinkwebeffects.com/
  **/
 
 
@@ -127,6 +129,13 @@ class Social_Widget extends WP_Widget {
 		$custom4url = $instance['custom4url'];
 		$custom5url = $instance['custom5url'];
 		$custom6url = $instance['custom6url'];
+
+		$aboutme = $instance['aboutme'];
+		$instagram = $instance['instagram'];
+		$slashdot = $instance['slashdot'];
+		$github = $instance['github'];
+		$goodreads = $instance['goodreads'];
+		$cuttingsme = $instance['cuttingsme'];
 		
 	
 		/* Choose Icon Size if Value is 'default' */
@@ -571,6 +580,48 @@ class Social_Widget extends WP_Widget {
 			echo ''; // If no URL Inputed
 		}
 		
+		// About.me
+		if ( $aboutme != '' && $aboutme != ' ' && file_exists($smw_dir.'/aboutme.png')) {
+			?><a href="<?php echo $aboutme; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/aboutme.png" alt="<?php echo $imgcaption; ?> About.me" title="<?php echo $imgcaption ?> About.me" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
+		// Instagram
+		if ( $instagram != '' && $instagram != ' ' && file_exists($smw_dir.'/instagram.png')) {
+			?><a href="<?php echo $instagram; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/instagram.png" alt="<?php echo $imgcaption; ?> Instagram" title="<?php echo $imgcaption ?> Instagram" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
+		// Slashdot
+		if ( $slashdot != '' && $slashdot != ' ' && file_exists($smw_dir.'/slashdot.png')) {
+			?><a href="<?php echo $slashdot; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/slashdot.png" alt="<?php echo $imgcaption; ?> Slashdot" title="<?php echo $imgcaption ?> Slashdot" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
+		// Github
+		if ( $github != '' && $github != ' ' && file_exists($smw_dir.'/github.png')) {
+			?><a href="<?php echo $github; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/github.png" alt="<?php echo $imgcaption; ?> Github" title="<?php echo $imgcaption ?> Github" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
+		// Goodreads
+		if ( $goodreads != '' && $goodreads != ' ' && file_exists($smw_dir.'/goodreads.png')) {
+			?><a href="<?php echo $goodreads; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/goodreads.png" alt="<?php echo $imgcaption; ?> Goodreads" title="<?php echo $imgcaption ?> Goodreads" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
+		// Cuttings.me
+		if ( $cuttingsme != '' && $cuttingsme != ' ' && file_exists($smw_dir.'/cuttingsme.png')) {
+			?><a href="<?php echo $cuttingsme; ?>" <?php echo $nofollow; ?> <?php echo $newtab; ?>><img width="<?php echo $icon_size; ?>" height="<?php echo $icon_size; ?>" src="<?php echo $smw_path; ?>/cuttingsme.png" alt="<?php echo $imgcaption; ?> Cuttings.me" title="<?php echo $imgcaption ?> Cuttings.me" <?php if($animation == 'fade' || $animation == 'combo') { ?> style="opacity: <?php echo $icon_opacity; ?>; -moz-opacity: <?php echo $icon_opacity;?>;" <?php } ?>class="<?php echo $animation; ?>" /></a><?php 
+		} else {
+			echo ''; //If no URL inputed
+		}
+
 		/* After widget (defined by themes). */
 		echo "</div>";
 		
@@ -664,6 +715,12 @@ class Social_Widget extends WP_Widget {
 		$instance['customiconsurl'] = strip_tags( $new_instance['customiconsurl'] );
 		$instance['customiconspath'] = strip_tags( $new_instance['customiconspath'] );
 		
+		$instance['aboutme'] = strip_tags( $new_instance['aboutme'] );
+		$instance['instagram'] = strip_tags( $new_instance['instagram'] );
+		$instance['slashdot'] = strip_tags( $new_instance['slashdot'] );
+		$instance['github'] = strip_tags( $new_instance['github'] );
+		$instance['goodreads'] = strip_tags( $new_instance['goodreads'] );
+		$instance['cuttingsme'] = strip_tags( $new_instance['cuttingsme'] );
 		
 		return $instance;
 	}
@@ -753,7 +810,14 @@ class Social_Widget extends WP_Widget {
 			'custom6icon' => __('', 'smw'),
 			'custom6url' => __('', 'smw'),
 			'customiconsurl' => __('http://wwww.yoursite.com/wordpress/wp-content/your-icons', 'smw'), 
-			'customiconspath' => __('/path/to/your-icons', 'smw'));
+			'customiconspath' => __('/path/to/your-icons', 'smw'),
+			'aboutme' => __('', 'smw'), 
+			'instagram' => __('', 'smw'), 
+			'slashdot' => __('', 'smw'), 
+			'github' => __('', 'smw'), 
+			'goodreads' => __('', 'smw'), 
+			'cuttingsme' => __('', 'smw'), 
+		);
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
@@ -920,6 +984,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'meetup' ); ?>" name="<?php echo $this->get_field_name( 'meetup' ); ?>" value="<?php echo $instance['meetup']; ?>" style="width:85%;" />
 		</p>
 		
+		<!-- About.me URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'aboutme' ); ?>"><?php _e('About.me URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'aboutme' ); ?>" name="<?php echo $this->get_field_name( 'aboutme' ); ?>" value="<?php echo $instance['aboutme']; ?>" style="width:85%;" />
+		</p>
+		
 		<h3>Images and Video</h3>
 		<!-- Flickr URL: Text Input -->
 		<p>
@@ -931,6 +1001,12 @@ class Social_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'picasa' ); ?>"><?php _e('Picasa Web URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'picasa' ); ?>" name="<?php echo $this->get_field_name( 'picasa' ); ?>" value="<?php echo $instance['picasa']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Instagram URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'instagram' ); ?>"><?php _e('Instagram URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>" value="<?php echo $instance['instagram']; ?>" style="width:85%;" />
 		</p>
 		
 		<!-- Pinterest URL: Text Input -->
@@ -995,11 +1071,36 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'skype' ); ?>" name="<?php echo $this->get_field_name( 'skype' ); ?>" value="<?php echo $instance['skype']; ?>" style="width:85%;" />
 		</p>
 		
-		
 		<!-- Google Talk URL: Text Input -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'talk' ); ?>"><?php _e('Google Talk URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'talk' ); ?>" name="<?php echo $this->get_field_name( 'talk' ); ?>" value="<?php echo $instance['talk']; ?>" style="width:85%;" />
+		</p>
+		
+		<h3>Developing</h3>
+		<!-- Slashdot URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'slashdot' ); ?>"><?php _e('Slashdot URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'slashdot' ); ?>" name="<?php echo $this->get_field_name( 'slashdot' ); ?>" value="<?php echo $instance['slashdot']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Github URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'github' ); ?>"><?php _e('Github URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'github' ); ?>" name="<?php echo $this->get_field_name( 'github' ); ?>" value="<?php echo $instance['github']; ?>" style="width:85%;" />
+		</p>
+		
+		<h3>Literature</h3>
+		<!-- Goodreads URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'goodreads' ); ?>"><?php _e('Goodreads URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'goodreads' ); ?>" name="<?php echo $this->get_field_name( 'goodreads' ); ?>" value="<?php echo $instance['goodreads']; ?>" style="width:85%;" />
+		</p>
+		
+		<!-- Cuttings.me URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'cuttingsme' ); ?>"><?php _e('Cuttings.me URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'cuttingsme' ); ?>" name="<?php echo $this->get_field_name( 'cuttingsme' ); ?>" value="<?php echo $instance['cuttingsme']; ?>" style="width:85%;" />
 		</p>
 		
 		<h3>Social News & Feeds</h3>
@@ -1248,6 +1349,14 @@ class Social_Widget extends WP_Widget {
 		
 		</div>
 		<div style="clear: both;"></div>
+		<!-- Promo -->
+		<p style="color: #999;"><em>Are you looking for <b>custom development</b> or <b>SEO</b> and <b>online marketing</b> services? Blink Web Effects is an established web development and SEO company that is ready to bring your project to life.</em></p>
+		<p style="text-align: center;">
+		<a href="http://blinkwebeffects.com/services/" <?php echo $newtab; ?>>
+		Click here to learn more and contact us today.</a>
+		</p>
+		
+		
 	<?php
 	}
 }
