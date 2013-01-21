@@ -821,8 +821,8 @@ class Social_Widget extends WP_Widget {
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
-		<b><em>Note: Make sure you include FULL URL (i.e. http://www.example.com)</em><br />
-		If you do not want an icon to be visible, simply delete the supplied URL and leave the input blox blank.</b>
+		<b><span style="background-color: #ffff00"><em>Note: Make sure you include FULL URL (i.e. http://www.example.com)</em><br />
+		If you do not want an icon to be visible, simply delete the supplied URL and leave the input blox blank.</b></span>
 		</p>
 		
 		<div style="width:32%; float: left;">
@@ -1068,13 +1068,6 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'imdb' ); ?>"><?php _e('IMDb URL:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'imdb' ); ?>" name="<?php echo $this->get_field_name( 'imdb' ); ?>" value="<?php echo $instance['imdb']; ?>" style="width:85%;" />
 		</p>
-		
-		<h3>Portfolio</h3>
-		<!-- Cuttings.me URL: Text Input -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'cuttingsme' ); ?>"><?php _e('Cuttings.me URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( 'cuttingsme' ); ?>" name="<?php echo $this->get_field_name( 'cuttingsme' ); ?>" value="<?php echo $instance['cuttingsme']; ?>" style="width:85%;" />
-		</p>
 		</div>
 		<div style="width:32%; float: left; padding-left: 10px; border-left: 1px solid #000">
 		<h3>Gaming</h3>
@@ -1257,7 +1250,12 @@ class Social_Widget extends WP_Widget {
 			<input id="<?php echo $this->get_field_id( 'plancast' ); ?>" name="<?php echo $this->get_field_name( 'plancast' ); ?>" value="<?php echo $instance['plancast']; ?>" style="width:85%;" />
 		</p>
 		
-		
+		<h3>Portfolio</h3>
+		<!-- Cuttings.me URL: Text Input -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'cuttingsme' ); ?>"><?php _e('Cuttings.me URL:', 'smw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'cuttingsme' ); ?>" name="<?php echo $this->get_field_name( 'cuttingsme' ); ?>" value="<?php echo $instance['cuttingsme']; ?>" style="width:85%;" />
+		</p>
 		</div>
 		<div style="width: 30%; float: left; border-left: 1px solid #000; padding-left: 10px;">
 		
@@ -1346,7 +1344,7 @@ class Social_Widget extends WP_Widget {
 		</div>
 		<div style="clear: both;"></div>
 		<!-- Promo -->
-		<br /><p><b>Are you looking for <b>custom development</b>, <b>SEO</b> or <b>online marketing</b> services? Blink Web Effects (the author of this plugin) is an established web development and SEO company that is ready to bring your project to life. <a href="http://blinkwebeffects.com/services/" <?php echo $newtab; ?>>
+		<br /><p><b>Are you looking for <b>custom development</b>, <b>SEO</b> or <b>online marketing</b> services? Blink Web Effects (the author of this plugin) is an established web development and SEO company that is ready to bring your project to life. <a href="http://blinkwebeffects.com/services/" target="_blank">
 		Click here to learn more and contact us today.</a></b></p> 
 		
 		
