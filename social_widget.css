@@ -20,13 +20,22 @@ li.Social_Widget a {
 	padding: 0 !important;
 	margin: 0 !important;
 	background: none !important;
+	text-align: center;
+}
+
+.smw_center a,
+.smw_left a {
+	margin-right: 10px !important;
+}
+
+.smw_right img {
+	margin-left: 10px !important;
 }
 
 .smw_center img,
 .smw_left img {
 	border: 0;
 	border: 0 !important;
-	margin-right: 10px !important;
 	display: inline;
 	-webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
@@ -36,7 +45,6 @@ li.Social_Widget a {
 .smw_right img {
 	border: 0;
 	border: 0 !important;
-	margin-left: 10px !important;
 	display: inline;
 	-webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
@@ -45,11 +53,15 @@ li.Social_Widget a {
 
 .socialmedia-buttons a {
 	background: none !important;
+	display: inline-block;
 }
 
 .socialmedia-buttons a:hover {
 	text-decoration: none;
 	border: 0;
+}
+.socialmedia-buttons img {
+	vertical-align: middle;
 }
 .socialmedia-buttons img.fade:hover {
 	opacity: 1 !important;
