@@ -266,6 +266,8 @@ class Social_Widget extends WP_Widget {
 				'image' => 'email.png'
 			),
 		);
+
+		$this->custom_count = 12;
 	}
 
 	/* Display the widget  */
@@ -282,7 +284,7 @@ class Social_Widget extends WP_Widget {
 		$this->newtab         = $instance['newtab'];
 		$this->nofollow       = $instance['nofollow'];
 		$this->icon_size      = $instance['icon_size'];
-		$this->display_titles = $instance['display_titles'];
+		// $this->display_titles = $instance['display_titles'];
 		$this->icons_per_row  = $instance['icons_per_row'];
 		$alignment            = $instance['alignment'];
 		$icon_pack            = $instance['icon_pack'];
@@ -298,7 +300,7 @@ class Social_Widget extends WP_Widget {
 
 		$customiconsurl = $instance['customiconsurl'];
 		$customiconspath = $instance['customiconspath'];
-		for ($i = 1; $i <= 6; $i++) {
+		for ($i = 1; $i <= $this->custom_count; $i++) {
 			${"custom".$i."icon"} = $instance['custom'.$i.'icon'];
 			${"custom".$i."name"} = $instance['custom'.$i.'name'];
 			${"custom".$i."url"}  = $instance['custom'.$i.'url'];
@@ -375,7 +377,7 @@ class Social_Widget extends WP_Widget {
 			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], ${$slug."_title"} );
 		}
 
-		for ($i = 1; $i <= 6; $i++) {
+		for ($i = 1; $i <= $this->custom_count; $i++) {
 			$html_chunks[] = $this->html_chunk( ${"custom".$i."url"}, ${"custom".$i."icon"}, ${"custom".$i."name"}, true );
 		}
 		
@@ -395,21 +397,25 @@ class Social_Widget extends WP_Widget {
 		if ($slug != '' && $slug != ' ' && $slug != 'mailto:' && $slug != 'http://' && (($custom === false && file_exists($this->smw_dir . '/' . $image)) || ($custom === true && $image != ''))) {
 			$img = $custom === false ? $this->smw_path . '/' . $image : $image;
 			$html = '<span class="smw_icon">';
+			/*
 			if ($this->display_titles == 'left') {
 				$html .= '<span> ' . $title . ' </span>';
 			}
 			elseif ($this->display_titles == 'above') {
 				$html .= '<span> ' . $title . ' </span><br/>';
 			}
+			*/
 			$html .= '<a href="' . $slug . '" ' . $this->nofollow . ' ' . $this->newtab.'>';
 			$html .= '<img width="' . $this->icon_size .'" height="' . $this->icon_size . '" src="' . $img . '" alt="' . $this->imgcaption . ' ' . $title . '" title="' . $this->imgcaption .' ' .  $title . '" ' . ($this->animation == 'fade' || $this->animation == 'combo' ? 'style="opacity: ' . $this->icon_opacity . '; -moz-opacity: ' . $this->icon_opacity . ';"' : '') . 'class="' . $this->animation . '" />';
 			$html .= '</a>';
+			/*
 			if ($this->display_titles == 'right') {
 				$html .= '<span> ' . $title . ' </span>';
 			}
 			elseif ($this->display_titles == 'below') {
 				$html .= '<br/><span> ' . $title . ' </span>';
 			}
+			*/
 			$html .= '</span>';
 			if ($this->icons_per_row == 'one') {
 				$html .= '<br/>';
@@ -441,15 +447,15 @@ class Social_Widget extends WP_Widget {
 
 		foreach ($this->networks as $slug => $ndata) {
 			$instance[$slug] = !empty($new_instance[$slug]) ? strip_tags( $new_instance[$slug] ) : 'http://';
-			$instance[$slug.'_title'] = strip_tags( $new_instance[$slug.'_title'] );
+			// $instance[$slug.'_title'] = strip_tags( $new_instance[$slug.'_title'] );
 		}
 
 		foreach ($this->networks_end as $slug => $ndata) {
 			$instance[$slug] = strip_tags( $new_instance[$slug] );
-			$instance[$slug.'_title'] = strip_tags( $new_instance[$slug.'_title'] );
+			// $instance[$slug.'_title'] = strip_tags( $new_instance[$slug.'_title'] );
 		}
 
-		for ($i = 1; $i <= 6; $i++) {
+		for ($i = 1; $i <= $this->custom_count; $i++) {
 			$instance['custom'.$i.'name'] = strip_tags( $new_instance['custom'.$i.'name'] );
 			$instance['custom'.$i.'icon'] = strip_tags( $new_instance['custom'.$i.'icon'] );
 			$instance['custom'.$i.'url']  = strip_tags( $new_instance['custom'.$i.'url'] );
@@ -478,20 +484,20 @@ class Social_Widget extends WP_Widget {
 			'newtab'          => 'yes',
 			'nofollow'        => 'on',
 			'alignment'       => 'left',
-			'display_titles'  => 'no',
+			// 'display_titles'  => 'no',
 			'icons_per_row'   => 'auto',
 			'customiconsurl'  => __('http://wwww.yoursite.com/wordpress/wp-content/your-icons', 'smw'), 
 			'customiconspath' => __('/path/to/your-icons', 'smw'), 
 		);
 		foreach ($this->networks as $slug => $ndata) {
 			$defaults[$slug] = __('http://', 'smw');
-			$defaults[$slug.'_title'] = __($ndata['title'], 'smw');
+			// $defaults[$slug.'_title'] = __($ndata['title'], 'smw');
 		}
 		foreach ($this->networks_end as $slug => $ndata) {
 			$defaults[$slug] = __($slug == 'subscribe' ? 'mailto:' : 'http://', 'smw');
-			$defaults[$slug.'_title'] = __($ndata['title'], 'smw');
+			// $defaults[$slug.'_title'] = __($ndata['title'], 'smw');
 		}
-		for ($i = 1; $i <= 6; $i++) {
+		for ($i = 1; $i <= $this->custom_count; $i++) {
 			$defaults['custom'.$i.'name'] = __('', 'smw');
 			$defaults['custom'.$i.'icon'] = __('', 'smw');
 			$defaults['custom'.$i.'url']  = __('', 'smw');
@@ -607,6 +613,7 @@ class Social_Widget extends WP_Widget {
 		</p>
 		<div class="clear"></div>
 		
+		<?php /*
 		<!-- Display titles: Dropdown -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'display_titles' ); ?>"><?php _e('Display Titles', 'smw'); ?></label>
@@ -619,6 +626,7 @@ class Social_Widget extends WP_Widget {
 			</select>
 		</p>
 		<div class="clear"></div>
+		*/ ?>
 		
 		<!-- Icons per row: Dropdown -->
 		<p>
@@ -637,14 +645,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('facebook', 'googleplus', 'twitter', 'myspace', 'orkut', 'hyves', 'linkedin', 'asmallworld', 'foursquare', 'meetup', 'aboutme', 'goodreads', 'github') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -655,14 +667,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('flickr', 'picasa', 'instagram', 'pinterest', 'deviantart', 'youtube', 'hulu', 'ustream', 'vimeo', 'flixster', 'imdb') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -673,14 +689,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('steam') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -691,14 +711,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('skype', 'talk') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -709,14 +733,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('digg', 'reddit', 'delicious', 'stumble', 'buzz', 'friendfeed', 'rss_url', 'slashdot', 'subscribe') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -727,14 +755,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('tumblr', 'blogger', 'wordpress') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -745,14 +777,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('yelp', 'slideshare', 'bbb', 'merchantcircle', 'etsy', 'ebay') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -763,14 +799,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('lastfm', 'pandora', 'ping', 'live365', 'digitaltunes', 'soundcloud', 'bandcamp') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -781,14 +821,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('plancast') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -799,14 +843,18 @@ class Social_Widget extends WP_Widget {
 		<div style="display: none;">
 		<?php foreach (array('cuttingsme') as $slug) : ?>
 		<p>
-			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).':', 'smw'); ?></strong></label>
+			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug); ?>"><?php _e('URL:', 'smw'); ?></label>
-			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="alignright" type="text" size="30" />
+			*/ ?>
+			<input id="<?php echo $this->get_field_id( $slug ); ?>" name="<?php echo $this->get_field_name( $slug ); ?>" value="<?php echo !empty($instance[$slug]) ? $instance[$slug] : 'http://'; ?>" class="widefat" type="text" />
+			<?php /*
 			<div class="clear"></div>
 			<label for="<?php echo $this->get_field_id( $slug.'_title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( $slug.'_title' ); ?>" name="<?php echo $this->get_field_name( $slug.'_title' ); ?>" value="<?php echo $instance[$slug.'_title']; ?>" class="alignright" type="text" size="30" />
 			<div class="clear"></div>
+			*/?>
 		</p>
 		<?php endforeach; ?>
 		</div>
@@ -815,11 +863,11 @@ class Social_Widget extends WP_Widget {
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>Custom Services</strong></a></p>
 
 		<div style="display: none;">
-		<p><em>Here you can input 6 custom icons. Make sure you input FULL urls to the icon (including http://). The images will resize both width and height to the icon size chosen.</em><br />	
+		<p><em>Here you can input <?php echo $this->custom_count; ?> custom icons. Make sure you input FULL urls to the icon (including http://). The images will resize both width and height to the icon size chosen.</em><br />	
 		</p>
 		<!-- Custom Service 1: Text Input -->
 		
-		<?php for ($i = 1; $i <= 6; $i++) : ?>
+		<?php for ($i = 1; $i <= $this->custom_count; $i++) : ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'custom'.$i.'name' ); ?>"><?php _e('Custom Service '.$i.' Name:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'custom'.$i.'name' ); ?>" name="<?php echo $this->get_field_name( 'custom'.$i.'name' ); ?>" value="<?php echo $instance['custom'.$i.'name']; ?>" class="widefat" type="text" />
