@@ -28,8 +28,13 @@ li.Social_Widget a {
 	margin-right: 10px !important;
 }
 
-.smw_right img {
+.smw_right a {
 	margin-left: 10px !important;
+}
+
+.icons_per_row_1 a {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
 }
 
 .smw_center img,
@@ -51,9 +56,12 @@ li.Social_Widget a {
 	transition: all 0.2s ease;
 }
 
+.smw_icon  {
+	display: inline-block;
+}
+
 .socialmedia-buttons a {
 	background: none !important;
-	display: inline-block;
 }
 
 .socialmedia-buttons a:hover {
