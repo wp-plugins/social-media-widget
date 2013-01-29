@@ -169,6 +169,10 @@ Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 == Changelog ==
 
+= 3.0.2 =
+
+* Bug fixes
+
 = 3.0.1 =
 
 * Bug fix
