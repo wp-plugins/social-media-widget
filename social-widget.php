@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.0.2
+ * Version: 3.0.3
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -406,7 +406,7 @@ class Social_Widget extends WP_Widget {
 			}
 			*/
 			$html .= '<a href="' . $slug . '" ' . $this->nofollow . ' ' . $this->newtab.'>';
-			$html .= '<img width="' . $this->icon_size .'" height="' . $this->icon_size . '" src="' . $img . '" alt="' . $this->imgcaption . ' ' . $title . '" title="' . $this->imgcaption .' ' .  $title . '" ' . ($this->animation == 'fade' || $this->animation == 'combo' ? 'style="opacity: ' . $this->icon_opacity . '; -moz-opacity: ' . $this->icon_opacity . ';"' : '') . 'class="' . $this->animation . '" />';
+			$html .= '<img width="' . $this->icon_size .'" height="' . $this->icon_size . '" src="' . $img . '" alt="' . $this->imgcaption . ' ' . $title . '" title="' . $this->imgcaption .' ' .  $title . '" ' . ($this->animation == 'fade' || $this->animation == 'combo' ? 'style="opacity: ' . $this->icon_opacity . '; -moz-opacity: ' . $this->icon_opacity . ';"' : '') . ' class="' . $this->animation . '" />';
 			$html .= '</a>';
 			/*
 			if ($this->display_titles == 'right') {
@@ -486,7 +486,7 @@ class Social_Widget extends WP_Widget {
 			'alignment'       => 'left',
 			// 'display_titles'  => 'no',
 			'icons_per_row'   => 'auto',
-			'customiconsurl'  => __('http://wwww.yoursite.com/wordpress/wp-content/your-icons', 'smw'), 
+			'customiconsurl'  => __('http://www.yoursite.com/wordpress/wp-content/your-icons', 'smw'), 
 			'customiconspath' => __('/path/to/your-icons', 'smw'), 
 		);
 		foreach ($this->networks as $slug => $ndata) {
@@ -505,8 +505,7 @@ class Social_Widget extends WP_Widget {
 			
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		<p>
-		<b><span style="background-color: #ffff00"><em>Note:</span> Make sure you include FULL URL (i.e. http://www.example.com)<br />
-		If you do not want an icon to be visible, simply leave the input box blank.</em></b>
+		<em>Note: Make sure you include FULL URL (i.e. http://www.example.com) </em>
 		</p>
 		
 	<div>
@@ -882,7 +881,7 @@ class Social_Widget extends WP_Widget {
 		
 		</div>
 
-		<p><em>If you selected "Custom Icon Pack" from the beginning of this form, input the URL and path to those icons in the following boxes. See the README.txt for more information on how to use this.</em><br />
+		<p><em>If you selected "Custom Icon Pack" in 'General Settings', input the URL and path to those icons in the following boxes. See the README.txt for more information on how to use this.</em><br />
 		</p>
 	
 	<!-- Custom Icon Pack URL: Text Input -->
