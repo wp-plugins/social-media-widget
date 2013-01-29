@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.0.1
+ * Version: 3.0.2
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -291,11 +291,11 @@ class Social_Widget extends WP_Widget {
 
 		foreach ($this->networks as $slug => $ndata) {
 			$$slug = $instance[$slug];
-			${$slug."_title"} = $instance[$slug."_title"];
+			// ${$slug."_title"} = $instance[$slug."_title"];
 		}
 		foreach ($this->networks_end as $slug => $ndata) {
 			$$slug = $instance[$slug];
-			${$slug."_title"} = $instance[$slug."_title"];
+			// ${$slug."_title"} = $instance[$slug."_title"];
 		}
 
 		$customiconsurl = $instance['customiconsurl'];
@@ -369,11 +369,12 @@ class Social_Widget extends WP_Widget {
 			echo "<div class=\"socialmedia-text\>" . $instance['filter'] ? wpautop($text) : $text . '</div>';
 			
 		/* Display linked images to profiles from widget settings if one was input. */
-				
+		
+
 		$html_chunks = array();
 
 		foreach ($this->networks as $slug => $ndata) {
-			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], ${$slug."_title"} );
+			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], $ndata['title'] );
 		}
 
 		for ($i = 1; $i <= $this->custom_count; $i++) {
@@ -381,13 +382,12 @@ class Social_Widget extends WP_Widget {
 		}
 		
 		foreach ($this->networks_end as $slug => $ndata) {
-			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], ${$slug."_title"} );
+			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], $ndata['title'] );
 		}
 
 		echo implode('', $html_chunks);
 
-		/* After widget (defined by themes). */					
-		
+		/* After widget (defined by themes). */
 		echo "</div>";
 		
 		echo $after_widget;
@@ -396,7 +396,7 @@ class Social_Widget extends WP_Widget {
 	function html_chunk( $slug, $image, $title, $custom = false ) {
 		if ($slug != '' && $slug != ' ' && $slug != 'mailto:' && $slug != 'http://' && (($custom === false && file_exists($this->smw_dir . '/' . $image)) || ($custom === true && $image != ''))) {
 			$img = $custom === false ? $this->smw_path . '/' . $image : $image;
-			$html = '<span class="smw_icon">';
+			// $html = '<span class="smw_icon">';
 			/*
 			if ($this->display_titles == 'left') {
 				$html .= '<span> ' . $title . ' </span>';
@@ -416,7 +416,7 @@ class Social_Widget extends WP_Widget {
 				$html .= '<br/><span> ' . $title . ' </span>';
 			}
 			*/
-			$html .= '</span>';
+			// $html .= '</span>';
 			if ($this->icons_per_row == 'one') {
 				$html .= '<br/>';
 			}

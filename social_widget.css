@@ -23,20 +23,6 @@ li.Social_Widget a {
 	text-align: center;
 }
 
-.smw_center a,
-.smw_left a {
-	margin-right: 10px !important;
-}
-
-.smw_right a {
-	margin-left: 10px !important;
-}
-
-.icons_per_row_1 a {
-	margin-right: 0 !important;
-	margin-left: 0 !important;
-}
-
 .smw_center img,
 .smw_left img {
 	border: 0;
@@ -45,6 +31,7 @@ li.Social_Widget a {
 	-webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	transition: all 0.2s ease;
+	margin-right: 10px !important;
 }
 
 .smw_right img {
@@ -54,11 +41,12 @@ li.Social_Widget a {
 	-webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	transition: all 0.2s ease;
+	margin-left: 10px !important;
 }
 
-.smw_icon  {
-	display: inline-block;
-	margin-top: 1px;
+.icons_per_row_1 img {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
 }
 
 .socialmedia-buttons a {
@@ -71,6 +59,7 @@ li.Social_Widget a {
 }
 .socialmedia-buttons img {
 	vertical-align: middle;
+	margin-bottom: 3px;
 }
 .socialmedia-buttons img.fade:hover {
 	opacity: 1 !important;
