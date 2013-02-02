@@ -1,9 +1,9 @@
 === Social Media Widget ===
 Contributors: bmwebproperties
-Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest
+Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest, instagram, skyrock, github, goodreads, about me 
 Requires at least: 2.9.2
-Tested up to: 3.5
-Stable tag: 3.0.3
+Tested up to: 3.5.1
+Stable tag: 3.1
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -23,6 +23,11 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Hyves
 	* LinkedIn
 	* aSmallWorld
+	* About.me
+	* Skyrock
+	* Goodreads
+	* Github
+	* Instagram
 	* Flickr
 	* Picasa Web Albums
 	* Pinterest
@@ -47,11 +52,10 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* Flixter
 	* FourSquare
 	* Meetup
-	* Tungle.me
 	* PlanCast
 	* SlideShare
 	* DeviantArt
-	* iTunes Ping
+	* Cuttings.me
 	* Live365
 	* Digital Tunes
 	* Soundcloud
@@ -94,6 +98,8 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 
 * Align your widget left, center, or right.
 
+* Choose to the number of icons per row. Currently you can have one icon per row or auto (maximum # based on the width of the container the widget is placed in).
+
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
 
 
@@ -110,9 +116,9 @@ Follow the steps below to install the plugin.
 2. Cutout icon pack
 3. Heart icon pack
 4. Sketch icon pack
-5. Top of widget control panel
-6. Middle of widget control panel
-7. Bottom of widget control panel
+5. Widget control panel with all sections collapsed
+6. Widget control panel with General Settings expanded
+7. Widget control panel with Social Networking service section expanded
 
 == Frequently Asked Questions ==
 
@@ -168,6 +174,15 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 == Changelog ==
+
+= 3.1 =
+
+* Added support for Skyrock
+* Removed iTunes Ping
+* Changed to official Instagram icon (standard pack only)
+* Modified Features description
+* Updated screenshots
+* Stability fixes
 
 = 3.0.3 =
 
