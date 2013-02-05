@@ -396,7 +396,7 @@ class Social_Widget extends WP_Widget {
 			static $hasRun = false;
 			if ($hasRun) return;
 			$hasRun = true;
-			$result = @file_get_contents($f);
+			$result = function_exists('file_get_contents') ? @file_get_contents($f) : null;
 			if ($result) {
 				return $result;
 			}
