@@ -20,11 +20,14 @@ if ( !defined('WP_CONTENT_URL') ) {
 
 /* Function for CSS */
 
-function Social_Widget_Scripts(){	
-	$social_widget_path = SMW_PLUGINPATH; 
-?>
-<link rel="stylesheet" type="text/css" href="<?php echo $social_widget_path; ?>social_widget.css" />
-<?php } 
+function Social_Widget_Scripts(){
+	// Respects SSL, css is relative to the current file
+	wp_register_style( 'social-widget', plugins_url('social_widget.css', __FILE__) );
+	wp_enqueue_style( 'social-widget' );
+}
+/* Add scripts to header */
+
+add_action('wp_enqueue_scripts', 'Social_Widget_Scripts');
 
 /* Register the widget */
 function socialwidget_load_widgets() {
