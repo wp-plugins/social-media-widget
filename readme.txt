@@ -1,9 +1,9 @@
 === Social Media Widget ===
 Contributors: bmwebproperties
-Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest, instagram, skyrock, github, goodreads, about me 
+Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, vk, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest, instagram, skyrock, github, goodreads, about me 
 Requires at least: 2.9.2
 Tested up to: 3.5.1
-Stable tag: 3.1
+Stable tag: 3.2
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -25,6 +25,7 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	* aSmallWorld
 	* About.me
 	* Skyrock
+	* VK
 	* Goodreads
 	* Github
 	* Instagram
@@ -71,8 +72,10 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 	
 * Select from the following icon sizes:
 	* 16x16
+	* 24x24
 	* 32x32
 	* 64x64
+	* Custom
 	
 * Select from 4 icon packages:
 	* Web 2.0 (Default) - Icons from <a href="http://www.iconspedia.com/">various artists</a> 
@@ -174,6 +177,15 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 == Changelog ==
+
+= 3.2 =
+
+* Added 24px icon size option
+* Added custom icon size option
+* Added official Facebook icon (default pack only)
+* Added support for VK
+* Resolved issues with SSL compatibility
+* Stability fixes
 
 = 3.1 =
 

