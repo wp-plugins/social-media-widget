@@ -3,7 +3,7 @@ Contributors: bmwebproperties
 Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, vk, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest, instagram, skyrock, github, goodreads, about me 
 Requires at least: 2.9.2
 Tested up to: 3.5.1
-Stable tag: 3.2
+Stable tag: 3.3
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -177,6 +177,11 @@ First - calm down. I'm happy to help you, and, if you ask those I've helped alre
 Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 == Changelog ==
+
+= 3.3 =
+
+* Added back support to iTunes after several requests
+* Increased performance and page load speed due to greatly reduced PNG file sizes
 
 = 3.2 =
 
