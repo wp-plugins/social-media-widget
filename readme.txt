@@ -101,6 +101,8 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 
 * Align your widget left, center, or right.
 
+* Arrange the order of the icons however you like.
+
 * Choose to the number of icons per row. Currently you can have one icon per row or auto (maximum # based on the width of the container the widget is placed in).
 
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
