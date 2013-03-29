@@ -3,7 +3,7 @@ Contributors: bmwebproperties
 Tags: social media, twitter, facebook, google+, googleplus, myspace, digg, email, rss, reddit, linkedin, orkut, youtube, vk, buzz, social, icons, links, subscribe, follow, follow me, friendfeed, flickr, stumbleupon, vimeo, delicious, meetup, lastfm, foursquare, skype, blogger, wordpress, yelp, soundcloud, digital tunes, tumblr, hyves, etsy, tungle, plancast, slideshare, deviantart, better business bureau, merchant circle, asmallworld, live365, ping, itunes, picasa, steam, google talk, pandora, hulu, ebay, flixster, imdb, bandcamp, ustream, pinterest, instagram, skyrock, github, goodreads, about me 
 Requires at least: 2.9.2
 Tested up to: 3.5.1
-Stable tag: 3.3
+Stable tag: 4.0
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
 
@@ -101,6 +101,8 @@ The Social Media Widget is a simple sidebar widget that allows users to input th
 
 * Align your widget left, center, or right.
 
+* Arrange the order of the icons however you like.
+
 * Choose to the number of icons per row. Currently you can have one icon per row or auto (maximum # based on the width of the container the widget is placed in).
 
 If you like this plugin, please rate it and click "Works" for your Wordpress version!
@@ -178,6 +180,14 @@ Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 == Changelog ==
 
+= 4.0 =
+
+* Arrange your icons in a custom order!
+* You can now adjust the Alt and Title tags for each icon individually.
+* Change the "target" properties for each icon individually (open in same or new window).
+* Google+ now includes rel="publisher"
+* Updated Twitter icon in default pack to the official icon
+ 
 = 3.3 =
 
 * Added back support to iTunes after several requests

