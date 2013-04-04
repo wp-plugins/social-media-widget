@@ -182,6 +182,7 @@ Please add a post on the Wordpress.org support forums with the plugin tagged.
 
 = 4.0 =
 
+* MAJOR NEW RELEASE!
 * Arrange your icons in a custom order!
 * You can now adjust the Alt and Title tags for each icon individually.
 * Change the "target" properties for each icon individually (open in same or new window).

