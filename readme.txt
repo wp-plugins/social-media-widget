@@ -1,8 +1,8 @@
 === Social Media Widget ===
 Contributors: bmwebproperties
-Tags: social media, twitter, facebook, google+, linkedin, youtube, vimeo, skype, yelp, instagram, social, icons
+Tags: social media, twitter, facebook, google+, linkedin, youtube, vimeo, skype, yelp, instagram, social, icons, tumblr
 Requires at least: 2.9.2
-Tested up to: 3.5.1
+Tested up to: 4.2.2
 Stable tag: 4.0.2
 
 Adds links to all of your social media and sharing site profiles. Tons of icons come in 3 sizes, 4 icon styles, and 4 animations.
