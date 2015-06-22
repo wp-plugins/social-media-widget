@@ -1,5 +1,5 @@
 === Social Media Widget ===
-Contributors: bmwebproperties
+Contributors: noahkagan
 Tags: social media, twitter, facebook, google+, linkedin, youtube, vimeo, skype, yelp, instagram, social, icons
 Requires at least: 2.9.2
 Tested up to: 4.2.2
